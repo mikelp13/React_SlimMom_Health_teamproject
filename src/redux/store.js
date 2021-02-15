@@ -8,12 +8,9 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
-// import authReducer from './auth/authReducer';
+import authReducer from './auth/authReducers';
 
-const authReducer = (state, action) => ({
-    state,
-});
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         auth: authReducer,
     },
@@ -25,5 +22,3 @@ const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-export default store;
