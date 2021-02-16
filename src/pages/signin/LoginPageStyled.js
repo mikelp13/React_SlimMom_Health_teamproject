@@ -10,42 +10,10 @@ const RegisterPageStyled = styled.section`
         color: var(--secondary-text);
         margin-bottom: 60px;
     }
-    .titleLoginPage {
-        color: var(--accent-color);
-        text-align: center;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 13px;
-        letter-spacing: 0.04em;
-        margin-bottom: 60px;
-    }
 
-    .labelLoginPage {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: 0.04em;
-        font-weight: 700;
-        width: 290px;
-    }
-    .inputLoginPage {
-        outline: none;
-        border: none;
-        border-bottom: 1px solid var(--header-border);
-    }
     @media screen and (max-width: 767px) {
-        button {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .mainButton {
-            margin-bottom: 20px;
-        }
         .wrapLoginPage {
             margin-top: 40px;
-            width: 320px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -56,26 +24,11 @@ const RegisterPageStyled = styled.section`
         background-image: url(${groupTabl});
         background-position: right bottom;
         background-repeat: no-repeat;
-        .titleLoginPage {
-            text-align: left;
-        }
+
         .wrapLoginPage {
             margin-top: 200px;
             width: 382px;
-            height: 287px;
             /* outline: 1px solid yellow; */
-        }
-        .inputLoginPage {
-            max-width: 240px;
-        }
-        .wrapForm {
-            margin-bottom: 60px;
-        }
-        .wrapBtn {
-            display: flex;
-        }
-        .mainButton {
-            margin-right: 30px;
         }
     }
     @media screen and (min-width: 1280px) {
@@ -85,8 +38,6 @@ const RegisterPageStyled = styled.section`
         background-repeat: no-repeat;
         .wrapLoginPage {
             margin-top: 362px;
-            width: 382px;
-            height: 298px;
         }
     }
 `;

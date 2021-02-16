@@ -8,6 +8,7 @@
         "@testing-library/react": "^11.2.3",
         "@testing-library/user-event": "^12.6.0",
         "axios": "^0.21.1",
+        "formik": "^2.2.6",
         "modern-normalize": "^1.0.0",
         "react": "^17.0.1",
         "react-datepicker": "^3.4.1",
@@ -21,7 +22,8 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-persist": "^6.0.0",
         "styled-components": "^5.2.1",
-        "web-vitals": "^0.2.4"
+        "web-vitals": "^0.2.4",
+        "yup": "^0.32.8"
     },
     "scripts": {
         "start": "react-scripts start",
