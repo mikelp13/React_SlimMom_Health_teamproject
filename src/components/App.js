@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
+import LoginPage from '../pages/signin/LoginPage';
 import AuthForm from './auth/AuthForm';
 // import Basic from './test';
 
@@ -16,6 +17,8 @@ const App = () => {
         <div>
             <AuthForm />
             {/* <Basic /> */}
+
+            <LoginPage />
         </div>
     );
 };
