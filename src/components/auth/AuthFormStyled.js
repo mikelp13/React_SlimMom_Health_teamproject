@@ -13,7 +13,7 @@ const AuthFormStyled = styled.div`
         line-height: 1.93;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        color: #fc842d;
+        color: var(--accent-color);
 
         @media (max-width: 767px) {
             text-align: center;
@@ -27,6 +27,7 @@ const AuthFormStyled = styled.div`
     .authForm {
         display: flex;
         flex-direction: column;
+        color: var(--secondary-text);
     }
     .authFormFild {
         display: flex;
@@ -40,19 +41,17 @@ const AuthFormStyled = styled.div`
         font-size: 14px;
         line-height: 1.21;
         letter-spacing: 0.04em;
-
-        color: #9b9faa;
     }
     .authFormInput {
         height: 20px;
         padding: 5px 0;
         border: none;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--header-border);
 
         outline: none;
         &:focus,
         &:hover {
-            border-color: #fc842d;
+            border-color: var(--accent-color);
         }
     }
 

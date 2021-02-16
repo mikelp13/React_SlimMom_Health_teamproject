@@ -5,7 +5,6 @@ import {
     signUpOperation,
     signInOperation,
     logoutOperations,
-    refreshTokenOperation,
 } from '../../redux/auth/authOperations';
 import AuthFormStyled from './AuthFormStyled';
 
@@ -43,10 +42,6 @@ const AuthForm = () => {
     // !========== Это нужно будет убрать ==============
     const onHandleLogout = () => {
         dispatch(logoutOperations());
-    };
-
-    const onHandleRefreshToken = () => {
-        dispatch(refreshTokenOperation());
     };
 
     // !=================================================
@@ -108,9 +103,6 @@ const AuthForm = () => {
                 Logout
             </button>
 
-            <button onClick={onHandleRefreshToken} type="button">
-                RefreshToken
-            </button>
             {/* // !============================================ */}
         </AuthFormStyled>
     );
