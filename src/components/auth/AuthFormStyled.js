@@ -48,6 +48,7 @@ const AuthFormStyled = styled.div`
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     .authFormInput {
+        padding: 5px 0;
         width: 100%;
         font-size: 14px;
         line-height: 1.21;

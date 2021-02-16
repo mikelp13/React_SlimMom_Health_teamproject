@@ -20,7 +20,6 @@ const App = () => {
             {/* <Basic /> */}
 
             <LoginPage />
-            <RegisterPage />
         </div>
     );
 };
