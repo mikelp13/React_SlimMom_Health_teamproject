@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/authSelectors';
 import {
@@ -24,14 +24,10 @@ const initialState = {
 const CalculatorCaloriesForm = () => {
     const [state, setState] = useState({ ...initialState });
     const userId = useSelector(authSelectors.getUserId);
-    const userData = useSelector(state => state.auth.user.userdata)
+    // const userData = useSelector(state => state.auth.user.userdata)
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-      setState({ ...userData})
-
-    }, [])
 
     const handleChange = e => {
         const { name, value } = e.target;

@@ -27,6 +27,7 @@ export const PageContainer = styled.div`
 
         @media (min-width: 1280px) {
             padding-top: 292px;
+            padding-bottom: 111px;
         }
     }
 
