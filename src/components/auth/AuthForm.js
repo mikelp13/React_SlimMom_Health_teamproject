@@ -56,43 +56,46 @@ const AuthForm = () => {
             <form onSubmit={onHandleSubmit} className="authForm">
                 {location.pathname === '/signup' && (
                     <label className="authFormFild">
-                        <span className="authFormText">
-                            Имя <sup className="authFormStar">*</sup>
-                        </span>
                         <input
                             className="authFormInput"
                             type="text"
                             name="name"
+                            placeholder=" "
                             value={name}
                             onChange={onHandleChangeName}
                         ></input>
+
+                        <span className="authFormText">
+                            Имя <sup className="authFormStar">*</sup>
+                        </span>
                     </label>
                 )}
                 <label className="authFormFild">
-                    <span className="authFormText">
-                        E-mail <sup className="authFormStar">*</sup>
-                    </span>
-
                     <input
                         className="authFormInput "
                         type="email"
                         name="email"
+                        placeholder=" "
                         value={email}
                         onChange={onHandleChange}
                     />
+
+                    <span className="authFormText">
+                        E-mail <sup className="authFormStar">*</sup>
+                    </span>
                 </label>
                 <label className="authFormFild">
-                    <span className="authFormText">
-                        Пароль <sup className="authFormStar">*</sup>
-                    </span>
-
                     <input
                         className="authFormInput"
                         type="password"
                         name="password"
+                        placeholder=" "
                         value={password}
                         onChange={onHandleChange}
                     />
+                    <span className="authFormText">
+                        Пароль <sup className="authFormStar">*</sup>
+                    </span>
                 </label>
 
                 <button className="mainButton authFormBtn" type="submit">

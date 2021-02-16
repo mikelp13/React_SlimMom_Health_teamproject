@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 const AuthFormStyled = styled.div`
+    max-width: 382px;
     @media (min-width: 768px) {
         max-width: 382px;
     }
     .authFormTitle {
-        /* уточнить */
-        font-family: Gotham Pro;
         margin-top: 0;
-        margin-bottom: 60px;
+        margin-bottom: 80px;
+        font-family: 'Gotham Pro', sans-serif;
         font-weight: 700;
         font-size: 14px;
         line-height: 1.93;
@@ -20,31 +20,38 @@ const AuthFormStyled = styled.div`
         }
 
         @media (min-width: 768px) and (max-width: 1279px) {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
     }
 
     .authForm {
         display: flex;
         flex-direction: column;
-        color: var(--secondary-text);
     }
     .authFormFild {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin-bottom: 40px;
-    }
-    .authFormText {
-        margin-bottom: 5px;
-        font-family: Verdana;
-        font-weight: 700;
         font-size: 14px;
         line-height: 1.21;
         letter-spacing: 0.04em;
     }
+    .authFormText {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        left: 0;
+        top: -20px;
+        font-weight: 700;
+        /* transition: 0.3s; */
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .authFormInput {
-        height: 20px;
-        padding: 5px 0;
+        width: 100%;
+        font-size: 14px;
+        line-height: 1.21;
+        letter-spacing: 0.04em;
         border: none;
         background-color: transparent;
         border-bottom: 1px solid var(--header-border);
@@ -54,6 +61,11 @@ const AuthFormStyled = styled.div`
         &:hover {
             border-color: var(--accent-color);
         }
+    }
+
+    .authFormInput:not(:placeholder-shown) ~ .authFormText {
+        top: -25px;
+        font-size: 12px;
     }
 
     .authFormBtn {

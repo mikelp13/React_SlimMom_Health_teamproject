@@ -8,23 +8,6 @@ const LoginPage = () => {
             <div className="container">
                 <div className="wrapLoginPage">
                     <AuthForm />
-                    {/* <div className="wrapForm">
-                        <h2 className="titleLoginPage">ВХОД</h2>
-                        <form className="formLoginPage">
-                            <label className="labelLoginPage">
-                                Логин *
-                                <input type="text" className="inputLoginPage" />
-                            </label>
-                            <label className="labelLoginPage">
-                                Пароль *
-                                <input type="text" className="inputLoginPage" />
-                            </label>
-                        </form>
-                    </div> */}
-                    {/* <div className="wrapBtn">
-                        <button className="mainButton">Вход</button>
-                        <button className="secondButton">Регистрация</button>
-                    </div> */}
                 </div>
             </div>
         </LoginPageStyled>
