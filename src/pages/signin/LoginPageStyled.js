@@ -28,7 +28,6 @@ const RegisterPageStyled = styled.section`
         .wrapLoginPage {
             margin-top: 200px;
             width: 382px;
-            height: 287px;
             /* outline: 1px solid yellow; */
         }
     }

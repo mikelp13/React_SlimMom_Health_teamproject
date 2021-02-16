@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import LoginPage from '../pages/signin/LoginPage';
-import RegisterPage from '../pages/signup/RegisterPage';
+// import RegisterPage from '../pages/signup/RegisterPage';
 // import Basic from './test';
 
 const App = () => {
