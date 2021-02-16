@@ -52,7 +52,6 @@ const LoginPageStyled = styled.section`
     }
 
     @media screen and (min-width: 768px) {
-        width: 768px;
         min-height: 944px;
         background-image: url(${groupTabl});
         background-position: right bottom;
@@ -80,7 +79,6 @@ const LoginPageStyled = styled.section`
         }
     }
     @media screen and (min-width: 1280px) {
-        width: 1280px;
         min-height: 850px;
         background-image: url(${groupDesc});
         background-position: right bottom;
