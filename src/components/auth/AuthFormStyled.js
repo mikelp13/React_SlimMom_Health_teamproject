@@ -46,6 +46,7 @@ const AuthFormStyled = styled.div`
         height: 20px;
         padding: 5px 0;
         border: none;
+        background-color: transparent;
         border-bottom: 1px solid var(--header-border);
 
         outline: none;

@@ -1,4 +1,5 @@
 import React from 'react';
+import AuthForm from '../../components/auth/AuthForm';
 import LoginPageStyled from './LoginPageStyled';
 
 const LoginPage = () => {
@@ -6,7 +7,8 @@ const LoginPage = () => {
         <LoginPageStyled className="sectionLoginPage">
             <div className="container">
                 <div className="wrapLoginPage">
-                    <div className="wrapForm">
+                    <AuthForm />
+                    {/* <div className="wrapForm">
                         <h2 className="titleLoginPage">ВХОД</h2>
                         <form className="formLoginPage">
                             <label className="labelLoginPage">
@@ -18,11 +20,11 @@ const LoginPage = () => {
                                 <input type="text" className="inputLoginPage" />
                             </label>
                         </form>
-                    </div>
-                    <div className="wrapBtn">
+                    </div> */}
+                    {/* <div className="wrapBtn">
                         <button className="mainButton">Вход</button>
                         <button className="secondButton">Регистрация</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </LoginPageStyled>
