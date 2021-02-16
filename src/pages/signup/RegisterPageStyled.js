@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import groupDesc from '../../assets/img/loginPage/GroupDesc.png';
 import groupTabl from '../../assets/img/loginPage/GroupTabl.png';
 
-const RegisterPageStyled = styled.section`
+const LoginPageStyled = styled.section`
     /* outline: 1px solid red; */
 
     .wrapLoginPage {
@@ -90,4 +90,4 @@ const RegisterPageStyled = styled.section`
         }
     }
 `;
-export default RegisterPageStyled;
+export default LoginPageStyled;

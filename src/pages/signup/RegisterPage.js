@@ -1,27 +1,36 @@
 import React from 'react';
+import RegisterPageStyled from './RegisterPageStyled';
 
-const RegisterPage = () => {
+const LoginPage = () => {
     return (
-        <div>
-            <h2>LoginPageStyled</h2>
-            <div>
-                <form>
-                    <label>
-                        Вход
-                        <input type="text" />
-                    </label>
-                    <label>
-                        Логин
-                        <input type="text" />
-                    </label>
-                    <label>
-                        Пароль
-                        <input type="text" />
-                    </label>
-                </form>
+        <RegisterPageStyled className="sectionLoginPage">
+            <div className="container">
+                <div className="wrapLoginPage">
+                    <div className="wrapForm">
+                        <h2 className="titleLoginPage">ВХОД</h2>
+                        <form className="formLoginPage">
+                            <label className="labelLoginPage">
+                                Имя *
+                                <input type="text" className="inputLoginPage" />
+                            </label>
+                            <label className="labelLoginPage">
+                                Логин *
+                                <input type="text" className="inputLoginPage" />
+                            </label>
+                            <label className="labelLoginPage">
+                                Пароль *
+                                <input type="text" className="inputLoginPage" />
+                            </label>
+                        </form>
+                    </div>
+                    <div className="wrapBtn">
+                        {/* <button className="mainButton">Регистрация</button> */}
+                        <button className="secondButton">Регистрация</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </RegisterPageStyled>
     );
 };
 
-export default RegisterPage;
+export default LoginPage;
