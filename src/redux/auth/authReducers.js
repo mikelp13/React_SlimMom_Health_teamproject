@@ -42,6 +42,9 @@ const userReducer = createReducer(initialUserState, {
 
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
       ...state, userData:{...state.userData, ...payload}
+    }),
+    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
+      ...state, userData:{...state.userData, ...payload}
     })
      
 });
@@ -75,6 +78,7 @@ const errorReducer = createReducer(null, {
     [authActions.getNewTokenError]: (_, { payload }) => payload,
 
     [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
+    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
 
 });
 
@@ -94,6 +98,10 @@ const loadingReducer = createReducer(false, {
     [dailyRateActions.getDailyRateRequest]: () => true,
     [dailyRateActions.getDailyRateRequestSuccess]: () => false,
     [dailyRateActions.getDailyRateRequestError]: () => false,
+
+    [dailyRateActions.getDailyRateRequestAuth]: () => true,
+    [dailyRateActions.getDailyRateRequestSuccessAuth]: () => false,
+    [dailyRateActions.getDailyRateRequestErrorAuth]: () => false,
 });
 
 const userPersistConfig = {

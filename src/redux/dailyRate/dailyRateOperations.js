@@ -12,4 +12,17 @@ const dailyRateOperation = characteristics => async dispatch => {
       dispatch(dailyRateActions.getDailyRateError(error.message));
   }
 };
-export default dailyRateOperation;
+
+
+const dailyRateAuthOperation = (characteristics, userId) => async (dispatch) => {
+  dispatch(dailyRateActions.getDailyRateRequestAuth());
+  try {
+      const response = await axios.post(`${process.env.REACT_APP_DAILY_RATE}/${userId}`, characteristics);
+
+      dispatch(dailyRateActions.getDailyRateSuccessAuth({...characteristics, ...response.data }));
+  } catch (error) {
+      dispatch(dailyRateActions.getDailyRateErrorAuth(error.message));
+  }
+};
+
+export {dailyRateOperation, dailyRateAuthOperation};
