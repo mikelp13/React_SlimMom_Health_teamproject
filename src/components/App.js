@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import LoginPage from '../pages/signin/LoginPage';
-import Modal from './modal/Modal';
+// import Modal from './modal/Modal';
 // import RegisterPage from '../pages/signup/RegisterPage';
 // import Basic from './test';
 
@@ -18,10 +18,8 @@ const App = () => {
 
     return (
         <div>
-            {/* <Basic /> */}
-
             <LoginPage />
-            <Modal />
+            {/* <Modal /> */}
         </div>
     );
 };
