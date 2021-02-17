@@ -55,6 +55,7 @@ const logoutOperations = () => async (dispatch, getState) => {
 const refreshTokenOperation = () => async (dispatch, getState) => {
     const sid = getState().auth.token.sid;
     const accessToken = getState().auth.token.accessToken;
+    console.log(sid);
     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
     dispatch(authActions.getNewTokenRequest());
     try {
@@ -66,7 +67,8 @@ const refreshTokenOperation = () => async (dispatch, getState) => {
         dispatch(authActions.getNewTokenSuccess(response.data));
     } catch (error) {
         dispatch(authActions.getNewTokenError(error.message));
-        dispatch(logoutOperations());
+        // dispatch(logoutOperations());
+        dispatch(authActions.logoutSuccess());
     }
 };
 
