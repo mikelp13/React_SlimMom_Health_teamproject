@@ -41,9 +41,9 @@ const AuthForm = () => {
         setName('');
     };
     // !========== Это нужно будет убрать ==============
-    const onHandleLogout = () => {
+    /*const onHandleLogout = () => {
         dispatch(logoutOperations());
-    };
+    };*/
 
     // !=================================================
     const { email, password } = user;
@@ -103,9 +103,9 @@ const AuthForm = () => {
                 </button>
             </form>
             {/* // !========== Это нужно будет убрать ============== */}
-            <button onClick={onHandleLogout} type="button">
+            {/*<button onClick={onHandleLogout} type="button">
                 Logout
-            </button>
+                </button>*/}
 
             {/* // !============================================ */}
         </AuthFormStyled>
