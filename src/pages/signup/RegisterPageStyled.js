@@ -4,8 +4,6 @@ import groupDesc from '../../assets/img/loginPage/GroupDesc.png';
 import groupTabl from '../../assets/img/loginPage/GroupTabl.png';
 
 const LoginPageStyled = styled.section`
-    /* outline: 1px solid red; */
-
     .wrapLoginPage {
         color: var(--secondary-text);
         margin-bottom: 60px;
@@ -29,8 +27,6 @@ const LoginPageStyled = styled.section`
         .wrapLoginPage {
             margin-top: 200px;
             width: 382px;
-            height: 287px;
-            /* outline: 1px solid yellow; */
         }
     }
     @media screen and (min-width: 1280px) {
@@ -41,7 +37,6 @@ const LoginPageStyled = styled.section`
         .wrapLoginPage {
             margin-top: 362px;
             width: 382px;
-            height: 298px;
         }
     }
 `;

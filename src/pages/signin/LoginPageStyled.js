@@ -4,8 +4,6 @@ import groupDesc from '../../assets/img/loginPage/GroupDesc.png';
 import groupTabl from '../../assets/img/loginPage/GroupTabl.png';
 
 const RegisterPageStyled = styled.section`
-    /* outline: 1px solid red; */
-
     .wrapLoginPage {
         color: var(--secondary-text);
         margin-bottom: 60px;
@@ -26,9 +24,8 @@ const RegisterPageStyled = styled.section`
         background-repeat: no-repeat;
 
         .wrapLoginPage {
-            margin-top: 200px;
+            margin-top: 190px;
             width: 382px;
-            /* outline: 1px solid yellow; */
         }
     }
     @media screen and (min-width: 1280px) {
