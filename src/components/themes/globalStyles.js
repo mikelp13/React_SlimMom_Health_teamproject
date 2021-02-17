@@ -15,5 +15,9 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.title};
         transition: all 0.50s linear;
     }
+
+    input {
+        color: ${({ theme }) => theme.title};
+    }
 `
     ;
