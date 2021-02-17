@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
     .caloriesForm {
-        @media (min-width: 1280px) {
+     
+      @media (min-width: 1280px) {
             width: 605px;
         }
     }
@@ -41,7 +42,6 @@ export const FormContainer = styled.div`
         position: relative;
         display: flex;
         flex-direction: column;
-        /* margin-bottom: 30px; */
         font-family: 'Verdana', sans-serif;
         font-size: 14px;
         font-weight: 700;
@@ -168,7 +168,6 @@ export const FormContainer = styled.div`
     input[type='radio']:checked + span .fakeRadioButton:after {
         display: block;
     }
-
 
     .mainButton {
         margin: 0 auto;
