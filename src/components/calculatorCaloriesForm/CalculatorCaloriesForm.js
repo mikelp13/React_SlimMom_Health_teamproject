@@ -36,6 +36,7 @@ const CalculatorCaloriesForm = () => {
             Number(item[1]),
         ]);
         const valuesNumObj = Object.fromEntries(convertedValuesArr);
+
         isAuth
             ? dispatch(dailyRateAuthOperation(valuesNumObj, userId))
             : dispatch(dailyRateOperation(valuesNumObj));
@@ -97,7 +98,7 @@ const CalculatorCaloriesForm = () => {
                 }}
                 validationSchema={validationSchema}
             >
-                {({ errors, touched, }) => (
+                {({ errors, touched }) => (
                     <Form className="caloriesForm">
                         <div className="caloriesFormInputWrapper">
                             <div className="caloriesFormInputContainer">
