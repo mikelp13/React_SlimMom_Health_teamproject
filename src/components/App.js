@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import LoginPage from '../pages/signin/LoginPage';
+// import Modal from './modal/Modal';
 // import RegisterPage from '../pages/signup/RegisterPage';
+
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import HomePage from '../pages/home/HomePage';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -16,7 +20,10 @@ const App = () => {
 
     return (
         <div>
+            <HomePage />
+
             <LoginPage />
+            <CalculatorPage />
         </div>
     );
 };
