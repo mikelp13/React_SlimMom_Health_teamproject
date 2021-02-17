@@ -2,9 +2,8 @@ import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
-import LoginPage from '../pages/signin/LoginPage';
 import AppBar from './appBar/AppBar';
-import mainRoutes from '../routes/routes'
+import mainRoutes from '../routes/routes';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
@@ -29,30 +28,28 @@ const App = () => {
 
     return (
         <div>
-
-            {/* <Basic /> */}
-            <AppBar/>
-            {<Suspense fallback={<h2>...loading</h2>}>
-        <Switch>
-      
-          {mainRoutes.map((route) =>
-            route.isPrivate ? (
-              <PrivateRoutes    {...route}  key={route.path} />
-            ) : (
-              <PublicRoutes  {...route}  key={route.path} />
-            )
-          )}
-          <Route component={CalculatorPage} />
-          <Route component={DefaultPage} />
-        </Switch>
-            </Suspense>}
+            <AppBar />
+            {
+                <Suspense fallback={<h2>...loading</h2>}>
+                    <Switch>
+                        {mainRoutes.map(route =>
+                            route.isPrivate ? (
+                                <PrivateRoutes {...route} key={route.path} />
+                            ) : (
+                                <PublicRoutes {...route} key={route.path} />
+                            ),
+                        )}
+                        <Route component={CalculatorPage} />
+                        <Route component={DefaultPage} />
+                    </Switch>
+                </Suspense>
+            }
             {/*<LoginPage />*/}
 
             {/*<HomePage />
 
            
             <CalculatorPage />*/}
-
         </div>
     );
 };

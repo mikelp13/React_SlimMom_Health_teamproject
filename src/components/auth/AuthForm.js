@@ -1,13 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { logoutOperations } from '../../redux/auth/authOperations';
 import AuthFormStyled from './AuthFormStyled';
 
 const AuthForm = ({ handleSubmit, errorMessagesSchema }) => {
     const location = useLocation();
-    const dispatch = useDispatch();
 
     const initialState =
         location.pathname === '/signup'
@@ -98,15 +95,6 @@ const AuthForm = ({ handleSubmit, errorMessagesSchema }) => {
                     </Form>
                 )}
             </Formik>
-            {/* // !========== Это нужно будет убрать ============== */}
-
-            {/*<button onClick={onHandleLogout} type="button">
-                Logout
-                </button>*/}
-
-
-
-            {/* // !============================================ */}
         </AuthFormStyled>
     );
 };
