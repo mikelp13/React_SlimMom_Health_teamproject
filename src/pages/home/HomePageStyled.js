@@ -37,7 +37,6 @@ export const PageContainer = styled.div`
         margin-bottom: 30px;
         font-family: 'Verdana', sans-serif;
         font-size: 18px;
-        color: var(--main-text);
         line-height: 1.444;
         font-weight: 700;
 
