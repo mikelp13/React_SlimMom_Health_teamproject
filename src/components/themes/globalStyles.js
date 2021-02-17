@@ -10,5 +10,10 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.title};
         transition: all 0.50s linear;
     }
+
+    .logo p {
+        color: ${({ theme }) => theme.title};
+        transition: all 0.50s linear;
+    }
 `
     ;

@@ -12,8 +12,6 @@ justify-content: space-between;
     margin-left: 10px;
     font-family: 'Gotham Pro';
     font-size: 22px;
-    color: var(--main-text);
-
   }
   .logo p span {
     color: var(--accent-color)
@@ -24,6 +22,7 @@ justify-content: space-between;
     } 
     .logo img {
         width: 70px;
+        min-height: 66px;
     }
     .logo p {
       margin-left: -10px;

@@ -1,7 +1,8 @@
 
 import { Link } from "react-router-dom";
 import AppBarStyled from "./AppBarStyled";
-import logo from '../../assets/img/logo/logo.png'
+import logo from '../../assets/img/logo/logo.png';
+import logoWhite from '../../assets/img/logo/logo123.png';
 import NavBar from "../navBar/NavBar";
 
 
@@ -10,10 +11,13 @@ const AppBar = () => {
     return (
       <>
         <AppBarStyled >
-        <Link className='logo' to='/dairy'>
-      <img src={logo} alt='logo' width='46'></img>
-      <p>Slim<span>Mom</span></p>
-    </Link>
+          <Link className='logo' to='/dairy'>
+            {localStorage.getItem('theme') === 'dark' ?
+              <img src={logoWhite} alt='logo' width='46' height='66'></img>
+              :
+              <img src={logo} alt='logo' width='46'></img>}
+          <p>Slim<span>Mom</span></p>
+          </Link>
        <NavBar/>     
         </AppBarStyled>
         </>
