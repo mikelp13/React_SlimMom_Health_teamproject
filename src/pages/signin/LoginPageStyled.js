@@ -26,7 +26,7 @@ const RegisterPageStyled = styled.section`
         background-repeat: no-repeat;
 
         .wrapLoginPage {
-            margin-top: 200px;
+            margin-top: 190px;
             width: 382px;
             /* outline: 1px solid yellow; */
         }

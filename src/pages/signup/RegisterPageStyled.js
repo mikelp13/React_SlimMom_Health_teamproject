@@ -27,9 +27,8 @@ const LoginPageStyled = styled.section`
         background-repeat: no-repeat;
 
         .wrapLoginPage {
-            margin-top: 200px;
+            margin-top: 190px;
             width: 382px;
-            height: 287px;
             /* outline: 1px solid yellow; */
         }
     }
@@ -39,9 +38,8 @@ const LoginPageStyled = styled.section`
         background-position: right bottom;
         background-repeat: no-repeat;
         .wrapLoginPage {
-            margin-top: 362px;
+            margin-top: 202px;
             width: 382px;
-            height: 298px;
         }
     }
 `;
