@@ -5,6 +5,8 @@ import authSelectors from '../redux/auth/authSelectors';
 import LoginPage from '../pages/signin/LoginPage';
 // import Modal from './modal/Modal';
 // import RegisterPage from '../pages/signup/RegisterPage';
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import HomePage from '../pages/home/HomePage';
 // import Basic from './test';
 
 const App = () => {
@@ -18,8 +20,11 @@ const App = () => {
 
     return (
         <div>
+            {/* <Basic /> */}
+
+            <HomePage />
             <LoginPage />
-            {/* <Modal /> */}
+            <CalculatorPage />
         </div>
     );
 };
