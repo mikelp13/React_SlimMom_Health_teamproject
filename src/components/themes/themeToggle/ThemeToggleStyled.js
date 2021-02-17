@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const ToggleStyled = styled.div`
     .toggleWrapper {
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 47px;
+  right: 230px;
   overflow: hidden;
-  padding: 0 200px;
+  padding: 10px 10px;
   transform: translate3d(-50%, -50%, 0);
   
   input {
@@ -19,8 +19,8 @@ export const ToggleStyled = styled.div`
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 90px;
-  height: 50px;
+  width: 70px;
+  height: 35px;
   background-color: #83D8FF;
   border-radius: 84px;
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -30,10 +30,10 @@ export const ToggleStyled = styled.div`
   display: inline-block;
   position: relative;
   z-index: 1;
-  top: 3px;
+  top: 2px;
   left: 3px;
-  width: 44px;
-  height: 44px;
+  width: 31px;
+  height: 31px;
   background-color: #FFCF96;
   border-radius: 50px;
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
@@ -49,22 +49,22 @@ export const ToggleStyled = styled.div`
   }
   
   .crater--1 {
-    top: 18px;
-    left: 10px;
+    top: 13px;
+    left: 9px;
     width: 4px;
     height: 4px;
   }
   
   .crater--2 {
-    top: 28px;
-    left: 22px;
+    top: 20px;
+    left: 17px;
     width: 6px;
     height: 6px;
   }
   
   .crater--3 {
-    top: 10px;
-    left: 25px;
+    top: 7px;
+    left: 19px;
     width: 8px;
     height: 8px;
   }
@@ -78,27 +78,27 @@ export const ToggleStyled = styled.div`
 }
 
 .star--1 {
-  top: 10px;
-  left: 35px;
+  top: 7px;
+  left: 23px;
   z-index: 0;
   width: 30px;
-  height: 3px;
+  height: 4px;
 }
 
 .star--2 {
-  top: 18px;
-  left: 28px;
+  top: 15px;
+  left: 23px;
   z-index: 1;
-  width: 30px;
-  height: 3px;
+  width: 25px;
+  height: 4px;
 }
 
 .star--3 {
-  top: 27px;
-  left: 40px;
+  top: 23px;
+  left: 30px;
   z-index: 0;
-  width: 30px;
-  height: 3px;
+  width: 25px;
+  height: 3.5px;
 }
     
 .star--4,
@@ -118,7 +118,7 @@ export const ToggleStyled = styled.div`
 }
 
 .star--5 {
-  top: 32px;
+  top: 27px;
   left: 17px;
   z-index: 0;
   width: 3px;
@@ -127,7 +127,7 @@ export const ToggleStyled = styled.div`
 }
 
 .star--6 {
-  top: 36px;
+  top: 28px;
   left: 28px;
   z-index: 0;
   width: 2px;
@@ -149,7 +149,7 @@ input:checked {
     
     .toggle__handler {
       background-color: #FFE5B5;
-      transform: translate3d(40px, 0, 0) rotate(0);
+      transform: translate3d(33px, 0, 0) rotate(0);
   
       .crater { opacity: 1; }
     }
