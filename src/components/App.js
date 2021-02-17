@@ -7,6 +7,8 @@ import LoginPage from '../pages/signin/LoginPage';
 // import RegisterPage from '../pages/signup/RegisterPage';
 
 import CalculatorPage from '../pages/calculator/CalculatorPage';
+import DiaryPage from '../pages/diary/DiaryPage';
+
 import HomePage from '../pages/home/HomePage';
 
 const App = () => {
@@ -21,9 +23,9 @@ const App = () => {
     return (
         <div>
             <HomePage />
-
             <LoginPage />
             <CalculatorPage />
+            <DiaryPage />
         </div>
     );
 };
