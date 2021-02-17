@@ -5,19 +5,19 @@ import { CalendarWrapper } from './DiaryDateCalendarStyle';
 import IconCalendar from './IconCalendar';
 
 const DiaryDateCalendar = () => {
-    const [state, setState] = useState({
-        date: new Date(),
-    });
+    // const [state, setState] = useState({
+    //     date: new Date(),
+    // });
 
     const [startDate, setStartDate] = useState(new Date());
 
-    const handleChange = e => {
-        const { name, value } = e.target;
-        setState(prev => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+    // const handleChange = e => {
+    //     const { name, value } = e.target;
+    //     setState(prev => ({
+    //         ...prev,
+    //         [name]: value,
+    //     }));
+    // };
 
     return (
         <>

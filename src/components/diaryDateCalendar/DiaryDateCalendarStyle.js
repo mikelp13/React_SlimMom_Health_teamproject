@@ -25,7 +25,7 @@ export const CalendarWrapper = styled.div`
         line-height: 1.22;
         color: #212121;
         @media screen and (min-width: 768px) {
-            width: 219px;
+            width: 225px;
             margin-right: 21px;
             font-size: 34px;
             line-height: 1.2;

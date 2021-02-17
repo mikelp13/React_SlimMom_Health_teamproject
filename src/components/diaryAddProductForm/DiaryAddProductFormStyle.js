@@ -77,7 +77,7 @@ line-height: 1.21;
 align-items: center;
 text-align: center;
 letter-spacing: 0.04em;
-    background-color: #FC842D;
+    background-color: var(--accent-color);
     border-color:transparent;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 border-radius: 30px;
@@ -85,7 +85,7 @@ color: #FFFFFF;
 cursor: pointer;
    @media screen and (min-width:768px){
        position: absolute;
-       top: -50px;
+       top: -60px;
        left: 500px;
        width: 50px;
        height: 50px;
@@ -94,7 +94,7 @@ cursor: pointer;
 } 
 &:hover,&:focus{
   background-color: #ffffff;
-  border: 2px solid #FC842D;
-  color: #FC842D; 
+  border: 2px solid;
+  color: var(--accent-color); 
 }
 `;
