@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthForm from '../../components/auth/AuthForm';
+import AuthFormContainer from '../../components/auth/AuthFormContainer';
 import LoginPageStyled from './LoginPageStyled';
 
 const LoginPage = () => {
@@ -7,7 +7,7 @@ const LoginPage = () => {
         <LoginPageStyled className="sectionLoginPage">
             <div className="container">
                 <div className="wrapLoginPage">
-                    <AuthForm />
+                    <AuthFormContainer />
                 </div>
             </div>
         </LoginPageStyled>

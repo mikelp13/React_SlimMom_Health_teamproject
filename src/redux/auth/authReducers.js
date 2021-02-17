@@ -4,6 +4,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authActions from './authActions';
+import dailyRateActions from '../dailyRate/dailyRateAction';
 
 const initialUserState = {
     email: '',
@@ -38,6 +39,14 @@ const userReducer = createReducer(initialUserState, {
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
+
+    [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
+      ...state, userData:{...state.userData, ...payload}
+    }),
+    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
+      ...state, userData:{...state.userData, ...payload}
+    })
+     
 });
 
 const initialToken = {
@@ -67,6 +76,10 @@ const errorReducer = createReducer(null, {
     [authActions.signInError]: (_, { payload }) => payload,
     [authActions.logoutError]: () => null,
     [authActions.getNewTokenError]: (_, { payload }) => payload,
+
+    [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
+    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
+
 });
 
 const loadingReducer = createReducer(false, {
@@ -81,6 +94,14 @@ const loadingReducer = createReducer(false, {
     [authActions.logoutRequest]: () => true,
     [authActions.logoutSuccess]: () => false,
     [authActions.logoutError]: () => false,
+
+    [dailyRateActions.getDailyRateRequest]: () => true,
+    [dailyRateActions.getDailyRateRequestSuccess]: () => false,
+    [dailyRateActions.getDailyRateRequestError]: () => false,
+
+    [dailyRateActions.getDailyRateRequestAuth]: () => true,
+    [dailyRateActions.getDailyRateRequestSuccessAuth]: () => false,
+    [dailyRateActions.getDailyRateRequestErrorAuth]: () => false,
 });
 
 const userPersistConfig = {

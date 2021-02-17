@@ -10,8 +10,13 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 import CalculatorPage from '../pages/calculator/CalculatorPage';
+
+// import Modal from './modal/Modal';
+
 // import RegisterPage from '../pages/signup/RegisterPage';
-// import Basic from './test';
+
+//import CalculatorPage from '../pages/calculator/CalculatorPage';
+//import HomePage from '../pages/home/HomePage';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -24,6 +29,7 @@ const App = () => {
 
     return (
         <div>
+
             {/* <Basic /> */}
             <AppBar/>
             {<Suspense fallback={<h2>...loading</h2>}>
@@ -41,6 +47,12 @@ const App = () => {
         </Switch>
             </Suspense>}
             {/*<LoginPage />*/}
+
+            {/*<HomePage />
+
+           
+            <CalculatorPage />*/}
+
         </div>
     );
 };
