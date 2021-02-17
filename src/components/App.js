@@ -4,7 +4,10 @@ import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import LoginPage from '../pages/signin/LoginPage';
 import DiaryProductsListItem from './DiaryProductsListItem/DiaryProductsListItem';
+// import Modal from './modal/Modal';
 // import RegisterPage from '../pages/signup/RegisterPage';
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import HomePage from '../pages/home/HomePage';
 // import Basic from './test';
 
 const App = () => {
@@ -20,7 +23,10 @@ const App = () => {
         <div>
             {/* <Basic /> */}
             <DiaryProductsListItem />
+
+            <HomePage />
             <LoginPage />
+            <CalculatorPage />
         </div>
     );
 };
