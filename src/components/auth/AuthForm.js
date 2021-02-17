@@ -13,14 +13,6 @@ const AuthForm = ({ handleSubmit, errorMessagesSchema }) => {
         location.pathname === '/signup'
             ? { username: '', email: '', password: '' }
             : { email: '', password: '' };
-
-    // !========== Это нужно будет убрать ==============
-    const onHandleLogout = () => {
-        dispatch(logoutOperations());
-    };
-
-    // !=================================================
-
     return (
         <AuthFormStyled>
             <h2 className="authFormTitle">
@@ -108,9 +100,12 @@ const AuthForm = ({ handleSubmit, errorMessagesSchema }) => {
             </Formik>
             {/* // !========== Это нужно будет убрать ============== */}
 
-            <button onClick={onHandleLogout} type="button">
+            {/*<button onClick={onHandleLogout} type="button">
                 Logout
-            </button>
+                </button>*/}
+
+
+
             {/* // !============================================ */}
         </AuthFormStyled>
     );

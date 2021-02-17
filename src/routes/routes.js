@@ -1,16 +1,16 @@
 import { lazy } from 'react';
 
 const mainRoutes = [
-    {
+  /*  {
         path: '/',
         name: 'Home',
         exact: true,
         component: lazy(() =>
-            import('../pages/home/HomePage' /* webpackChunkName: "HomePage"*/),
+            import('../pages/home/HomePage' /* webpackChunkName: "HomePage"*//*),
         ),
         isPrivate: false,
         restricted: false,
-    },
+    },*/
     {
         path: '/signin',
         name: 'Вход',
