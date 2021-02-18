@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { showNoticeMessage } from '../notice/noticeActions';
 import authActions from './authActions';
 
 const token = {
@@ -18,12 +19,15 @@ const signUpOperation = user => async dispatch => {
         });
 
         dispatch(authActions.signUpSuccess({ ...response.data }));
+        dispatch(
+            signInOperation({ email: user.email, password: user.password }),
+        );
     } catch (error) {
         dispatch(authActions.signUpError(error.message));
     }
 };
 
-const signInOperation = user => async dispatch => {
+const signInOperation = user => async (dispatch, getState) => {
     dispatch(authActions.signInRequest());
     try {
         const response = await axios.post(process.env.REACT_APP_SIGNIN_URL, {
@@ -33,8 +37,11 @@ const signInOperation = user => async dispatch => {
         token.set(response.data.accessToken);
 
         dispatch(authActions.signInSuccess({ ...response.data }));
+        const username = getState().auth.user.username;
+        dispatch(showNoticeMessage(`Привет, ${username}!`));
     } catch (error) {
         dispatch(authActions.signInError(error.message));
+        dispatch(showNoticeMessage('Логин или пароль введен неверно'));
     }
 };
 

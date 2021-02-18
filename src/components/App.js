@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import AppBar from './appBar/AppBar';
@@ -9,6 +10,8 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 import CalculatorPage from '../pages/calculator/CalculatorPage';
+import Notice from './notice/Notice';
+import { getShowNotice } from '../redux/notice/noticeSelectors';
 
 // import Modal from './modal/Modal';
 
@@ -20,6 +23,7 @@ import CalculatorPage from '../pages/calculator/CalculatorPage';
 const App = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(authSelectors.isAuthenticated);
+    const showNotice = useSelector(getShowNotice);
 
     useEffect(() => {
         isAuth && dispatch(refreshTokenOperation());
@@ -29,6 +33,15 @@ const App = () => {
     return (
         <div>
             <AppBar />
+
+            <CSSTransition
+                in={showNotice}
+                timeout={250}
+                classNames="my-notice"
+                unmountOnExit
+            >
+                <Notice />
+            </CSSTransition>
             {
                 <Suspense fallback={<h2>...loading</h2>}>
                     <Switch>
