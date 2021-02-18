@@ -4,6 +4,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import IconCalendar from './IconCalendar';
 import { CalendarWrapper } from './DiaryDateCalendarStyle';
 import moment from 'moment';
+import getDayInfoOperation from '../../redux/userData/userDataOperations';
+import setDataOperation from '../../redux/userData/userDataOperations';
 
 const DiaryDateCalendar = () => {
     const [state, setState] = useState({
@@ -16,8 +18,8 @@ const DiaryDateCalendar = () => {
     const handleChange = day => {
         setStartDate(day);
         const date = { date: moment(day).format('YYYY-MM-DD') };
-        // dispatch(healthOperations.getDayInfoOperation(date));
-        // dispatch(healthOperations.setDateOperation(date));
+        dispatch(userDataAction.getDayInfoOperation(date));
+        dispatch(userDataAction.setDataOperation(date));
         console.log('current ====>>> day', day);
         console.log('current ====>>> data', date);
     };
