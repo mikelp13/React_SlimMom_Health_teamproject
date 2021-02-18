@@ -12,20 +12,21 @@ import { FormContainer } from './CalculatorCaloriesFormStyled';
 import Modal from '../modal/Modal';
 import useModal from '../modal/useModal';
 
-const initialState = {
-    height: '',
-    age: '',
-    weight: '',
-    desiredWeight: '',
-    bloodType: '',
-};
+// const initialState = {
+//     height: '',
+//     age: '',
+//     weight: '',
+//     desiredWeight: '',
+//     bloodType: '',
+// };
 
 const CalculatorCaloriesForm = () => {
-    const [state, setState] = useState({ ...initialState });
+    // const [state, setState] = useState({ ...initialState });
     const userId = useSelector(authSelectors.getUserId);
     const userData = useSelector(state => state.auth.user.userData);
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const dispatch = useDispatch();
+    const { openModal, onHandelClick } = useModal();
 
     // const handleChange = e => {
     //     const { name, value } = e.target;
@@ -43,6 +44,7 @@ const CalculatorCaloriesForm = () => {
             ? dispatch(dailyRateAuthOperation(valuesNumObj, userId))
             : dispatch(dailyRateOperation(valuesNumObj));
 
+          !isAuth && onHandelClick()
         // setState({ ...initialState });
     };
     const validationSchema = Yup.object().shape({
@@ -79,7 +81,7 @@ const CalculatorCaloriesForm = () => {
         bloodType: Yup.number().required('Обязательно'),
     });
 
-    const { openModal, onHandelClick } = useModal();
+
 
     return (
         <FormContainer>
@@ -99,6 +101,7 @@ const CalculatorCaloriesForm = () => {
                 }}
                 onSubmit={values => {
                     handleSubmit(values);
+                  
                 }}
                 validationSchema={validationSchema}
             >
@@ -253,7 +256,6 @@ const CalculatorCaloriesForm = () => {
                             </div>
                         </div>
                         <button
-                            onClick={onHandelClick}
                             className="mainButton"
                             type="submit"
                         >
@@ -269,5 +271,6 @@ const CalculatorCaloriesForm = () => {
         </FormContainer>
     );
 };
+
 
 export default CalculatorCaloriesForm;
