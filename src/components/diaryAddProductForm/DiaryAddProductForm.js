@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getProductOperation } from '../../redux/diary/diaryOperations';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 
 const DiaryAddProductForm = () => {
@@ -7,6 +9,8 @@ const DiaryAddProductForm = () => {
         product: '',
         gram: '',
     });
+
+    const dispatch = useDispatch();
 
     const size = useWindowSize();
 
@@ -43,10 +47,12 @@ const DiaryAddProductForm = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
+        console.log(value)
         setState(prev => ({
-            ...prev,
-            [name]: value,
+          ...prev,
+          [name]: value,
         }));
+        dispatch(getProductOperation(value)) 
     };
 
     const handleSubmit = e => {
@@ -83,6 +89,7 @@ const DiaryAddProductForm = () => {
                 </select>
                 <button type="submit" className="buttonDairyAddProduct">
                     {size.width < 768 ? 'Добавить' : '+'}
+                  
                 </button>
             </form>
         </DiaryFormWrapper>

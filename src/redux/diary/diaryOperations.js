@@ -20,7 +20,7 @@ const getProductOperation = query => async dispatch => {
     dispatch(diaryActions.getProductRequest());
     try {
         const response = await axios.get(
-            `${process.env.REACT_APP_GET_PRODUCT}?search=${query}`,
+            `${process.env.REACT_APP_GET_PRODUCT}?search=${query}`
         );
 
         dispatch(diaryActions.getProductSuccess(response.data));
