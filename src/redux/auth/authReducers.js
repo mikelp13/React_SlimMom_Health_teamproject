@@ -37,10 +37,18 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-        // userData: { ...payload.user.userData },
+        userData: { ...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
+
+    [authActions.getCurrentUserSuccess]: (state, { payload }) => ({
+        ...state,
+        email: payload.email,
+        username: payload.username,
+        id: payload.id,
+        userData: { ...payload.userData },
+    }),
 
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
         ...state,
@@ -86,6 +94,9 @@ const errorReducer = createReducer(null, {
     [authActions.getNewTokenError]: (_, { payload }) => payload,
     [authActions.getNewTokenSuccess]: () => null,
 
+    [authActions.getCurrentUserError]: (_, { payload }) => payload,
+    [authActions.getCurrentUserSuccess]: () => null,
+
     [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
     [dailyRateActions.getDailyRateSuccess]: () => null,
 
@@ -112,6 +123,10 @@ const loadingReducer = createReducer(false, {
     [authActions.logoutSuccess]: () => false,
     [authActions.logoutError]: () => false,
 
+    [authActions.getCurrentUserRequest]: () => true,
+    [authActions.getCurrentUserSuccess]: () => false,
+    [authActions.getCurrentUserError]: () => false,
+
     [dailyRateActions.getDailyRateRequest]: () => true,
     [dailyRateActions.getDailyRateRequestSuccess]: () => false,
     [dailyRateActions.getDailyRateRequestError]: () => false,
@@ -132,7 +147,7 @@ const loadingReducer = createReducer(false, {
 const userPersistConfig = {
     key: 'user',
     storage,
-    whitelist: ['username', 'email', 'id', 'isAuth'],
+    whitelist: ['isAuth'],
 };
 
 const tokenPersistConfig = {
