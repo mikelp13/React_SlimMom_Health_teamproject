@@ -32,7 +32,7 @@ const AuthFormStyled = styled.div`
         position: relative;
         display: flex;
         flex-direction: column;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         font-size: 14px;
         line-height: 1.21;
         letter-spacing: 0.04em;
@@ -42,7 +42,7 @@ const AuthFormStyled = styled.div`
         margin: 0;
         padding: 0;
         left: 0;
-        top: -20px;
+        top: -15px;
         font-weight: 700;
         /* transition: 0.3s; */
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,7 +50,7 @@ const AuthFormStyled = styled.div`
     .authFormInput {
         padding: 5px 0;
         width: 100%;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.21;
         letter-spacing: 0.04em;
         border: none;
@@ -64,8 +64,19 @@ const AuthFormStyled = styled.div`
         }
     }
 
+    .authInputError {
+        border-bottom: 1px solid #e11616;
+    }
+
+    .authError {
+        position: absolute;
+        top: 34px;
+        left: 0;
+        color: #e11616;
+        font-size: 12px;
+    }
     .authFormInput:not(:placeholder-shown) ~ .authFormText {
-        top: -25px;
+        top: -20px;
         font-size: 12px;
     }
 
