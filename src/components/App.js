@@ -10,6 +10,8 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 import CalculatorPage from '../pages/calculator/CalculatorPage';
+import DiaryProductsList from './DiaryProductsList/DiaryProductsList';
+
 
 // import Modal from './modal/Modal';
 
@@ -46,6 +48,7 @@ const App = () => {
                     <Route component={DefaultPage} />
                 </Switch>
             </Suspense>}
+            <DiaryProductsList />
             {/*<LoginPage />*/}
 
             {/*<HomePage />

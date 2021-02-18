@@ -9,13 +9,13 @@ import {
     REGISTER,
 } from 'redux-persist';
 import authReducer from './auth/authReducers';
-// import user from './diaryProductsListItem/itemReducer';
+import user from './diaryProductsListItem/itemReducer';
 
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
-        // user: user,
+        user: user,
     },
     middleware: getDefaultMiddleware({
         serializableCheck: {
