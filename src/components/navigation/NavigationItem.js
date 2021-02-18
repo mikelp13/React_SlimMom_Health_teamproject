@@ -9,7 +9,7 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
     return (
       
     <NavigationItemStyled>
-      {!isPrivate && !restricted && (
+      {/*!isPrivate && !restricted && (
         <li  key={path}>
           <NavLink
             to={path}
@@ -18,7 +18,7 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
             {name.toUpperCase()}
           </NavLink>
         </li>
-      )}
+      )*/}
 
       {isAuth && isPrivate && !restricted && (
         <li key={path}>

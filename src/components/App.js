@@ -7,11 +7,12 @@ import { ThemeProvider } from "styled-components";
 // import LoginPage from '../pages/signin/LoginPage';
 import AppBar from './appBar/AppBar';
 import mainRoutes from '../routes/routes'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 import CalculatorPage from '../pages/calculator/CalculatorPage';
+
 
 // import Modal from './modal/Modal';
 
@@ -23,10 +24,18 @@ import ThemeToggle from './themes/themeToggle/ThemeToggle';
 //import HomePage from '../pages/home/HomePage';
 
 const App = () => {
+  const history = useHistory();
     const dispatch = useDispatch();
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const [theme, themeToggler] = useDarkMode();
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  
+
+    useEffect(() => {
+     !isAuth && history.push('/');
+     isAuth && history.push('/calculator');
+    }, [isAuth, history]);
 
     useEffect(() => {
         isAuth && dispatch(refreshTokenOperation());
@@ -49,7 +58,6 @@ const App = () => {
                   <PublicRoutes  {...route}  key={route.path} />
                 )
               )}
-              <Route component={CalculatorPage} />
               <Route component={DefaultPage} />
             </Switch>
                 </Suspense>}

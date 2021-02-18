@@ -1,8 +1,23 @@
 import styled from 'styled-components';
 const AppBarStyled = styled.div`
-display: flex;
-justify-content: space-between;
+padding-top: 18px;
+padding-bottom: 20px;
 
+@media screen and (min-width: 768px) and max-width: (1279px) {
+  border-bottom: #E0E0E0 solid 1px;
+  }
+
+@media screen and (min-width: 1280px) {
+  padding-top: 82px;
+  border-bottom: none;
+  }
+  `
+
+
+export default AppBarStyled;
+
+
+/*
 .logo {
     display: flex;
     align-items: center; 
@@ -15,8 +30,8 @@ justify-content: space-between;
   }
   .logo p span {
     color: var(--accent-color)
-  }
-  @media screen and (min-width: 1280px) {
+
+     @media screen and (min-width: 1280px) {
     .logo {
       align-items: baseline;
     } 
@@ -32,8 +47,7 @@ justify-content: space-between;
     border: none;
     background-color: transparent;
     outline: none;
-  }
-  `
 
-
-export default AppBarStyled;
+    display: flex;
+justify-content: space-between;
+  }*/
