@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import tabletImg from '../../assets/img/homePage/tablet-background-img-min.png';
 import desktopImg from '../../assets/img/homePage/desktop-background-img-min.png';
 
-export const PageContainer = styled.div`
+export const PageContainer = styled.section`
     width: 100%;
 
     @media (min-width: 768px) and (max-width: 1279px) {
@@ -18,7 +18,7 @@ export const PageContainer = styled.div`
         background-position: right;
     }
 
-    .mainPageSection {
+    .mainPageWrapper {
         padding-top: 30px;
 
         @media (min-width: 768px) and (max-width: 1279px) {

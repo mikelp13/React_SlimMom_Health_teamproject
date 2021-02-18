@@ -1,19 +1,19 @@
-
 import React from 'react';
 import CalculatorCaloriesForm from '../../components/calculatorCaloriesForm/CalculatorCaloriesForm';
+import RightSideBar from '../../components/RightSideBar/RightSideBar';
 import { PageContainer } from './CalculatorPageStyled';
 
 const CalculatorPage = () => (
-    <PageContainer className="calculatorPage">
-        <section className="calculatorPageSection">
-            <div className="container">
-                <h2 className="calculatorPageTitle">
-                    Узнай свою суточную норму калорий
-                </h2>
-                <CalculatorCaloriesForm />
-            </div>
-        </section>
-    </PageContainer>
+        <PageContainer className="calculatorPageSection">
+                <div className="calculatorPageWrapper">
+                    <h2 className="calculatorPageTitle">
+                        Узнай свою суточную норму калорий
+                    </h2>
+                    <CalculatorCaloriesForm />
+                </div>
+            <RightSideBar />
+        </PageContainer>
+  
 );
 
 export default CalculatorPage;
