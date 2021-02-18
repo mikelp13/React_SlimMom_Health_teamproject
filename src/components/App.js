@@ -12,7 +12,10 @@ import DefaultPage from '../pages/default/DefaultPage';
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
 
-// import Modal from './modal/Modal';
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import DiaryPage from '../pages/diary/DiaryPage';
+
+import HomePage from '../pages/home/HomePage';
 
 const App = () => {
     const history = useHistory();
