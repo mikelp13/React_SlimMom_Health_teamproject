@@ -4,7 +4,7 @@ import {
     getProductOperation,
     addProductOperation,
 } from '../../redux/diary/diaryOperations';
-import { getDate } from '../../redux/diary/diarySelectors';
+import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 
 const DiaryAddProductForm = () => {
@@ -13,7 +13,7 @@ const DiaryAddProductForm = () => {
         product: '',
         gram: '',
     });
-    const date = useSelector(getDate);
+    const date = useSelector(diarySelectors.getDate);
     const productId = useSelector(state=>state.diaryProducts.products[0]._id)
     const dispatch = useDispatch();
 

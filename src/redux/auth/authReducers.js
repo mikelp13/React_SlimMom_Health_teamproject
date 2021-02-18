@@ -37,7 +37,7 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-        userData: { ...state.userData, ...payload },
+        // userData: { ...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,

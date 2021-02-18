@@ -19,7 +19,7 @@ const App = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const showNotice = useSelector(getShowNotice);
-
+    
     useEffect(() => {
         !isAuth && history.push('/');
         isAuth && history.push('/calculator');
