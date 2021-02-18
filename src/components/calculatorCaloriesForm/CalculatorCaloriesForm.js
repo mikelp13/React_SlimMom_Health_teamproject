@@ -9,6 +9,8 @@ import {
 } from '../../redux/dailyRate/dailyRateOperations';
 // styles
 import { FormContainer } from './CalculatorCaloriesFormStyled';
+import Modal from '../modal/Modal';
+import useModal from '../modal/useModal';
 
 const initialState = {
     height: '',
@@ -76,6 +78,8 @@ const CalculatorCaloriesForm = () => {
 
         bloodType: Yup.number().required('Обязательно'),
     });
+
+    const { openModal, onHandelClick } = useModal();
 
     return (
         <FormContainer>
@@ -248,9 +252,17 @@ const CalculatorCaloriesForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="mainButton" type="submit">
+                        <button
+                            onClick={onHandelClick}
+                            className="mainButton"
+                            type="submit"
+                        >
                             Похудеть
                         </button>
+                        <Modal
+                            openModal={openModal}
+                            onHandelClick={onHandelClick}
+                        />
                     </Form>
                 )}
             </Formik>
