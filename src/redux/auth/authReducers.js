@@ -41,12 +41,13 @@ const userReducer = createReducer(initialUserState, {
     [authActions.logoutSuccess]: () => initialUserState,
 
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
-      ...state, userData:{...state.userData, ...payload}
+        ...state,
+        userData: { ...state.userData, ...payload },
     }),
     [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
-      ...state, userData:{...state.userData, ...payload}
-    })
-     
+        ...state,
+        userData: { ...state.userData, ...payload },
+    }),
 });
 
 const initialToken = {
@@ -73,13 +74,21 @@ const tokenReducer = createReducer(initialToken, {
 
 const errorReducer = createReducer(null, {
     [authActions.signUpError]: (_, { payload }) => payload,
+    [authActions.signUpSuccess]: () => null,
+
     [authActions.signInError]: (_, { payload }) => payload,
+    [authActions.signInSuccess]: () => null,
+
     [authActions.logoutError]: () => null,
+
     [authActions.getNewTokenError]: (_, { payload }) => payload,
+    [authActions.getNewTokenSuccess]: () => null,
 
     [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
-    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
+    [authActions.getDailyRateSuccess]: () => null,
 
+    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
+    [authActions.getDailyRateSuccessAuth]: () => null,
 });
 
 const loadingReducer = createReducer(false, {
