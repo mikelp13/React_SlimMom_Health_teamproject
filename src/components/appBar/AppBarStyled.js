@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 const AppBarStyled = styled.div`
-padding-top: 18px;
-padding-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 20px;
+    border-bottom: #e0e0e0 solid 1px;
 
-@media screen and (min-width: 768px) and max-width: (1279px) {
-  border-bottom: #E0E0E0 solid 1px;
-  }
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        border-bottom: #e0e0e0 solid 1px;
+        padding-left: 70px;
+        padding-right: 87px;
+    }
 
-@media screen and (min-width: 1280px) {
-  padding-top: 82px;
-  border-bottom: none;
-  }
-  `
-
+    @media screen and (min-width: 1280px) {
+        border-bottom: none;
+        position: absolute;
+        top: 82px;
+        left: 90px;
+    }
+`;
 
 export default AppBarStyled;
-
 
 /*
 .logo {
