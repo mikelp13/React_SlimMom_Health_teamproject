@@ -1,11 +1,11 @@
 
 
-.list {
+.listItem {
+  display: flex;
   list-style: none;
   font-family: 'Verdana';
   line-height: 17px;
   letter-spacing: 0.04em;
-  display: flex;
   /* align-items: center; */
   list-style: none;
   font-style: normal;

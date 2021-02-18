@@ -8,10 +8,13 @@ const deleteEatenProductSuccess = createAction(
 );
 const deleteEatenProductError = createAction('user/deleteEatenProductError');
 
+
+
 const itemActions = {
     deleteEatenProductRequest,
     deleteEatenProductSuccess,
     deleteEatenProductError,
+
 }
 
 export default itemActions
