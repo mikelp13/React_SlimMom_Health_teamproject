@@ -8,8 +8,13 @@ const productReducer = createReducer([], {
 const myProductReducer = createReducer({}, {
   [diaryActions.addProductSuccess]: (_, { payload }) => ({...payload}),
 })
+
+const dayInfoReducer = createReducer({}, {
+  [diaryActions.getDayInfoSuccess]: (_, { payload }) => ({...payload}),
+})
  
 export default combineReducers({
   products: productReducer,
   myProducts: myProductReducer,
+  dayInfo: dayInfoReducer,
 });

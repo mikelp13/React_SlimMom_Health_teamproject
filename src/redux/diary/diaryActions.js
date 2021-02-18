@@ -8,6 +8,10 @@ const getProductRequest = createAction('diary/getProductRequest');
 const getProductSuccess = createAction('diary/getProductSuccess');
 const getProductError = createAction('diary/getProductError');
 
+const getDayInfoRequest = createAction('diary/getDayInfoRequest');
+const getDayInfoSuccess = createAction('diary/getDayInfoSuccess');
+const getDayInfoError = createAction('diary/getDayInfoError');
+
 const diaryActions = {
   addProductRequest,
   addProductSuccess,
@@ -15,6 +19,9 @@ const diaryActions = {
   getProductRequest,
   getProductSuccess,
   getProductError,
+  getDayInfoRequest,
+  getDayInfoSuccess,
+  getDayInfoError
 };
 
 export default diaryActions
