@@ -11,6 +11,7 @@ import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
+import LoadSpinner from './loader/Loader';
 
 // import Modal from './modal/Modal';
 
@@ -43,7 +44,7 @@ const App = () => {
                 <Notice />
             </CSSTransition>
             {
-                <Suspense fallback={<h2>...loading</h2>}>
+                <Suspense fallback={<LoadSpinner/>}>
                     <Switch>
                         {mainRoutes.map(route =>
                             route.isPrivate ? (
