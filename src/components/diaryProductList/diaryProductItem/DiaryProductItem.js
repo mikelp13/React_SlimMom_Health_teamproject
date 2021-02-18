@@ -7,7 +7,7 @@ const DiaryProductItem = () => {
         <>
             <LI>
                 <ul className="listDairyProduct">
-                    <li className="itemDairyProduct">Водка</li>
+                    <li className="itemDairyProduct">Вода</li>
                     <li className="itemDairyProduct">200 г</li>
                     <li className="itemDairyProduct">470 ккал</li>
                 </ul>
@@ -17,7 +17,7 @@ const DiaryProductItem = () => {
             </LI>
             <LI>
                 <ul className="listDairyProduct">
-                    <li className="itemDairyProduct">Сало</li>
+                    <li className="itemDairyProduct">Шоколад</li>
                     <li className="itemDairyProduct">200 г</li>
                     <li className="itemDairyProduct">1594 ккал</li>
                 </ul>
