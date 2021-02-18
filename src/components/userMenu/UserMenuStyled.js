@@ -27,6 +27,7 @@ const UserMenuStyled = styled.div`
       padding: 0;
       text-decoration: none;
       background-color: transparent;
+      cursor: pointer;
   }
  
     @media screen and (min-width: 1280px){
@@ -35,4 +36,3 @@ const UserMenuStyled = styled.div`
       }
 `;
 export default UserMenuStyled;
-
