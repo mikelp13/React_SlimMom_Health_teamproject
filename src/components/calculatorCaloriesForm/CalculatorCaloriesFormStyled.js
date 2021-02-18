@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
     .caloriesForm {
-        @media (min-width: 1280px) {
+     
+      @media (min-width: 1280px) {
             width: 605px;
         }
     }
@@ -38,9 +39,9 @@ export const FormContainer = styled.div`
 
     .caloriesFormLabel,
     .caloriesFormRadioTitle {
+        position: relative;
         display: flex;
         flex-direction: column;
-        /* margin-bottom: 30px; */
         font-family: 'Verdana', sans-serif;
         font-size: 14px;
         font-weight: 700;
@@ -68,6 +69,19 @@ export const FormContainer = styled.div`
         }
     }
 
+    .caloriesFormInputError {
+        border-bottom: 1px solid #e11616;
+    }
+
+    .caloriesFormError {
+        position: absolute;
+        top: 47px;
+        left: 0;
+        color: #e11616;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
     .caloriesFormRadioTitle {
         margin-bottom: 9px;
         @media (min-width: 768px) {
@@ -76,17 +90,20 @@ export const FormContainer = styled.div`
         }
     }
 
-    .mainButton {
-        margin: 0 auto;
+    .caloriesFormRadioContainer {
+        position: relative;
+    }
 
-        @media (min-width: 768px) and (max-width: 1279px) {
-            margin: 0;
-        }
+    .caloriesFormRadioError {
+        position: absolute;
+        top: 2px;
+        right: 35px;
+        color: #e11616;
+        font-size: 12px;
+        font-weight: 400;
 
-        @media (min-width: 1280px) {
-            margin: 0;
-            margin-left: auto;
-            margin-right: 80px;
+        @media (min-width: 768px) {
+          right: 15px;
         }
     }
 
@@ -150,5 +167,19 @@ export const FormContainer = styled.div`
 
     input[type='radio']:checked + span .fakeRadioButton:after {
         display: block;
+    }
+
+    .mainButton {
+        margin: 0 auto;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            margin: 0;
+        }
+
+        @media (min-width: 1280px) {
+            margin: 0;
+            margin-left: auto;
+            margin-right: 80px;
+        }
     }
 `;
