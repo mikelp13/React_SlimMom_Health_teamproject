@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getProductOperation } from '../../redux/diary/diaryOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    getProductOperation,
+    addProductOperation,
+} from '../../redux/diary/diaryOperations';
+import { getDate } from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 
 const DiaryAddProductForm = () => {
@@ -9,7 +13,8 @@ const DiaryAddProductForm = () => {
         product: '',
         gram: '',
     });
-
+    const date = useSelector(getDate);
+    const productId = useSelector(state=>state.diaryProducts.products[0]._id)
     const dispatch = useDispatch();
 
     const size = useWindowSize();
@@ -47,16 +52,17 @@ const DiaryAddProductForm = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        console.log(value)
+        console.log(value);
         setState(prev => ({
-          ...prev,
-          [name]: value,
+            ...prev,
+            [name]: value,
         }));
-        dispatch(getProductOperation(value)) 
+        dispatch(getProductOperation(value));
     };
 
     const handleSubmit = e => {
         e.preventDefault();
+        dispatch(addProductOperation(date, productId, state.gram));
     };
 
     return (
@@ -89,7 +95,6 @@ const DiaryAddProductForm = () => {
                 </select>
                 <button type="submit" className="buttonDairyAddProduct">
                     {size.width < 768 ? 'Добавить' : '+'}
-                  
                 </button>
             </form>
         </DiaryFormWrapper>

@@ -17,6 +17,7 @@ import CalculatorPage from '../pages/calculator/CalculatorPage';
 import DiaryPage from '../pages/diary/DiaryPage';
 
 import HomePage from '../pages/home/HomePage';
+import { getDayInfoOperation } from '../redux/diary/diaryOperations';
 
 const App = () => {
     const history = useHistory();
@@ -31,6 +32,7 @@ const App = () => {
 
     useEffect(() => {
         isAuth && dispatch(refreshTokenOperation());
+        isAuth && dispatch(getDayInfoOperation());
         // eslint-disable-next-line
     }, []);
 
