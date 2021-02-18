@@ -8,11 +8,11 @@ import Cross from '../icon/CrossIcon';
 import ModalStyled from './ModalStyled';
 
 const Modal = ({ openModal, onHandelClick, calories, productsList }) => {
-    const [click, setClick] = useState(false);
+    const [onClick, setOnClick] = useState(false);
 
     // const [openModal, setOpenModal] = useState(false);
     // const isAuth = useSelector(state => state.auth.user.isAuth);
-    // const onHandelClick = () => setClick(!click);
+    // const onHandelClick = () => setOnClick(!onClick);
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -35,17 +35,15 @@ const Modal = ({ openModal, onHandelClick, calories, productsList }) => {
             {openModal && (
                 <ModalStyled>
                     <div className="overlay" onClick={onOverlayClick}>
-                        {mainRoutes.map(route => (
-                            <NavigationItem {...route} key={route.path} />
-                        ))}
+                       
                         <div className="modalBody ">
                             <button onClick={onHandelClick}>
-                                {click ? (
+                                {onClick ? (
                                     <Cross width={25} />
                                 ) : (
                                     <BurgerIcon width={30} />
                                 )}
-                            </button>
+                                </button>
                             <DailyCalorieIntake
                                 kcalQuantity={calories}
                                 products={productsList}
