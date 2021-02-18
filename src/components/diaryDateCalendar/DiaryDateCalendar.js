@@ -7,28 +7,19 @@ import moment from 'moment';
 
 const DiaryDateCalendar = () => {
     const [state, setState] = useState({
-        date: new Date(),
+        date: '',
     });
 
     const [startDate, setStartDate] = useState(new Date());
     console.log(startDate);
-    const handleChange = e => {
-        const { name, value } = e.target;
-        setState(prev => ({ ...prev, [name]: value }));
-    };
 
-    const getCurrentDay = () => {
-        let date = new Date();
-        let year = date.getFullYear();
-        let month =
-            date.getMonth().length > 1
-                ? date.getMonth() + 1
-                : '0' + (date.getMonth() + 1);
-        let day = date.getDate();
-        let currentDate = `${year}-${month}-${day}`;
-        let currentDateFormat = moment(currentDate).format('DD.MM.YYYY');
-        console.log(currentDateFormat);
-        return currentDateFormat;
+    const handleChange = day => {
+        setStartDate(day);
+        const date = { date: moment(day).format('YYYY-MM-DD') };
+        // dispatch(healthOperations.getDayInfoOperation(date));
+        // dispatch(healthOperations.setDateOperation(date));
+        console.log('current ====>>> day', day);
+        console.log('current ====>>> data', date);
     };
 
     return (
@@ -37,16 +28,11 @@ const DiaryDateCalendar = () => {
                 <label className="labelDatePicker">
                     <DatePicker
                         selected={startDate}
-                        onChange={date => setStartDate(date)}
-                        dateFormat="dd.MM.yyyy"
-                        className="inputDiaryDateCalendar"
-                    ></DatePicker>
-                    <input
-                        type="date"
-                        name="date"
-                        value={(state.date = getCurrentDay())}
                         onChange={handleChange}
-                    />
+                        dateFormat="d.MM.yyyy"
+                        className="inputDiaryDateCalendar"
+                        name="data"
+                    ></DatePicker>
                     <IconCalendar className="iconDateCalendar" />
                 </label>
             </CalendarWrapper>
