@@ -3,7 +3,7 @@ const AppBarStyled = styled.div`
 padding-top: 18px;
 padding-bottom: 20px;
 
-@media screen and (min-width: 768px) and max-width: (1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   border-bottom: #E0E0E0 solid 1px;
   }
 
