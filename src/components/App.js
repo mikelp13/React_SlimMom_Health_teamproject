@@ -12,11 +12,6 @@ import DefaultPage from '../pages/default/DefaultPage';
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
 import LoadSpinner from './loader/Loader';
-
-import CalculatorPage from '../pages/calculator/CalculatorPage';
-import DiaryPage from '../pages/diary/DiaryPage';
-
-import HomePage from '../pages/home/HomePage';
 import { getDayInfoOperation } from '../redux/diary/diaryOperations';
 
 const App = () => {
