@@ -11,10 +11,6 @@ const MobileBarStyled = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 40px;
-background-color: #EFF1F3 ;
-}
-.bottomPart div {
- 
 }
 button {
  

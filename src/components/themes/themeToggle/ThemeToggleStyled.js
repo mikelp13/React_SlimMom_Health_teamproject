@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const ToggleStyled = styled.div`
+  @media screen and (min-width: 320px) {
     .toggleWrapper {
   position: absolute;
-  top: 47px;
-  right: 230px;
+  top: 40px;
+  right: -20px;
   overflow: hidden;
   padding: 10px 10px;
   transform: translate3d(-50%, -50%, 0);
@@ -12,6 +13,21 @@ export const ToggleStyled = styled.div`
   input {
     position: absolute;
     left: -99em;
+  }
+ }
+}
+
+@media screen and (min-width: 768px) {
+  .toggleWrapper {
+    top: 80px;
+    right: -40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .toggleWrapper {
+    top: 45px;
+    right: -40px;
   }
 }
 

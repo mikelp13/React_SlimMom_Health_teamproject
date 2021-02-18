@@ -3,8 +3,6 @@ import TabletBar from "../navBar/tabletBar/TabletBar";
 import DesktopBar from "../navBar/desktopBar/DesktopBar";
 import Responsive from 'react-responsive';
 import AppBarStyled from "./AppBarStyled";
-// import logo from '../../assets/img/logo/logo.png';
-// import logoWhite from '../../assets/img/logo/logo123.png';
 // import NavBar from "../navBar/NavBar";
 
 
@@ -26,13 +24,6 @@ const Mobile = props => <Responsive {...props} maxWidth={767} />;
   }
   
   export default AppBar
-          
-          
-{/* {localStorage.getItem('theme') === 'dark' ?
-  <img src={logoWhite} alt='logo' width='46' height='66'></img>
-  :
-  <img src={logo} alt='logo' width='46'></img>} */}
-
 
 
  

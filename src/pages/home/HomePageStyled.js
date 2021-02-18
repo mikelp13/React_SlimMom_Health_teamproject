@@ -1,19 +1,15 @@
 import styled from 'styled-components';
-import tabletImg from '../../assets/img/homePage/tablet-background-img-min.png';
-import desktopImg from '../../assets/img/homePage/desktop-background-img-min.png';
 
 export const PageContainer = styled.section`
     width: 100%;
 
     @media (min-width: 768px) and (max-width: 1279px) {
         min-height: 944px;
-        background-image: url(${tabletImg});
         background-repeat: no-repeat;
         background-position: right bottom;
     }
     @media (min-width: 1280px) {
         min-height: 850px;
-        background-image: url(${desktopImg});
         background-repeat: no-repeat;
         background-position: right;
     }

@@ -17,7 +17,7 @@ li {
   color: var(--secondary-text);
 }
 .navlinkActive {
-  color: var(--main-text);
+  color: var(--accent-color);
 }
 
 
