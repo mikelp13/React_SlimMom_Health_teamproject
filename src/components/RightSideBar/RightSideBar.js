@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from "moment";
+import moment from 'moment';
 import { useSelector } from 'react-redux';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
@@ -13,17 +13,21 @@ const RightSideBar = () => {
         percentsOfDailyRate,
     } = useSelector(diarySelectors.getDayInfo);
 
-    console.log('date', diarySelectors.getDayInfo)
+    console.log('date', diarySelectors.getDayInfo);
 
-    const productsList = useSelector(
-        state => state.auth.user.userData.notAllowedProducts,
+    const productsList = useSelector(state =>
+        state.auth.user.userData.notAllowedProducts.slice(0, 5),
     );
+    console.log(productsList);
+
 
     return (
         <SideBarContainer className="sideBarContainer">
             <div className="rightSideBar">
                 <div className="rightBarSummary">
-                    <p className="rightBarTitle">Сводка за {moment(date).format("DD.MM.YYYY")}</p>
+                    <p className="rightBarTitle">
+                        Сводка за {moment(date).format('DD.MM.YYYY')}
+                    </p>
                     <ul className="rightBarList">
                         <li className="rightBarItem">
                             <span className="rightBarValue">Осталось</span>
@@ -58,9 +62,9 @@ const RightSideBar = () => {
                                 Нерекомендуемые продукты
                             </p>
                             <ul>
-                                <li>{productsList[0]}</li>
-                                <li>{productsList[1]}</li>
-                                <li>{productsList[2]}</li>
+                                {productsList.map((product, idx) => (
+                                    <li key={idx}>{product}</li>
+                                ))}
                             </ul>
                         </>
                     ) : (
