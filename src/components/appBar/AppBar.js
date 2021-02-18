@@ -15,17 +15,19 @@ const AppBar = () => {
     //const isTablet = useMediaQuery({ query: '(max-width: 1279px )' })
     //const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
     return (
-        <AppBarStyled>
-            <Desktop>
-                <DesktopBar />
-            </Desktop>
-            <Tablet>
-                <TabletBar />
-            </Tablet>
-            <Mobile>
-                <MobileBar />
-            </Mobile>
-        </AppBarStyled>
+        <div className="container">
+            <AppBarStyled>
+                <Desktop>
+                    <DesktopBar />
+                </Desktop>
+                <Tablet>
+                    <TabletBar />
+                </Tablet>
+                <Mobile>
+                    <MobileBar />
+                </Mobile>
+            </AppBarStyled>
+        </div>
     );
 };
 

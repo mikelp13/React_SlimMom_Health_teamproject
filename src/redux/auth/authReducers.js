@@ -5,6 +5,8 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authActions from './authActions';
 import dailyRateActions from '../dailyRate/dailyRateAction';
+import diaryActions from '../diary/diaryActions';
+
 
 const initialUserState = {
     email: '',
@@ -85,10 +87,16 @@ const errorReducer = createReducer(null, {
     [authActions.getNewTokenSuccess]: () => null,
 
     [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
-    [authActions.getDailyRateSuccess]: () => null,
+    [dailyRateActions.getDailyRateSuccess]: () => null,
 
     [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
-    [authActions.getDailyRateSuccessAuth]: () => null,
+    [dailyRateActions.getDailyRateSuccessAuth]: () => null,
+
+    [diaryActions.addProductError]: (_, { payload }) => payload,
+    [diaryActions.addProductSuccess]: () => null,
+
+    [diaryActions.getProductError]: (_, { payload }) => payload,
+    [diaryActions.getProductSuccess]: () => null,
 });
 
 const loadingReducer = createReducer(false, {
@@ -111,6 +119,14 @@ const loadingReducer = createReducer(false, {
     [dailyRateActions.getDailyRateRequestAuth]: () => true,
     [dailyRateActions.getDailyRateRequestSuccessAuth]: () => false,
     [dailyRateActions.getDailyRateRequestErrorAuth]: () => false,
+
+    [diaryActions.addProductRequest]: () => true,
+    [diaryActions.addProductSuccess]: () => false,
+    [diaryActions.addProductError]: () => false,
+
+    [diaryActions.getProductRequest]: () => true,
+    [diaryActions.getProductSuccess]: () => false,
+    [diaryActions.getProductError]: () => false,
 });
 
 const userPersistConfig = {
