@@ -13,7 +13,10 @@ import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
 import LoadSpinner from './loader/Loader';
 
-// import Modal from './modal/Modal';
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import DiaryPage from '../pages/diary/DiaryPage';
+
+import HomePage from '../pages/home/HomePage';
 
 const App = () => {
     const history = useHistory();
