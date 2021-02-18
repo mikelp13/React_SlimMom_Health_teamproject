@@ -35,18 +35,7 @@ const mainRoutes = [
         isPrivate: false,
         restricted: true,
     },
-    {
-        path: '/diary',
-        name: 'Дневник',
-        exact: true,
-        component: lazy(() =>
-            import(
-                '../pages/diary/DiaryPage' /* webpackChunkName: "DiaryPage"*/
-            ),
-        ),
-        isPrivate: true,
-        restricted: false,
-    },
+  
     {
         path: '/calculator',
         name: 'Калькулятор',
@@ -54,6 +43,18 @@ const mainRoutes = [
         component: lazy(() =>
             import(
                 '../pages/calculator/CalculatorPage' /* webpackChunkName: "CalculatorPage"*/
+            ),
+        ),
+        isPrivate: true,
+        restricted: false,
+    },
+    {
+        path: '/diary',
+        name: 'Дневник',
+        exact: false,
+        component: lazy(() =>
+            import(
+                '../pages/diary/DiaryPage' /* webpackChunkName: "DiaryPage"*/
             ),
         ),
         isPrivate: true,

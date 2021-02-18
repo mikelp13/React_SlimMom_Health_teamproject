@@ -1,70 +1,59 @@
-import React, { Component, createRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useEffect, useState } from 'react';
+import NavigationItem from '../navigation/NavigationItem';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
-import './Modal.css';
+import mainRoutes from '../../routes/routes';
+import BurgerIcon from '../icon/BurgerIcon';
+import Cross from '../icon/CrossIcon';
+// import './Modal.css';
+import ModalStyled from './ModalStyled';
 
-const modal_root = document.querySelector('#modal-root');
+const Modal = ({ openModal, onHandelClick, calories, productsList }) => {
+    const [onClick, setOnClick] = useState(false);
 
-export default class Modal extends Component {
-    // openModal = e => {
-    //     this.setState({
-    //         isModalOpen: true,
-    //
-    //     });
-    // };
-    // state = {
-    //     isModalOpen: true,
-    // };
-    // closeModal = () => {
-    //     this.setState({ isModalOpen: false });
-    // };
+    // const [openModal, setOpenModal] = useState(false);
+    // const isAuth = useSelector(state => state.auth.user.isAuth);
+    // const onHandelClick = () => setOnClick(!onClick);
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyPress);
+        return () => {
+            document.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
 
-    backdrop = createRef();
-
-    componentDidMount() {
-        document.addEventListener('keydown', this.handleKeyPress);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('keydown', this.handleKeyPress);
-    }
-
-    handleKeyPress = e => {
-        console.log(e);
-        if (e.code !== 'Escape') {
-            return;
+    const handleKeyPress = e => {
+        if (e.code === 'Escape') {
+            onHandelClick();
         }
-
-        this.props.onClose();
     };
 
-    onHandleBackdropClick = e => {
-        if (this.backdrop.current && e.target !== this.backdrop.current) {
-            return;
-        }
-        this.props.onClose();
+    const onOverlayClick = e => {
+        onHandelClick();
     };
 
-    render() {
-        return createPortal(
-            <>
-                <div
-                    className="modalWrapper"
-                    ref={this.backdrop}
-                    onClick={this.props.onClose}
-                    role="presentation"
-                >
-                    <div className="modalBody">
-                        <button
-                            type="button"
-                            className="modalBtn"
-                            onClick={this.closeModal}
-                        ></button>
-                        <DailyCalorieIntake />
+    return (
+        <>
+            {openModal && (
+                <ModalStyled>
+                    <div className="overlay" onClick={onOverlayClick}>
+                       
+                        <div className="modalBody ">
+                            <button onClick={onHandelClick}>
+                                {onClick ? (
+                                    <Cross width={25} />
+                                ) : (
+                                    <BurgerIcon width={30} />
+                                )}
+                                </button>
+                            <DailyCalorieIntake
+                                kcalQuantity={calories}
+                                products={productsList}
+                            />
+                        </div>
                     </div>
-                </div>
-            </>,
-            modal_root,
-        );
-    }
-}
+                </ModalStyled>
+            )}
+        </>
+    );
+};
+
+export default Modal;

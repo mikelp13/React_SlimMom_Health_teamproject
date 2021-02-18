@@ -3,16 +3,16 @@ import CalculatorCaloriesForm from '../../components/calculatorCaloriesForm/Calc
 import { PageContainer } from './HomePageStyled';
 
 const HomePage = () => (
-    <PageContainer className="mainPage">
-        <section className="mainPageSection">
+        <PageContainer className="mainPageSection">
             <div className="container">
+              <div className="mainPageWrapper">
                 <h2 className="mainPageTitle">
                     Просчитай свою суточную норму калорий прямо сейчас
                 </h2>
                 <CalculatorCaloriesForm />
+                </div>
             </div>
-        </section>
-    </PageContainer>
+        </PageContainer>
 );
 
 export default HomePage;
