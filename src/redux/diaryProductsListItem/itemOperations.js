@@ -1,10 +1,7 @@
-import axios from 'axios';
+
 import itemActions from './itemActions';
 import api from '../../components/DiaryProductsListItem/apitest'
 
-const url = 'https://slimmom-backend.goit.global/';
-
-axios.defaults.baseURL = url;
 // =====================================================================================for test 
 export const getProducts = date => (dispatch, getState) => {
     // const {

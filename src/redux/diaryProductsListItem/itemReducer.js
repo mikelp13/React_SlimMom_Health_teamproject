@@ -13,11 +13,78 @@ const initialState = {
             id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
         },
         {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+        {
+            title: 'Ликёр Baileys',
+            weight: 100,
+            kcal: 327,
+            id: '03ee31b6-36df-4327-9041-51d96dd3bf0f'
+        },
+
+        {
             title: 'Пиво Budweiser Budvar Original',
             weight: 100,
             kcal: 44,
             id: '833681b7-98d0-4b4a-9418-707de4d995d9'
-        }
+        },
     ]
 };
 
