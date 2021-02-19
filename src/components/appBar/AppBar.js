@@ -31,6 +31,7 @@ const AppBar = () => {
             </Mobile>
             </div>
         </AppBarStyled>
+
     );
 };
 

@@ -4,21 +4,12 @@ import { NavLink } from "react-router-dom";
 import NavigationItemStyled from "./NavigationItemStyled";
 
 
+
 const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
   const isAuth = useSelector((state) => state.auth.user.isAuth);
     return (
-      
+
     <>
-      {/*!isPrivate && !restricted && (
-        <li  key={path}>
-          <NavLink
-            to={path}
-            exact={exact}
-            className="navlink" activeClassName="navlink-active">
-            {name.toUpperCase()}
-          </NavLink>
-        </li>
-      )*/}
 
       {isAuth && isPrivate && !restricted && (
         <NavigationItemStyled key={path}>
@@ -41,7 +32,9 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
           </NavLink>
         </NavigationItemStyled>
       )}
-    </>
+
+      </>
+
   );
 };
 

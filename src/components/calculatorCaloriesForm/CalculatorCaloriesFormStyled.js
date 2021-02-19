@@ -96,15 +96,11 @@ export const FormContainer = styled.div`
 
     .caloriesFormRadioError {
         position: absolute;
-        top: 2px;
-        right: 35px;
+        top: 60px;
+        left: 0;
         color: #e11616;
         font-size: 12px;
         font-weight: 400;
-
-        @media (min-width: 768px) {
-          right: 15px;
-        }
     }
 
     .radioButton {

@@ -15,6 +15,7 @@ const AppBarStyled = styled.div`
     }
 
     @media screen and (min-width: 1280px) {
+        width: 100%;
         border-bottom: none;
         position: absolute;
         top: 82px;
