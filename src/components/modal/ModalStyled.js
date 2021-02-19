@@ -8,7 +8,7 @@ const ModalStyled = styled.div `
   .modalBody {
     position: fixed;
     width: 320px;
-    top: 50%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -44%);
     z-index: 1050;
@@ -20,21 +20,6 @@ const ModalStyled = styled.div `
 }
  
   .overlay {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: fixed;
-    top: 8%;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: var(--burger-background);
-   
-    font-size: 24px;
-    padding-top: 108px; */
-
     z-index: 1200;
     position: fixed;
     display: flex;
@@ -48,6 +33,19 @@ const ModalStyled = styled.div `
     background: transparent;
     background-color: rgba(33, 33, 33, 0.12);
   }  
+
+  .modalBtn{
+    margin: 17px 15px 0 15px;
+    padding-left:0;
+    padding-right:0;
+    border: none;
+    outline: none;
+    height: 12px;
+    width:12px;
+    background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent;
+    color: #000000;
+    cursor: pointer;
+  }
   .overlay .navlink {
     color: var(--secondary-text);
   }

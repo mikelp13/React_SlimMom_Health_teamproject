@@ -15,10 +15,10 @@ const initialUserState = {
     userData: {
         age: '',
         bloodType: '',
-        dailyRate: '',
+        dailyRate: '3',
         desiredWeight: '',
         height: '',
-        notAllowedProducts: [],
+        notAllowedProducts: ['apple', 'orange', 'fish', 'egg', 'bread', 'butter'],
     },
 };
 
@@ -41,12 +41,14 @@ const userReducer = createReducer(initialUserState, {
     [authActions.logoutSuccess]: () => initialUserState,
 
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
-      ...state, userData:{...state.userData, ...payload}
+        ...state,
+        userData: {...state.userData, ...payload }
     }),
     [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
-      ...state, userData:{...state.userData, ...payload}
+        ...state,
+        userData: {...state.userData, ...payload }
     })
-     
+
 });
 
 const initialToken = {

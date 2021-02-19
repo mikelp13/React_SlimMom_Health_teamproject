@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import NavigationItem from '../navigation/NavigationItem';
+import React, { useEffect } from 'react';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
-import mainRoutes from '../../routes/routes';
-import BurgerIcon from '../icon/BurgerIcon';
-import Cross from '../icon/CrossIcon';
+import IconBack from '../modal/svg/IconBack';
+import IconCross from '../modal/svg/IconCross';
 // import './Modal.css';
 import ModalStyled from './ModalStyled';
 
-const Modal = ({ openModal, onHandelClick, calories, productsList }) => {
-    const [click, setClick] = useState(false);
+const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
+    // const [onClick, setOnClick] = useState(false);
 
     // const [openModal, setOpenModal] = useState(false);
     // const isAuth = useSelector(state => state.auth.user.isAuth);
-    // const onHandelClick = () => setClick(!click);
+    // const onHandelClick = () => setoNClick(!onClick);
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -35,20 +33,21 @@ const Modal = ({ openModal, onHandelClick, calories, productsList }) => {
             {openModal && (
                 <ModalStyled>
                     <div className="overlay" onClick={onOverlayClick}>
-                        {mainRoutes.map(route => (
-                            <NavigationItem {...route} key={route.path} />
-                        ))}
                         <div className="modalBody ">
-                            <button onClick={onHandelClick}>
-                                {click ? (
-                                    <Cross width={25} />
+                            <button
+                                onClick={onHandelClick}
+                                className="modalBtn"
+                                type="button"
+                            >
+                                {window.innerWidth < 768 ? (
+                                    <IconBack />
                                 ) : (
-                                    <BurgerIcon width={30} />
+                                    <IconCross />
                                 )}
                             </button>
                             <DailyCalorieIntake
-                                kcalQuantity={calories}
-                                products={productsList}
+                                dailyRate={calories}
+                                products={notAllowedProducts}
                             />
                         </div>
                     </div>
