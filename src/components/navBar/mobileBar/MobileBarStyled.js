@@ -2,6 +2,8 @@ import styled from 'styled-components';
 const MobileBarStyled = styled.div`
 
 .upperPart {
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 18px; 
@@ -10,6 +12,8 @@ const MobileBarStyled = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
   height: 40px;
 background-color: #EFF1F3 ;
 }

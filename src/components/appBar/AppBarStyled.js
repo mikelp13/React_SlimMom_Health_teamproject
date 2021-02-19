@@ -1,11 +1,17 @@
 
 import styled from 'styled-components';
 
-const AppBarStyled = styled.div`
+const AppBarStyled = styled.header`
     padding-top: 18px;
     border-bottom: #e0e0e0 solid 1px;
   
- 
+    @media screen and (max-width: 767px) {
+     .container{
+       width: 100%;
+       padding: 0;
+      margin: 0;
+    }
+  }
 
     @media screen and (min-width: 768px) and (max-width: 1279px) {
         border-bottom: #e0e0e0 solid 1px;
