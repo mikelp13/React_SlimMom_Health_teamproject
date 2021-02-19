@@ -17,10 +17,10 @@ const initialUserState = {
     userData: {
         age: '',
         bloodType: '',
-        dailyRate: '',
+        dailyRate: '6',
         desiredWeight: '',
         height: '',
-        notAllowedProducts: [],
+        notAllowedProducts: ['apple', 'orange', 'fish', 'egg', 'bread', 'butter'],
     },
 };
 
@@ -37,7 +37,7 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-        userData: { ...state.userData, ...payload },
+        userData: {...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
@@ -47,16 +47,16 @@ const userReducer = createReducer(initialUserState, {
         email: payload.email,
         username: payload.username,
         id: payload.id,
-        userData: { ...payload.userData },
+        userData: {...payload.userData },
     }),
 
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
         ...state,
-        userData: { ...state.userData, ...payload },
+        userData: {...state.userData, ...payload },
     }),
     [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
         ...state,
-        userData: { ...state.userData, ...payload },
+        userData: {...state.userData, ...payload },
     }),
 });
 
