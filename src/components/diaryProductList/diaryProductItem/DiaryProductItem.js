@@ -8,14 +8,19 @@ import { deleteProductOperation } from '../../../redux/diary/diaryOperations';
 
 const DiaryProductItem = ({ name, weight, cal, productId }) => {
     const dayId = useSelector(diarySelectors.getDayId);
- 
+  
     const dispatch = useDispatch();
+console.log('productId', productId)
 
-    const handleClick = () => {
+
+    const handleClick = (e) => {
+      const currentProductId = e.currentTarget.id
+
+      console.log('currentProductId', currentProductId)
         dispatch(
             deleteProductOperation({
                 dayId,
-                eatenProductId: productId,
+                eatenProductId: currentProductId,
             }),
         );
     };
@@ -27,7 +32,7 @@ const DiaryProductItem = ({ name, weight, cal, productId }) => {
             <span>
                 {Math.round(cal)} <span>ккал</span>
             </span>
-            <button onClick={handleClick}>
+            <button onClick={handleClick} id={productId}>
                 <CloseIcon />
             </button>
         </li>

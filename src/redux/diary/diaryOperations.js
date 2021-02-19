@@ -57,16 +57,22 @@ const getDayInfoOperation = (
     }
 };
 
-const deleteProductOperation = product => async dispatch => {
+const deleteProductOperation = product => async (dispatch, getState) => {
     dispatch(diaryActions.deleteProductRequest());
-
+const eatenProductsArr = getState().diaryProducts.dayInfo.eatenProducts
     try {
-        const response = await axios.post(
+        const response = await axios.delete(
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { data: product },
         );
         console.log('DELETE', response);
-        // dispatch(diaryActions.deleteProductRequest(response.data));
+        dispatch(
+            diaryActions.deleteProductSuccess({
+                ...response.data,
+                delItemid: product.eatenProductId,
+                eatenProductsArr,
+            }),
+        );
     } catch (error) {
         dispatch(diaryActions.deleteProductError(error.message));
     }
