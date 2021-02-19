@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Link, Route,  useRouteMatch } from 'react-router-dom';
 import DiaryAdditionalPage from './DiaryAdditionalPage'
 import { useMediaQuery } from 'react-responsive';
 
@@ -11,10 +11,9 @@ const DiaryPage = () => {
         <>
         
      {isMobile && <> 
-     <Switch>
-    <Route path={`${match.url}`}  component={DiaryPage}/>
+     
      <Route path={`${match.url}/product`} exact component={DiaryAdditionalPage}/>
-     </Switch>
+     
       <button
        type='button' style={{color: 'white', backgroundColor:'orange', }}> <Link
        to={`${match.url}/product`} > + </Link> </button> </>

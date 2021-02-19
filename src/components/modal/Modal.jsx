@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NavigationItem from '../navigation/NavigationItem';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
-import mainRoutes from '../../routes/routes';
 import BurgerIcon from '../icon/BurgerIcon';
 import Cross from '../icon/CrossIcon';
 // import './Modal.css';

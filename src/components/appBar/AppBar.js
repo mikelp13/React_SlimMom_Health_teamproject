@@ -4,7 +4,10 @@ import DesktopBar from '../navBar/desktopBar/DesktopBar';
 import Responsive from 'react-responsive';
 import AppBarStyled from './AppBarStyled';
 
+
+
 const AppBar = () => {
+    
     const Desktop = props => <Responsive {...props} minWidth={1280} />;
     const Tablet = props => (
         <Responsive {...props} minWidth={768} maxWidth={1279} />
@@ -16,6 +19,7 @@ const AppBar = () => {
     //const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
     return (
         <AppBarStyled>
+            <div className='container'>
             <Desktop>
                 <DesktopBar />
             </Desktop>
@@ -25,6 +29,7 @@ const AppBar = () => {
             <Mobile>
                 <MobileBar />
             </Mobile>
+            </div>
         </AppBarStyled>
     );
 };

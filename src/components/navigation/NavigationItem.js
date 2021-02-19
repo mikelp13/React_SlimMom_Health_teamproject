@@ -8,7 +8,7 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
   const isAuth = useSelector((state) => state.auth.user.isAuth);
     return (
       
-    <NavigationItemStyled>
+    <>
       {/*!isPrivate && !restricted && (
         <li  key={path}>
           <NavLink
@@ -21,27 +21,27 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
       )*/}
 
       {isAuth && isPrivate && !restricted && (
-        <li key={path}>
+        <NavigationItemStyled key={path}>
           <NavLink
             to={path}
             exact={exact}
             className="navlink" activeClassName="navlinkActive">
             {name.toUpperCase()}
           </NavLink>
-        </li>
+        </NavigationItemStyled>
       )}
 
       {!isAuth && !isPrivate && restricted && (
-        <li  key={path}>
+        <NavigationItemStyled  key={path}>
           <NavLink
             to={path}
             exact={exact}
             className="navlink" activeClassName="navlinkActive">
             {name.toUpperCase()}
           </NavLink>
-        </li>
+        </NavigationItemStyled>
       )}
-    </NavigationItemStyled>
+    </>
   );
 };
 
