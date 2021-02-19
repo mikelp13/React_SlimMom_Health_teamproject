@@ -19,7 +19,7 @@ const DiaryAddProductForm = () => {
         state => state.diaryProducts?.products[0]?._id,
     );
 
-    const products = useSelector(state => state.diaryProducts.products);
+    const products = useSelector(diarySelectors.getDayProducts());
     const dispatch = useDispatch();
     const debounce = require('debounce');
     const size = useWindowSize();
@@ -57,7 +57,7 @@ const DiaryAddProductForm = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        console.log(value);
+
         setState(prev => ({ ...prev, [name]: value }));
         if (products.some(product => product.title.ru.includes(value))) {
             setState(prev => ({
@@ -115,9 +115,9 @@ const DiaryAddProductForm = () => {
                         />
                     </label>
                 </div>
-                <select className="selectDairyAddProduct">
+                {/* <select className="selectDairyAddProduct">
                     <option></option>
-                </select>
+                </select> */}
                 <button type="submit" className="buttonDairyAddProduct">
                     {size.width < 768 ? 'Добавить' : '+'}
                 </button>

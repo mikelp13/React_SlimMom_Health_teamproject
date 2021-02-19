@@ -1,41 +1,39 @@
 import React from 'react';
-import { LI } from './DiaryProductItemStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteEatenProduct } from '../../../redux/diaryProductsListItem/itemOperations';
+// import { LI } from './DiaryProductItemStyle';
 import CloseIcon from './CloseIcon';
+import diarySelectors from '../../../redux/diary/diarySelectors';
 
-const DiaryProductItem = () => {
+
+const DiaryProductItem = ({ name, weight, cal, productId }) => {
+    const dayId = useSelector(diarySelectors.getDayProductId);
+    const date = useSelector(diarySelectors.getDate);
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(
+            deleteEatenProduct(
+                {
+                    dayId,
+                    productId,
+                },
+                date,
+            ),
+        );
+    };
+
     return (
-        <>
-            <LI>
-                <ul className="listDairyProduct">
-                    <li className="itemDairyProduct">Вода</li>
-                    <li className="itemDairyProduct">200 г</li>
-                    <li className="itemDairyProduct">470 ккал</li>
-                </ul>
-                <button className="buttonDairyProduct">
-                    <CloseIcon />
-                </button>
-            </LI>
-            <LI>
-                <ul className="listDairyProduct">
-                    <li className="itemDairyProduct">Шоколад</li>
-                    <li className="itemDairyProduct">200 г</li>
-                    <li className="itemDairyProduct">1594 ккал</li>
-                </ul>
-                <button className="buttonDairyProduct">
-                    <CloseIcon />
-                </button>
-            </LI>
-            <LI>
-                <ul className="listDairyProduct">
-                    <li className="itemDairyProduct">Печенье</li>
-                    <li className="itemDairyProduct">100 г</li>
-                    <li className="itemDairyProduct">100 ккал</li>
-                </ul>
-                <button className="buttonDairyProduct">
-                    <CloseIcon />
-                </button>
-            </LI>
-        </>
+        <li>
+            <span>{name}</span>
+            <span>{weight} г</span>
+            <span>
+                {Math.round(cal)} <span>ккал</span>
+            </span>
+            <button onClick={handleClick}>
+                <CloseIcon />
+            </button>
+        </li>
     );
 };
 

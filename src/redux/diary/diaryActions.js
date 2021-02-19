@@ -14,18 +14,24 @@ const getDayInfoError = createAction('diary/getDayInfoError');
 
 const setCurrentDay = createAction('diary/setCurrentDay');
 
+const deleteProductRequest = createAction('diary/deleteProductRequest');
+const deleteProductSuccess = createAction('diary/deleteProductSuccess');
+const deleteProductError = createAction('diary/deleteProductError');
+
 const diaryActions = {
-  addProductRequest,
-  addProductSuccess,
-  addProductError,
-  getProductRequest,
-  getProductSuccess,
-  getProductError,
-  getDayInfoRequest,
-  getDayInfoSuccess,
-  getDayInfoError,
-  setCurrentDay,
+    addProductRequest,
+    addProductSuccess,
+    addProductError,
+    getProductRequest,
+    getProductSuccess,
+    getProductError,
+    getDayInfoRequest,
+    getDayInfoSuccess,
+    getDayInfoError,
+    setCurrentDay,
+    deleteProductRequest,
+    deleteProductSuccess,
+    deleteProductError
 };
 
-export default diaryActions
-
+export default diaryActions;

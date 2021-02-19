@@ -43,18 +43,33 @@ const getDayInfoOperation = (
             date,
         );
         console.log('response', response);
-        // response.data.eatenProducts
-        //     ? dispatch(diaryActions.getDayInfoSuccess(response.data))
-        //     : dispatch(
-        //       diaryActions.getDayInfoSuccess({
-        //               date: date.date,
-        //               eatenProducts: [],
-        //               daySummary: {},
-        //           }),
-        //       );
+        response.data.eatenProducts
+            ? dispatch(diaryActions.getDayInfoSuccess(response.data))
+            : dispatch(
+              diaryActions.getDayInfoSuccess({
+                      date: date.date,
+                      eatenProducts: [],
+                      daySummary: {},
+                  }),
+              );
     } catch (error) {
         dispatch(diaryActions.getDayInfoError(error));
     }
 };
 
+
+// export const deleteEatenProduct = (product) => dispatch => {
+//   dispatch(itemActions.deleteEatenProductRequest());
+//   api
+//       .deleteEatenProduct(product)
+//       .then(({ data }) => {
+          
+//           getDayInfoOperation();
+        
+//           return dispatch(
+//               itemActions.deleteEatenProductSuccess(data.newDaySummary),
+//           );
+//       })
+//       .catch(err => dispatch(itemActions.deleteEatenProductError(err)));
+// };
 export { addProductOperation, getProductOperation, getDayInfoOperation };

@@ -1,20 +1,20 @@
-import { createAction } from '@reduxjs/toolkit';
+// import { createAction } from '@reduxjs/toolkit';
 
-const deleteEatenProductRequest = createAction(
-    'user/deleteEatenProductRequest',
-);
-const deleteEatenProductSuccess = createAction(
-    'user/deleteEatenProductSuccess',
-);
-const deleteEatenProductError = createAction('user/deleteEatenProductError');
+// const deleteEatenProductRequest = createAction(
+//     'user/deleteEatenProductRequest',
+// );
+// const deleteEatenProductSuccess = createAction(
+//     'user/deleteEatenProductSuccess',
+// );
+// const deleteEatenProductError = createAction('user/deleteEatenProductError');
 
 
 
-const itemActions = {
-    deleteEatenProductRequest,
-    deleteEatenProductSuccess,
-    deleteEatenProductError,
+// const itemActions = {
+//     deleteEatenProductRequest,
+//     deleteEatenProductSuccess,
+//     deleteEatenProductError,
 
-}
+// }
 
-export default itemActions
+// export default itemActions
