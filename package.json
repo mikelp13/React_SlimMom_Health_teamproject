@@ -54,5 +54,11 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/helper-define-map": "^7.12.13",
+        "@babel/helpers": "^7.12.13",
+        "@babel/preset-react": "^7.12.13"
     }
 }

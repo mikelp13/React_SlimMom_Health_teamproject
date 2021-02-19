@@ -14,7 +14,7 @@ const UserMenu = () => {
     return (
         <UserMenuStyled>
              
-            <p>{username}</p>
+            <p className="userName">{username}</p>
             <img src={strip} alt='strip'></img>
             <button type='button' onClick={onHandleLogout}>Выйти</button>
             </UserMenuStyled>

@@ -16,7 +16,6 @@ const BurgerMenuStyled = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: var(--burger-background);
     z-index: 1;
     font-size: 24px;
     padding-top: 108px;
@@ -25,10 +24,10 @@ const BurgerMenuStyled = styled.div`
     color: var(--secondary-text);
   }
   .overlay .navlinkActive {
-    color: var(--light-text);
+    color: var(--accent-color);
 }
 .overlay .navlinkActive:hover {
-    color: var(--light-text);
+    color: var(--accent-color);
 }
 
 

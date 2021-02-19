@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import groupDesc from '../../assets/img/loginPage/GroupDesc.png';
-import groupTabl from '../../assets/img/loginPage/GroupTabl.png';
-
 const LoginPageStyled = styled.section`
     .wrapLoginPage {
         color: var(--secondary-text);
@@ -20,7 +17,6 @@ const LoginPageStyled = styled.section`
 
     @media screen and (min-width: 768px) {
         min-height: 944px;
-        background-image: url(${groupTabl});
         background-position: right bottom;
         background-repeat: no-repeat;
 
@@ -31,7 +27,6 @@ const LoginPageStyled = styled.section`
     }
     @media screen and (min-width: 1280px) {
         min-height: 850px;
-        background-image: url(${groupDesc});
         background-position: right bottom;
         background-repeat: no-repeat;
         .wrapLoginPage {
