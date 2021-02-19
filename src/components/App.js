@@ -18,9 +18,6 @@ import LoadSpinner from './loader/Loader';
 import { GlobalStyles } from './themes/globalStyles';
 import { lightTheme, darkTheme } from './themes/Themes';
 import ThemeToggle from './themes/themeToggle/ThemeToggle';
-import CalculatorPage from '../pages/calculator/CalculatorPage';
-import DiaryPage from '../pages/diary/DiaryPage';
-import HomePage from '../pages/home/HomePage';
 import { getDayInfoOperation } from '../redux/diary/diaryOperations';
 
 const App = () => {
@@ -38,7 +35,7 @@ const App = () => {
 
     useEffect(() => {
         isAuth && dispatch(refreshTokenOperation());
-        isAuth && dispatch(getDayInfoOperation());
+        // isAuth && dispatch(getDayInfoOperation());
         // eslint-disable-next-line
     }, []);
 
