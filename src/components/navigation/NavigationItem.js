@@ -8,7 +8,9 @@ import NavigationItemStyled from "./NavigationItemStyled";
 const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
   const isAuth = useSelector((state) => state.auth.user.isAuth);
     return (
+
     <>
+
       {isAuth && isPrivate && !restricted && (
         <NavigationItemStyled key={path}>
           <NavLink
@@ -30,7 +32,9 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
           </NavLink>
         </NavigationItemStyled>
       )}
+
       </>
+
   );
 };
 

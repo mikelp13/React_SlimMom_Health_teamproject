@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const DesktopBarStyled = styled.div`
 display: flex;
 justify-content: space-between;
