@@ -14,6 +14,8 @@ const DailyCalorieIntakeStyled = styled.div`
         margin: 0 auto;
         margin-top: 40px;
         margin-bottom: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
         width: 290px;
         height: 74px;
         left: 15px;
@@ -46,6 +48,8 @@ const DailyCalorieIntakeStyled = styled.div`
 
     .DailyCalorieIntakeProducts {
         margin-top: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
         font-family: Verdana;
         font-style: normal;
         font-weight: bold;
@@ -109,7 +113,9 @@ const DailyCalorieIntakeStyled = styled.div`
         margin-bottom: 20px;
         width: 290px;
         height: 0px;
-        left: 15px;
+        margin-right: 15px;
+        margin-left: 15px;
+        /* left: 15px; */
         top: 366px;
         border: 1px solid var(--header-border);
     }

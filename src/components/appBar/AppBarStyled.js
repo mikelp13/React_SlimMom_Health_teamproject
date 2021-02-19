@@ -31,8 +31,6 @@ export default AppBarStyled;
     margin-left: 10px;
     font-family: 'Gotham Pro';
     font-size: 22px;
-    color: var(--main-text);
-
   }
   .logo p span {
     color: var(--accent-color)
@@ -43,6 +41,7 @@ export default AppBarStyled;
     } 
     .logo img {
         width: 70px;
+        min-height: 66px;
     }
     .logo p {
       margin-left: -10px;

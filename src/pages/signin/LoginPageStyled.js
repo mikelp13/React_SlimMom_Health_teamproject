@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import groupDesc from '../../assets/img/loginPage/GroupDesc.png';
-import groupTabl from '../../assets/img/loginPage/GroupTabl.png';
-
 const RegisterPageStyled = styled.section`
     .wrapLoginPage {
         color: var(--secondary-text);
@@ -19,7 +16,6 @@ const RegisterPageStyled = styled.section`
 
     @media screen and (min-width: 768px) {
         min-height: 944px;
-        background-image: url(${groupTabl});
         background-position: right bottom;
         background-repeat: no-repeat;
 
@@ -30,7 +26,6 @@ const RegisterPageStyled = styled.section`
     }
     @media screen and (min-width: 1280px) {
         min-height: 850px;
-        background-image: url(${groupDesc});
         background-position: right bottom;
         background-repeat: no-repeat;
         .wrapLoginPage {

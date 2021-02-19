@@ -37,7 +37,8 @@ img {
 h1,
 h2,
 h3,
-h4, p {
+h4,
+p {
     margin: 0;
     padding: 0;
 }
@@ -105,11 +106,12 @@ a {
 }
 .mainButton:hover,
 .mainButton:focus {
-    background: var(--main-background);
+    background: transparent;
     border: 2px solid var(--accent-color);
     border-radius: 30px;
     outline: none;
     color: var(--accent-color);
+    box-shadow: 0px 4px 30px rgba(252, 132, 45, 0.5);
 }
 .secondButton {
     display: flex;

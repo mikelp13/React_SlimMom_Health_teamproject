@@ -4,7 +4,6 @@ import desktopImg from '../../assets/img/rightSideBar/desktop-bg-img.png';
 
 export const SideBarContainer = styled.div`
     padding: 40px 15px 50px 15px;
-    background-color: var(--secondary-background);
 
     @media (min-width: 768px) and (max-width: 1279px) {
         padding: 90px 0;
@@ -61,7 +60,6 @@ export const SideBarContainer = styled.div`
         font-style: normal;
         font-size: 14px;
         line-height: 17px;
-        color: var(--main-text);
         @media screen and (min-width: 320px) and (max-width: 767px) {
             margin-bottom: 25px;
         }

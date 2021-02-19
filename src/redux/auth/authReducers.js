@@ -7,21 +7,11 @@ import authActions from './authActions';
 import dailyRateActions from '../dailyRate/dailyRateAction';
 import diaryActions from '../diary/diaryActions';
 
-
 const initialUserState = {
     email: '',
     username: '',
     id: '',
     isAuth: false,
-
-    userData: {
-        age: '',
-        bloodType: '',
-        dailyRate: '',
-        desiredWeight: '',
-        height: '',
-        notAllowedProducts: [],
-    },
 };
 
 const userReducer = createReducer(initialUserState, {
@@ -37,7 +27,8 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-        userData: { ...state.userData, ...payload },
+
+        // userData: { ...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
@@ -47,16 +38,6 @@ const userReducer = createReducer(initialUserState, {
         email: payload.email,
         username: payload.username,
         id: payload.id,
-        userData: { ...payload.userData },
-    }),
-
-    [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
-        ...state,
-        userData: { ...state.userData, ...payload },
-    }),
-    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
-        ...state,
-        userData: { ...state.userData, ...payload },
     }),
 });
 

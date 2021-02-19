@@ -6,8 +6,11 @@ import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalen
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import { PageContainer } from './DiaryPageStyle';
+import { useDispatch } from 'react-redux';
+import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 
 const DiaryPage = () => {
+  const dispatch = useDispatch()
         const match = useRouteMatch();
 
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' }) 
@@ -42,9 +45,11 @@ const DiaryPage = () => {
 
             // Call handler right away so state gets updated with initial window size
             handleResize();
-
             // Remove event listener on cleanup
             return () => window.removeEventListener('resize', handleResize);
+
+            
+
         }, []); // Empty array ensures that effect is only run on mount
 
         return windowSize;

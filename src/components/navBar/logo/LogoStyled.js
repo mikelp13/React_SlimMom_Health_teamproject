@@ -11,7 +11,6 @@ const LogoStyled = styled.div`
     margin-left: 10px;
     font-family: 'Gotham Pro';
     font-size: 22px;
-    color: var(--main-text);
 
   }
   .logo p span {
@@ -21,6 +20,7 @@ const LogoStyled = styled.div`
     .logo img {
         margin-top: -40px;
         width: 70px;
+        min-height: 66px;
     }
     .logo p {
       margin-left: -25px;

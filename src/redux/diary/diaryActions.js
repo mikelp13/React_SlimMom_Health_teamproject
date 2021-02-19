@@ -12,6 +12,8 @@ const getDayInfoRequest = createAction('diary/getDayInfoRequest');
 const getDayInfoSuccess = createAction('diary/getDayInfoSuccess');
 const getDayInfoError = createAction('diary/getDayInfoError');
 
+const setCurrentDay = createAction('diary/setCurrentDay');
+
 const diaryActions = {
   addProductRequest,
   addProductSuccess,
@@ -21,7 +23,8 @@ const diaryActions = {
   getProductError,
   getDayInfoRequest,
   getDayInfoSuccess,
-  getDayInfoError
+  getDayInfoError,
+  setCurrentDay,
 };
 
 export default diaryActions

@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const UL = styled.div`
-    padding-left: 15px;
     list-style: none;
+    max-height: 256px;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 31px;
+    padding-right: 12px;
     @media screen and (min-width: 768px) {
-        padding-left: 92px;
+        padding-right: 31px;
     }
     @media screen and (min-width: 1200px) {
-        padding-left: 115px;
+        width: 530px;
+        padding-right: 42px;
+        max-height: 200px;
     }
 `;
