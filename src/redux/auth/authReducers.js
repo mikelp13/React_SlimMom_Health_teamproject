@@ -5,6 +5,8 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authActions from './authActions';
 import dailyRateActions from '../dailyRate/dailyRateAction';
+import diaryActions from '../diary/diaryActions';
+
 
 const initialUserState = {
     email: '',
@@ -15,7 +17,7 @@ const initialUserState = {
     userData: {
         age: '',
         bloodType: '',
-        dailyRate: '3',
+        dailyRate: '6',
         desiredWeight: '',
         height: '',
         notAllowedProducts: ['apple', 'orange', 'fish', 'egg', 'bread', 'butter'],
@@ -35,20 +37,27 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-        // userData: { ...payload.user.userData },
+        userData: {...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
 
+    [authActions.getCurrentUserSuccess]: (state, { payload }) => ({
+        ...state,
+        email: payload.email,
+        username: payload.username,
+        id: payload.id,
+        userData: {...payload.userData },
+    }),
+
     [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
         ...state,
-        userData: {...state.userData, ...payload }
+        userData: {...state.userData, ...payload },
     }),
     [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
         ...state,
-        userData: {...state.userData, ...payload }
-    })
-
+        userData: {...state.userData, ...payload },
+    }),
 });
 
 const initialToken = {
@@ -75,13 +84,30 @@ const tokenReducer = createReducer(initialToken, {
 
 const errorReducer = createReducer(null, {
     [authActions.signUpError]: (_, { payload }) => payload,
+    [authActions.signUpSuccess]: () => null,
+
     [authActions.signInError]: (_, { payload }) => payload,
+    [authActions.signInSuccess]: () => null,
+
     [authActions.logoutError]: () => null,
+
     [authActions.getNewTokenError]: (_, { payload }) => payload,
+    [authActions.getNewTokenSuccess]: () => null,
+
+    [authActions.getCurrentUserError]: (_, { payload }) => payload,
+    [authActions.getCurrentUserSuccess]: () => null,
 
     [dailyRateActions.getDailyRateError]: (_, { payload }) => payload,
-    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
+    [dailyRateActions.getDailyRateSuccess]: () => null,
 
+    [dailyRateActions.getDailyRateErrorAuth]: (_, { payload }) => payload,
+    [dailyRateActions.getDailyRateSuccessAuth]: () => null,
+
+    [diaryActions.addProductError]: (_, { payload }) => payload,
+    [diaryActions.addProductSuccess]: () => null,
+
+    [diaryActions.getProductError]: (_, { payload }) => payload,
+    [diaryActions.getProductSuccess]: () => null,
 });
 
 const loadingReducer = createReducer(false, {
@@ -97,6 +123,10 @@ const loadingReducer = createReducer(false, {
     [authActions.logoutSuccess]: () => false,
     [authActions.logoutError]: () => false,
 
+    [authActions.getCurrentUserRequest]: () => true,
+    [authActions.getCurrentUserSuccess]: () => false,
+    [authActions.getCurrentUserError]: () => false,
+
     [dailyRateActions.getDailyRateRequest]: () => true,
     [dailyRateActions.getDailyRateRequestSuccess]: () => false,
     [dailyRateActions.getDailyRateRequestError]: () => false,
@@ -104,12 +134,20 @@ const loadingReducer = createReducer(false, {
     [dailyRateActions.getDailyRateRequestAuth]: () => true,
     [dailyRateActions.getDailyRateRequestSuccessAuth]: () => false,
     [dailyRateActions.getDailyRateRequestErrorAuth]: () => false,
+
+    [diaryActions.addProductRequest]: () => true,
+    [diaryActions.addProductSuccess]: () => false,
+    [diaryActions.addProductError]: () => false,
+
+    [diaryActions.getProductRequest]: () => true,
+    [diaryActions.getProductSuccess]: () => false,
+    [diaryActions.getProductError]: () => false,
 });
 
 const userPersistConfig = {
     key: 'user',
     storage,
-    whitelist: ['username', 'email', 'id', 'isAuth'],
+    whitelist: ['isAuth'],
 };
 
 const tokenPersistConfig = {

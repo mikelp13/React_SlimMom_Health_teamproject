@@ -12,14 +12,15 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
     // const isAuth = useSelector(state => state.auth.user.isAuth);
     // const onHandelClick = () => setoNClick(!onClick);
     useEffect(() => {
-        document.addEventListener('keydown', handleKeyPress);
+        document.addEventListener('keyup', handleKeyPress);
         return () => {
-            document.removeEventListener('keydown', handleKeyPress);
+            document.removeEventListener('keyup', handleKeyPress);
         };
     }, []);
 
     const handleKeyPress = e => {
         if (e.code === 'Escape') {
+            console.log(e.code);
             onHandelClick();
         }
     };
