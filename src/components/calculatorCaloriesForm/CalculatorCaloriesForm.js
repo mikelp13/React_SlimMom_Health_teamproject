@@ -44,7 +44,7 @@ const CalculatorCaloriesForm = () => {
             ? dispatch(dailyRateAuthOperation(valuesNumObj, userId))
             : dispatch(dailyRateOperation(valuesNumObj));
 
-          !isAuth && onHandelClick()
+        !isAuth && onHandelClick();
         // setState({ ...initialState });
     };
     const validationSchema = Yup.object().shape({
@@ -81,8 +81,6 @@ const CalculatorCaloriesForm = () => {
         bloodType: Yup.number().required('Обязательно'),
     });
 
-
-
     return (
         <FormContainer>
             <Formik
@@ -96,12 +94,11 @@ const CalculatorCaloriesForm = () => {
                             : '',
                     bloodType:
                         userData && userData.bloodType
-                            ? userData.bloodType
+                            ? userData.bloodType.toString()
                             : '',
                 }}
                 onSubmit={values => {
                     handleSubmit(values);
-                  
                 }}
                 validationSchema={validationSchema}
             >
@@ -122,7 +119,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="100"
                                         max="250"
-                                        // required
                                     />
                                     {touched.height && errors.height && (
                                         <div className="caloriesFormError">
@@ -144,7 +140,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="18"
                                         max="100"
-                                        // required
                                     />
                                     {touched.age && errors.age && (
                                         <div className="caloriesFormError">
@@ -165,7 +160,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="20"
                                         max="500"
-                                        // required
                                     />
                                     {touched.weight && errors.weight && (
                                         <div className="caloriesFormError">
@@ -188,7 +182,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="20"
                                         max="500"
-                                        // required
                                     />
                                     {touched.desiredWeight &&
                                         errors.desiredWeight && (
@@ -255,10 +248,7 @@ const CalculatorCaloriesForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <button
-                            className="mainButton"
-                            type="submit"
-                        >
+                        <button className="mainButton" type="submit">
                             Похудеть
                         </button>
                         <Modal
@@ -271,6 +261,5 @@ const CalculatorCaloriesForm = () => {
         </FormContainer>
     );
 };
-
 
 export default CalculatorCaloriesForm;

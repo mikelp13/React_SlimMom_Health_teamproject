@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { refreshTokenOperation } from '../redux/auth/authOperations';
 import authSelectors from '../redux/auth/authSelectors';
 import { useDarkMode } from './themes/useDarkMode';
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 // import LoginPage from '../pages/signin/LoginPage';
 import AppBar from './appBar/AppBar';
 import mainRoutes from '../routes/routes';
@@ -21,6 +21,7 @@ import ThemeToggle from './themes/themeToggle/ThemeToggle';
 import CalculatorPage from '../pages/calculator/CalculatorPage';
 import DiaryPage from '../pages/diary/DiaryPage';
 import HomePage from '../pages/home/HomePage';
+import { getDayInfoOperation } from '../redux/diary/diaryOperations';
 
 const App = () => {
     const history = useHistory();
@@ -37,16 +38,17 @@ const App = () => {
 
     useEffect(() => {
         isAuth && dispatch(refreshTokenOperation());
+        isAuth && dispatch(getDayInfoOperation());
         // eslint-disable-next-line
     }, []);
 
     return (
         <ThemeProvider theme={themeMode}>
-            <GlobalStyles/>
+            <GlobalStyles />
             <div>
-                <ThemeToggle theme={theme} toggler={themeToggler}/>
+                <ThemeToggle theme={theme} toggler={themeToggler} />
                 <AppBar />
-    
+
                 <CSSTransition
                     in={showNotice}
                     timeout={250}
@@ -56,11 +58,14 @@ const App = () => {
                     <Notice />
                 </CSSTransition>
                 {
-                    <Suspense fallback={<LoadSpinner/>}>
+                    <Suspense fallback={<LoadSpinner />}>
                         <Switch>
                             {mainRoutes.map(route =>
                                 route.isPrivate ? (
-                                    <PrivateRoutes {...route} key={route.path} />
+                                    <PrivateRoutes
+                                        {...route}
+                                        key={route.path}
+                                    />
                                 ) : (
                                     <PublicRoutes {...route} key={route.path} />
                                 ),

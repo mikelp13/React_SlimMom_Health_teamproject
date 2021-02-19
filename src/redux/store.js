@@ -9,6 +9,7 @@ import {
     REGISTER,
 } from 'redux-persist';
 import authReducer from './auth/authReducers';
+import dailyRateReducer from './dailyRate/dailyRateReducer';
 import diaryReducers from './diary/diaryReducer';
 import { noticeReducer } from './notice/noticeReducer';
 
@@ -18,6 +19,7 @@ export const store = configureStore({
         auth: authReducer,
         notice: noticeReducer,
         diaryProducts: diaryReducers,
+        user: dailyRateReducer,
     },
     middleware: getDefaultMiddleware({
         serializableCheck: {
