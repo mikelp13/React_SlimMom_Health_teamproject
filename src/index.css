@@ -139,3 +139,23 @@ a {
     border-radius: 30px;
     outline: none;
 }
+
+/* ====================animations=================== */
+.my-notice-enter {
+    opacity: 0;
+    transform: translateX(100%);
+}
+.my-notice-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.my-notice-exit {
+    opacity: 1;
+    transform: translateX(0);
+}
+.my-notice-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

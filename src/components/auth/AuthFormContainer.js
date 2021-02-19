@@ -48,7 +48,6 @@ const AuthFormContainer = () => {
         if (location.pathname === '/signup') {
             dispatch(signUpOperation(values));
         } else dispatch(signInOperation(values));
-        console.log(values);
     };
 
     return (
