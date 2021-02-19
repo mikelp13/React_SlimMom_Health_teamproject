@@ -6,7 +6,6 @@ import {
 } from '../../redux/diary/diaryOperations';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
-import { debounce } from 'debounce';
 
 const DiaryAddProductForm = () => {
     const [state, setState] = useState({
@@ -15,23 +14,25 @@ const DiaryAddProductForm = () => {
         gram: '',
     });
     const date = useSelector(diarySelectors.getDate);
-    const productId = useSelector(state => state.diaryProducts.products[0]._id);
-    //
-    // треба стейт продуктів який приходить і його вже фільтрувати
-    // const products = useSelector(state => state.diaryProducts.products);
-    const debounce = require('debounce');
+    const productId = useSelector(
+        state => state.diaryProducts?.products[0]?._id,
+    );
     const dispatch = useDispatch();
 
     const size = useWindowSize();
 
     function useWindowSize() {
+        // Initialize state with undefined width/height so server and client renders match
+        // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
         const [windowSize, setWindowSize] = useState({
             width: undefined,
             height: undefined,
         });
 
         useEffect(() => {
+            // Handler to call on window resize
             function handleResize() {
+                // Set window width/height to state
                 setWindowSize({
                     width: window.innerWidth,
                     height: window.innerHeight,
@@ -40,7 +41,11 @@ const DiaryAddProductForm = () => {
 
             // Add event listener
             window.addEventListener('resize', handleResize);
+
+            // Call handler right away so state gets updated with initial window size
             handleResize();
+
+            // Remove event listener on cleanup
             return () => window.removeEventListener('resize', handleResize);
         }, []); // Empty array ensures that effect is only run on mount
 
@@ -49,64 +54,34 @@ const DiaryAddProductForm = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
+        console.log(value);
         setState(prev => ({
             ...prev,
             [name]: value,
         }));
-        debounce(dispatch(getProductOperation(value)), 1500);
-        console.log(state);
+        state.product.length > 3 &&
+            dispatch(getProductOperation(state.product));
     };
-
-    //     const handleChange = e => {
-    //         const { name, value } = e.target;
-    //         console.log(value);
-    //         setState(prev => ({
-    //             ...prev,
-    //             [name]: value,
-    //         }))
-    //         if (products.some(product) => (product.title.includes(value))) {
-    //             setState((prev) => ({
-    //                 ...prev, productId: products.find((product) => {
-    //                     return product.title === value
-    //                 })?._id
-    //             }));
-    //         } else {
-    //              debounce(dispatch(getProductOperation(state.product)),1500);
-    //         }
-    //           console.log(state)
-    // }
 
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(addProductOperation(date, productId, state.gram));
-        setState({
-            date: '',
-            product: '',
-            gram: '',
-        });
     };
 
     return (
         <DiaryFormWrapper>
             <form onSubmit={handleSubmit} className="formDairyAddProduct">
                 <div className="inputBlockDairyAddProduct">
-                    <input
-                        list="browsers"
-                        type="text"
-                        name="product"
-                        value={state.product}
-                        onChange={handleChange}
-                        placeholder="Введите название продукта"
-                        className="inputDairyAddProduct"
-                    />
-                    <datalist id="browsers">
-                        {products.map(product => (
-                            <option key={product._id} value={product.title.ru}>
-                                {product.title.ru}
-                            </option>
-                        ))}
-                    </datalist>
-
+                    <label>
+                        <input
+                            type="text"
+                            name="product"
+                            value={state.product}
+                            onChange={handleChange}
+                            placeholder="Введите название продукта"
+                            className="inputDairyAddProduct"
+                        />
+                    </label>
                     <label>
                         <input
                             type="number"

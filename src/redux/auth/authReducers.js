@@ -7,21 +7,31 @@ import authActions from './authActions';
 import dailyRateActions from '../dailyRate/dailyRateAction';
 import diaryActions from '../diary/diaryActions';
 
-
 const initialUserState = {
     email: '',
     username: '',
     id: '',
     isAuth: false,
 
-    userData: {
-        age: '',
-        bloodType: '',
-        dailyRate: '',
-        desiredWeight: '',
-        height: '',
-        notAllowedProducts: [],
-    },
+  //   userData: {
+  //       age: '',
+  //       bloodType: '',
+  //       dailyRate: '',
+  //       desiredWeight: '',
+  //       height: '',
+  //       notAllowedProducts: [],
+  //   },
+  //   summaries: [
+  //     {
+  //         _id: '',
+  //         date: '',
+  //         kcalLeft: 0,
+  //         kcalConsumed: 0,
+  //         dailyRate: 0,
+  //         percentsOfDailyRate: 0,
+  //         userId: '',
+  //     },
+  // ],
 };
 
 const userReducer = createReducer(initialUserState, {
@@ -47,17 +57,17 @@ const userReducer = createReducer(initialUserState, {
         email: payload.email,
         username: payload.username,
         id: payload.id,
-        userData: { ...payload.userData },
     }),
 
-    [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
-        ...state,
-        userData: { ...state.userData, ...payload },
-    }),
-    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
-        ...state,
-        userData: { ...state.userData, ...payload },
-    }),
+    // [dailyRateActions.getDailyRateSuccess]: (state, { payload }) => ({
+    //     ...state,
+    //     userData: { ...state.userData, ...payload },
+    // }),
+    // [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => ({
+    //     ...state,
+    //     userData: { ...state.userData, ...payload },
+      
+    // }),
 });
 
 const initialToken = {

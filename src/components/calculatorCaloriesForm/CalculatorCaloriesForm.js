@@ -94,7 +94,7 @@ const CalculatorCaloriesForm = () => {
                             : '',
                     bloodType:
                         userData && userData.bloodType
-                            ? userData.bloodType
+                            ? userData.bloodType.toString()
                             : '',
                 }}
                 onSubmit={values => {
@@ -119,7 +119,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="100"
                                         max="250"
-                                        // required
                                     />
                                     {touched.height && errors.height && (
                                         <div className="caloriesFormError">
@@ -141,7 +140,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="18"
                                         max="100"
-                                        // required
                                     />
                                     {touched.age && errors.age && (
                                         <div className="caloriesFormError">
@@ -162,7 +160,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="20"
                                         max="500"
-                                        // required
                                     />
                                     {touched.weight && errors.weight && (
                                         <div className="caloriesFormError">
@@ -185,7 +182,6 @@ const CalculatorCaloriesForm = () => {
                                         type="text"
                                         min="20"
                                         max="500"
-                                        // required
                                     />
                                     {touched.desiredWeight &&
                                         errors.desiredWeight && (

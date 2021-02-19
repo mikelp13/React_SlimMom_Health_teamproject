@@ -1,7 +1,9 @@
 import React from 'react';
+import moment from 'moment';
 import { useSelector } from 'react-redux';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
+import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
 
 const RightSideBar = () => {
     const {
@@ -10,18 +12,22 @@ const RightSideBar = () => {
         kcalConsumed,
         dailyRate,
         percentsOfDailyRate,
-    } = useSelector(diarySelectors.getDayInfo);
+    } = useSelector(getCurrentDayInfo);
 
-    console.log('date', diarySelectors.getDayInfo);
-
-    const productsList = useSelector(
-        state => state.auth.user.userData.notAllowedProducts,
+    const productsList = useSelector(state =>
+        state.user.userData.notAllowedProducts
+            ? state.user.userData.notAllowedProducts.slice(0, 5)
+            : [],
     );
+    console.log(productsList);
+
     return (
         <SideBarContainer className="sideBarContainer">
             <div className="rightSideBar">
                 <div className="rightBarSummary">
-                    <p className="rightBarTitle">Сводка за {date}</p>
+                    <p className="rightBarTitle">
+                        Сводка за {moment(date).format('DD.MM.YYYY')}
+                    </p>
                     <ul className="rightBarList">
                         <li className="rightBarItem">
                             <span className="rightBarValue">Осталось</span>
@@ -44,7 +50,7 @@ const RightSideBar = () => {
                         <li className="rightBarItem">
                             <span className="rightBarValue">n% от нормы</span>
                             <span className="rightBarValue">
-                                {percentsOfDailyRate} ккал
+                                {Math.round(percentsOfDailyRate)} %
                             </span>
                         </li>
                     </ul>
@@ -56,9 +62,9 @@ const RightSideBar = () => {
                                 Нерекомендуемые продукты
                             </p>
                             <ul>
-                                <li>{productsList[0]}</li>
-                                <li>{productsList[1]}</li>
-                                <li>{productsList[2]}</li>
+                                {productsList.map((product, idx) => (
+                                    <li key={idx}>{product}</li>
+                                ))}
                             </ul>
                         </>
                     ) : (

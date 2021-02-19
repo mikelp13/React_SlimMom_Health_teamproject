@@ -43,11 +43,10 @@ const getDayInfoOperation = (
             date,
         );
         console.log('response', response);
-
         // response.data.eatenProducts
         //     ? dispatch(diaryActions.getDayInfoSuccess(response.data))
         //     : dispatch(
-        //           diaryActions.getDayInfoSuccess({
+        //       diaryActions.getDayInfoSuccess({
         //               date: date.date,
         //               eatenProducts: [],
         //               daySummary: {},
