@@ -42,16 +42,15 @@ const getDayInfoOperation = (
             process.env.REACT_APP_GET_DAY_INFO,
             date,
         );
-        console.log('response', response);
-        // response.data.eatenProducts
-        //     ? dispatch(diaryActions.getDayInfoSuccess(response.data))
-        //     : dispatch(
-        //       diaryActions.getDayInfoSuccess({
-        //               date: date.date,
-        //               eatenProducts: [],
-        //               daySummary: {},
-        //           }),
-        //       );
+        response.data.eatenProducts
+            ? dispatch(diaryActions.getDayInfoSuccess(response.data))
+            : dispatch(
+                  diaryActions.getDayInfoSuccess({
+                      date: date.date,
+                      eatenProducts: [],
+                      daySummary: {},
+                  }),
+              );
     } catch (error) {
         dispatch(diaryActions.getDayInfoError(error));
     }
