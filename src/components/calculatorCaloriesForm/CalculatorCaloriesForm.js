@@ -44,7 +44,7 @@ const CalculatorCaloriesForm = () => {
             ? dispatch(dailyRateAuthOperation(valuesNumObj, userId))
             : dispatch(dailyRateOperation(valuesNumObj));
 
-          !isAuth && onHandelClick()
+        !isAuth && onHandelClick();
         // setState({ ...initialState });
     };
     const validationSchema = Yup.object().shape({
@@ -81,8 +81,6 @@ const CalculatorCaloriesForm = () => {
         bloodType: Yup.number().required('Обязательно'),
     });
 
-
-
     return (
         <FormContainer>
             <Formik
@@ -101,7 +99,6 @@ const CalculatorCaloriesForm = () => {
                 }}
                 onSubmit={values => {
                     handleSubmit(values);
-                  
                 }}
                 validationSchema={validationSchema}
             >
@@ -255,10 +252,7 @@ const CalculatorCaloriesForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <button
-                            className="mainButton"
-                            type="submit"
-                        >
+                        <button className="mainButton" type="submit">
                             Похудеть
                         </button>
                         <Modal
@@ -271,6 +265,5 @@ const CalculatorCaloriesForm = () => {
         </FormContainer>
     );
 };
-
 
 export default CalculatorCaloriesForm;

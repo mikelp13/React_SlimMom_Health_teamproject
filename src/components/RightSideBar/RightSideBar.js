@@ -11,8 +11,8 @@ const RightSideBar = () => {
         dailyRate,
         percentsOfDailyRate,
     } = useSelector(diarySelectors.getDayInfo);
-    
-    console.log('date', diarySelectors.getDayInfo)
+
+    console.log('date', diarySelectors.getDayInfo);
 
     const productsList = useSelector(
         state => state.auth.user.userData.notAllowedProducts,
