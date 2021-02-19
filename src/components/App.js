@@ -12,6 +12,11 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
+import CalculatorPage from '../pages/calculator/CalculatorPage';
+import DiaryProductsList from './DiaryProductsList/DiaryProductsList';
+
+
+// import Modal from './modal/Modal';
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
 import LoadSpinner from './loader/Loader';
@@ -67,8 +72,8 @@ const App = () => {
                                         key={route.path}
                                     />
                                 ) : (
-                                    <PublicRoutes {...route} key={route.path} />
-                                ),
+                                        <PublicRoutes {...route} key={route.path} />
+                                    ),
                             )}
                             <Route component={DefaultPage} />
                         </Switch>
