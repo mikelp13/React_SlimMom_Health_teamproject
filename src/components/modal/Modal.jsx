@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
 import IconBack from '../modal/svg/IconBack';
