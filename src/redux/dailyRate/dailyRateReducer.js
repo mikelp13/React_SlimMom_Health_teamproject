@@ -1,6 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import dailyRateActions from './dailyRateAction';
+import moment from 'moment';
 
 const initialState = {
     userData: {
@@ -10,6 +11,7 @@ const initialState = {
         desiredWeight: '',
         height: '',
         notAllowedProducts: [],
+        data: moment(new Date()).format('YYYY-MM-DD'),
     },
 
     summaries: [
@@ -31,6 +33,7 @@ const initialState = {
         dailyRate: 0,
         percentsOfDailyRate: 0,
         userId: '',
+        data: moment(new Date()).format('YYYY-MM-DD'),
     },
 };
 const dailyRateReducer = createReducer(initialState, {
@@ -47,28 +50,55 @@ const dailyRateReducer = createReducer(initialState, {
         ...state,
         userData: { ...state.userData, ...payload },
     }),
-    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => {
+    // [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => {
       
-        const result = Object.keys(payload).filter(
-            item => item !== 'summaries',
-        );
+    //     const result = Object.keys(payload).filter(
+    //         item => item !== 'summaries',
+    //     );
 
-        const newPayload = result.reduce((acc, item) => {
-            acc[item] = payload[item];
-            return acc;
-        }, {});
+    //     const newPayload = result.reduce((acc, item) => {
+    //         acc[item] = payload[item];
+    //         return acc;
+    //     }, {});
 
-        return {
-            ...state,
-            userData: { ...state.userData, ...newPayload },
-            currentDayInfo: {
-                ...payload.summaries[payload.summaries.length - 1],
-            },
-            summaries: payload.summaries,
-        };
+    //     return {
+    //         ...state,
+    //         userData: { ...state.userData, ...newPayload },
+    //         currentDayInfo: {
+    //             ...payload.summaries[payload.summaries.length - 1],
+    //         },
+    //         summaries: payload.summaries,
+    //     };
+    // },
+
+    [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => {
+      const result = Object.keys(payload).filter(
+          item => item !== 'summaries',
+      );
+      const newPayload = result.reduce((acc, item) => {
+          acc[item] = payload[item];
+          return acc;
+      }, {});
+      console.log('=>>>> payload', payload);
+      const newSummaries = payload.summaries.length
+          ? payload.summaries.find(item => item.date === state.userData.data)
+          : {};
+      return {
+          ...state,
+          userData: { ...state.userData, ...newPayload },
+          currentDayInfo: {
+              ...state.userData,
+              ...newSummaries,
+              dailyRate: payload.dailyRate,
+          },
+          summaries: payload.summaries,
+      };
     },
+
 
     [authActions.logoutSuccess]: () => initialState,
 });
 
 export default dailyRateReducer;
+
+

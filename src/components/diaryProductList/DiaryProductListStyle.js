@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const UL = styled.div`
+
     list-style: none;
     max-height: 256px;
     overflow: hidden;
@@ -15,4 +16,5 @@ export const UL = styled.div`
         padding-right: 42px;
         max-height: 200px;
     }
+
 `;

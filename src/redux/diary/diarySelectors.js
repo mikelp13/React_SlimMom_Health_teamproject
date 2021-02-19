@@ -1,9 +1,10 @@
 const getDate = state => state.diaryProducts.currentDay;
 const getDayInfo = state => state.diaryProducts.dayInfo.daySummary;
 const getDayProducts = state => state.diaryProducts.products;
-const getDayEatenProduct = state => state.diaryProducts.myProducts.eatenProduct;
-const getDayProductId = state => state.diaryProducts.myProducts.eatenProduct.day.id;
+const getDayEatenProducts = state => state.diaryProducts.dayInfo.eatenProducts;
+const getDayId = state => state.diaryProducts.dayInfo.id;
 
-const diarySelectors = { getDate, getDayInfo, getDayEatenProduct, getDayProducts, getDayProductId};
+
+const diarySelectors = { getDate, getDayInfo, getDayEatenProducts, getDayProducts, getDayId};
 
 export default diarySelectors;

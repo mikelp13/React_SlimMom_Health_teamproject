@@ -19,7 +19,7 @@ const DiaryAddProductForm = () => {
         state => state.diaryProducts?.products[0]?._id,
     );
 
-    const products = useSelector(diarySelectors.getDayProducts());
+    const products = useSelector(diarySelectors.getDayProducts);
     const dispatch = useDispatch();
     const debounce = require('debounce');
     const size = useWindowSize();

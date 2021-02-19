@@ -6,7 +6,10 @@ import DiaryProductItem from './diaryProductItem/DiaryProductItem';
 
 const DiaryProductList = () => {
 
- const productsList = useSelector(diarySelectors.getDayEatenProduct)
+ const productsList = useSelector(diarySelectors.getDayEatenProducts)
+
+
+ console.log('productsList', productsList)
  
     return (
         // <UL>
@@ -14,8 +17,8 @@ const DiaryProductList = () => {
         // </UL>
         // className={`${styles.productList} ${styles.scrollbar}`
         <ul>
-        {!!productsList.length &&
-            productsList.map(product => {
+        {
+       productsList && productsList.map(product => {
                 return (
                     <DiaryProductItem
                         key={product.id}

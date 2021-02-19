@@ -4,22 +4,19 @@ import { deleteEatenProduct } from '../../../redux/diaryProductsListItem/itemOpe
 // import { LI } from './DiaryProductItemStyle';
 import CloseIcon from './CloseIcon';
 import diarySelectors from '../../../redux/diary/diarySelectors';
-
+import { deleteProductOperation } from '../../../redux/diary/diaryOperations';
 
 const DiaryProductItem = ({ name, weight, cal, productId }) => {
-    const dayId = useSelector(diarySelectors.getDayProductId);
-    const date = useSelector(diarySelectors.getDate);
+    const dayId = useSelector(diarySelectors.getDayId);
+ 
     const dispatch = useDispatch();
 
     const handleClick = () => {
         dispatch(
-            deleteEatenProduct(
-                {
-                    dayId,
-                    productId,
-                },
-                date,
-            ),
+            deleteProductOperation({
+                dayId,
+                eatenProductId: productId,
+            }),
         );
     };
 

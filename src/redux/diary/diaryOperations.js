@@ -46,7 +46,7 @@ const getDayInfoOperation = (
         response.data.eatenProducts
             ? dispatch(diaryActions.getDayInfoSuccess(response.data))
             : dispatch(
-              diaryActions.getDayInfoSuccess({
+                  diaryActions.getDayInfoSuccess({
                       date: date.date,
                       eatenProducts: [],
                       daySummary: {},
@@ -57,19 +57,38 @@ const getDayInfoOperation = (
     }
 };
 
+const deleteProductOperation = product => async dispatch => {
+    dispatch(diaryActions.deleteProductRequest());
+
+    try {
+        const response = await axios.post(
+            `${process.env.REACT_APP_PRODUCT_DAY}`,
+            { data: product },
+        );
+        console.log('DELETE', response);
+        // dispatch(diaryActions.deleteProductRequest(response.data));
+    } catch (error) {
+        dispatch(diaryActions.deleteProductError(error.message));
+    }
+};
 
 // export const deleteEatenProduct = (product) => dispatch => {
 //   dispatch(itemActions.deleteEatenProductRequest());
 //   api
 //       .deleteEatenProduct(product)
 //       .then(({ data }) => {
-          
+
 //           getDayInfoOperation();
-        
+
 //           return dispatch(
 //               itemActions.deleteEatenProductSuccess(data.newDaySummary),
 //           );
 //       })
 //       .catch(err => dispatch(itemActions.deleteEatenProductError(err)));
 // };
-export { addProductOperation, getProductOperation, getDayInfoOperation };
+export {
+    addProductOperation,
+    getProductOperation,
+    getDayInfoOperation,
+    deleteProductOperation,
+};

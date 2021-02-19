@@ -7,13 +7,22 @@ const productReducer = createReducer([], {
     [authActions.logoutSuccess]: () => [],
 });
 
+// const myProductReducer = createReducer(
+//     {},
+//     {
+//         [diaryActions.addProductSuccess]: (_, { payload }) => ({ ...payload }),
+//         [authActions.logoutSuccess]: () => ({}),
+//     },
+// );
 const myProductReducer = createReducer(
-    {},
-    {
-        [diaryActions.addProductSuccess]: (_, { payload }) => ({ ...payload }),
-        [authActions.logoutSuccess]: () => ({}),
-    },
+  {},
+  {
+      [diaryActions.addProductSuccess]: (_, { payload }) => ({ ...payload }),
+      [authActions.logoutSuccess]: () => ({}),
+  },
 );
+
+
 
 const dayInfoReducer = createReducer(
     {},
@@ -26,6 +35,12 @@ const dayInfoReducer = createReducer(
             ...state,
             days: [...payload.days],
         }),
+
+        [diaryActions.deleteProductSuccess]: (state, { payload }) => ({
+                  ...state,
+                   daySummary: { ...payload },
+               }),
+
         [authActions.logoutSuccess]: () => ({}),
     },
 );
@@ -35,6 +50,14 @@ const currentDayReducer = createReducer('', {
 
     [authActions.logoutSuccess]: () => '',
 });
+
+// const user = createReducer(initialState, {
+//     [itemActions.deleteEatenProductSuccess]: (state, { payload }) => ({
+//         ...state,
+//         daySummary: { ...payload },
+//     }),
+
+
 
 export default combineReducers({
     products: productReducer,
