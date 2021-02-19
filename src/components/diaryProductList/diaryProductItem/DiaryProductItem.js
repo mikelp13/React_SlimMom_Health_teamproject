@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteEatenProduct } from '../../../redux/diaryProductsListItem/itemOperations';
 // import { LI } from './DiaryProductItemStyle';
 import CloseIcon from './CloseIcon';
 import diarySelectors from '../../../redux/diary/diarySelectors';
