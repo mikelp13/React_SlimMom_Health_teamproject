@@ -21,11 +21,11 @@ const AppBarStyled = styled.header`
     }
 
     @media screen and (min-width: 1280px) {
-        width: 100%;
+        
         border-bottom: none;
         position: absolute;
         top: 82px;
-        left: 90px;
+        
         .container {
           padding-top: 20px;
         }
@@ -33,6 +33,11 @@ const AppBarStyled = styled.header`
 `;
 
 export default AppBarStyled;
+
+
+
+/*width: 100%;
+left: 90px;
 
 /*
 .logo {
