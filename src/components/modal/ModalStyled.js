@@ -5,11 +5,11 @@ const ModalStyled = styled.div `
     max-height: calc(100vh - 24px);
 
   .modalBody {
-    position: fixed;
+    position: absolute;
     /* width: 320px; */
-    /* top: 26%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -44%); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1050;
     margin: 0 auto;
     overflow-x: hidden;
