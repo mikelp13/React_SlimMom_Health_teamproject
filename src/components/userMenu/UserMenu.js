@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import UserMenuStyled from './UserMenuStyled';
 import {logoutOperations} from '../../redux/auth/authOperations';
+import strip from '../../assets/img/logo/strip.png'
 
 const UserMenu = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const UserMenu = () => {
         <UserMenuStyled>
              
             <p>{username}</p>
-            <span>|</span>
+            <img src={strip} alt='strip'></img>
             <button type='button' onClick={onHandleLogout}>Выйти</button>
             </UserMenuStyled>
     )

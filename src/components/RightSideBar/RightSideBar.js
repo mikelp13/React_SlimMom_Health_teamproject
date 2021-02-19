@@ -2,6 +2,7 @@ import React from 'react';
 import { SideBarContainer } from './RightSideBarStyled';
 
 const RightSideBar = () => {
+  
     return (
         <SideBarContainer className="sideBarContainer">
                 <div className="rightSideBar">

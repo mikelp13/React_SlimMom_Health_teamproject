@@ -1,29 +1,31 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import Navigation from '../navigation/Navigation'
-import UserMenu from '../userMenu/UserMenu'
-import BurgerIcon from '../icon/BurgerIcon';
-import Cross from '../icon/CrossIcon';
-import Modal from '../modal/Modal';
+import Navigation from '../../navigation/Navigation'
+import UserMenu from '../../userMenu/UserMenu'
+import BurgerIcon from '../../icon/BurgerIcon';
+import Cross from '../../icon/CrossIcon';
+import Logo from '../logo/Logo';
+import TabletBarStyled from './TabletBarStyled';
+import BurgerMenu from '../../burgerMenu/BurgerMenu';
 
 const TabletBar = () => {
     const [click, setClick] = useState(false)
-    //const [openModal, setOpenModal] = useState(true)
     const isAuth = useSelector((state) => state.auth.user.isAuth);
     const onHandelClick = () => 
-    setClick(!click)
-    //setOpenModal(!openModal)
+    setClick(prev => !prev)
   
 
     return (
-        <>
+        <TabletBarStyled>
+         <Logo/>  
+         <div className='rightSide'>  
     {isAuth &&  <UserMenu/>}
-    { isAuth ? <button onClick={onHandelClick}> {click ? ( <Cross width={15}/>  )  :
-           <BurgerIcon width={30} />
+    { isAuth ? <button className='burger' onClick={onHandelClick}> {click ? (<><Cross width={15}/> <BurgerMenu/> </>  )  :
+           <BurgerIcon width={24} />
            }
     </button> : <Navigation/>}
-   {click && <Modal/>}
-        </>
+    </div>  
+        </TabletBarStyled>
     )
 }
 
