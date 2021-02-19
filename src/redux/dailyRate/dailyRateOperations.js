@@ -20,17 +20,23 @@ const dailyRateOperation = characteristics => async dispatch => {
     }
 };
 
-const dailyRateAuthOperation = () => async (dispatch, getState) => {
+const dailyRateAuthOperation = nawCharacteristics => async (
+    dispatch,
+    getState,
+) => {
     const userId = getState().auth.user.id;
     const userDataInStore = getState().user.userData;
 
-    const characteristics = {
+    const oldCharacteristics = {
         weight: userDataInStore.weight,
         height: userDataInStore.height,
         age: userDataInStore.age,
         desiredWeight: userDataInStore.desiredWeight,
         bloodType: userDataInStore.bloodType,
     };
+    const characteristics = nawCharacteristics
+        ? nawCharacteristics
+        : oldCharacteristics;
     dispatch(dailyRateActions.getDailyRateRequestAuth());
     try {
         const response = await axios.post(

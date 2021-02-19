@@ -19,7 +19,7 @@ const RightSideBar = () => {
             ? state.user.userData.notAllowedProducts.slice(0, 5)
             : [],
     );
-    console.log(productsList);
+    // console.log(productsList);
 
     return (
         <SideBarContainer className="sideBarContainer">

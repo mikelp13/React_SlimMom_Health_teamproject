@@ -6,7 +6,7 @@ import {
 } from '../../redux/diary/diaryOperations';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
-import { debounce } from 'debounce';
+// import { debounce } from 'debounce';
 
 const DiaryAddProductForm = () => {
     const [state, setState] = useState({
