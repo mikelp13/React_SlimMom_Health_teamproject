@@ -12,7 +12,7 @@ const CalculatorPage = () => {
                 </h2>
                 <CalculatorCaloriesForm />
             </div>
-            {/* <RightSideBar /> */}
+            <RightSideBar />
         </PageContainer>
     );
 };

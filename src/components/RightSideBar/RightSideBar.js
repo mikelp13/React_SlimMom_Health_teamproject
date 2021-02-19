@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
-import diarySelectors from '../../redux/diary/diarySelectors';
+// import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
 import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
 
