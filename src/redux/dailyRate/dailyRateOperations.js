@@ -20,7 +20,17 @@ const dailyRateOperation = characteristics => async dispatch => {
     }
 };
 
-const dailyRateAuthOperation = (characteristics, userId) => async dispatch => {
+const dailyRateAuthOperation = () => async (dispatch, getState) => {
+    const userId = getState().auth.user.id;
+    const userDataInStore = getState().user.userData;
+
+    const characteristics = {
+        weight: userDataInStore.weight,
+        height: userDataInStore.height,
+        age: userDataInStore.age,
+        desiredWeight: userDataInStore.desiredWeight,
+        bloodType: userDataInStore.bloodType,
+    };
     dispatch(dailyRateActions.getDailyRateRequestAuth());
     try {
         const response = await axios.post(

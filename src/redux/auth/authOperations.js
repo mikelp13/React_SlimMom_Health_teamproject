@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { dailyRateAuthOperation } from '../dailyRate/dailyRateOperations';
 import { getDayInfoOperation } from '../diary/diaryOperations';
 import { showNoticeMessage } from '../notice/noticeActions';
 import authActions from './authActions';
@@ -21,22 +20,9 @@ const signUpOperation = user => async (dispatch, getState) => {
         });
 
         await dispatch(authActions.signUpSuccess({ ...response.data }));
-        const userDataInStore = getState().user.userData;
-        const userData = {
-            weight: userDataInStore.weight,
-            height: userDataInStore.height,
-            age: userDataInStore.age,
-            desiredWeight: userDataInStore.desiredWeight,
-            bloodType: userDataInStore.bloodType,
-        };
-
-        await dispatch(
-            signInOperation({ email: user.email, password: user.password }),
-        );
-        const userId = getState().auth.user.id;
-        await dispatch(dailyRateAuthOperation(userData, userId));
     } catch (error) {
         dispatch(authActions.signUpError(error.message));
+        throw error;
     }
 };
 
@@ -48,16 +34,14 @@ const signInOperation = user => async (dispatch, getState) => {
         });
 
         token.set(response.data.accessToken);
-
         dispatch(authActions.signInSuccess({ ...response.data }));
 
         const username = getState().auth.user.username;
         dispatch(showNoticeMessage(`Привет, ${username}!`));
-
-        await dispatch(getCurrentUser());
     } catch (error) {
         dispatch(authActions.signInError(error.message));
-        dispatch(showNoticeMessage('Логин или пароль введен неверно'));
+        dispatch(showNoticeMessage('Email или пароль введен неверно'));
+        throw error;
     }
 };
 
@@ -88,7 +72,8 @@ const refreshTokenOperation = () => async (dispatch, getState) => {
 
         token.set(response.data.newAccessToken);
         dispatch(authActions.getNewTokenSuccess(response.data));
-        await dispatch(getCurrentUser());
+        // await dispatch(getCurrentUser());
+
         await dispatch(getDayInfoOperation());
     } catch (error) {
         dispatch(authActions.getNewTokenError(error.message));
@@ -112,14 +97,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
             process.env.REACT_APP_GET_CURRENT_USER,
         );
         dispatch(authActions.getCurrentUserSuccess(response.data));
-
-        const characteristics = { ...response.data.userData };
-        delete characteristics.notAllowedProducts;
-        delete characteristics.dailyRate;
-
-        await dispatch(
-            dailyRateAuthOperation(characteristics, response.data.id),
-        );
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
     }
