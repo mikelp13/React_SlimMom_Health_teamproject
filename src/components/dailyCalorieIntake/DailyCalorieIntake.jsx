@@ -1,10 +1,28 @@
 import React from 'react';
+import uuid from 'react-uuid';
 import { useHistory } from 'react-router-dom';
-// import './DailyCaloriesIntake.css';
+import { createStore } from 'redux';
 import DailyCalorieIntakeStyled from './DailyCalorieIntakeStyled';
+import authReducers from '../../redux/auth/authReducers';
+// import { FixedSizeList as List } from 'react-window';
 
-const DailyCalorieIntake = ({ kcalQuantity, products }) => {
+const DailyCalorieIntake = () => {
     const history = useHistory();
+
+    // let store = createStore(authReducers);
+    // const dailyRate = store.getState().user.userData.dailyRate;
+    // console.log(store.getState().user.userData.dailyRate);
+
+    // const notAllowedProducts = store.getState().user.userData
+    //     .notAllowedProducts;
+    // console.log(store.getState().user.userData.notAllowedProducts);
+
+    // const products = notAllowedProducts.map(product => (
+    //     <li className="DailyCalorieIntakeProductsItem" key={uuid()}>
+    //         {product}
+    //     </li>
+    // ));
+
     return (
         <DailyCalorieIntakeStyled>
             <div className="ModalContentContainer">
@@ -13,7 +31,7 @@ const DailyCalorieIntake = ({ kcalQuantity, products }) => {
                 </p>
 
                 <p className="DailyCalorieIntakeKcal">
-                    {kcalQuantity}
+                    {/* {dailyRate} */}
                     <span className="DailyCalorieIntakeKcalText">ккал</span>
                 </p>
 
@@ -21,25 +39,10 @@ const DailyCalorieIntake = ({ kcalQuantity, products }) => {
                 <h2 className="DailyCalorieIntakeProducts">
                     Продукты, которые вам не рекомендуется употреблять
                 </h2>
-                <ol className="DailyCalorieIntakeProductsList">
-                    <li className="DailyCalorieIntakeProductsItem">
-                        Мучные продукты
-                    </li>
-                    <li className="DailyCalorieIntakeProductsItem">Молоко</li>
-                    <li className="DailyCalorieIntakeProductsItem">
-                        Красное мясо
-                    </li>
-                    <li className="DailyCalorieIntakeProductsItem">
-                        Копчености
-                    </li>
-                </ol>
-                {/* <ol className="DailyCalorieIntakeProductsList">
-                {products.map(product => (
-                    <li className="DailyCalorieIntakeProductsItem">
-                        {product}
-                    </li>
-                ))}
-            </ol> */}
+
+                {/* <List height={150} itemCount={1000} itemSize={35} width={300}> */}
+                {/* <ol className="DailyCalorieIntakeProductsList">{products}</ol> */}
+                {/* </List> */}
 
                 <button
                     className="DailyCalorieIntakeButton"

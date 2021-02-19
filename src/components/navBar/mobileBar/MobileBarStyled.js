@@ -15,10 +15,6 @@ const MobileBarStyled = styled.div`
   padding-left: 15px;
   padding-right: 15px;
   height: 40px;
-background-color: #EFF1F3 ;
-}
-.bottomPart div {
- 
 }
 button {
  
