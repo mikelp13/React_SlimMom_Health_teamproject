@@ -14,7 +14,9 @@ const DiaryAddProductForm = () => {
         gram: '',
     });
     const date = useSelector(diarySelectors.getDate);
-    const productId = useSelector(state=>state.diaryProducts.products[0]._id)
+    const productId = useSelector(
+        state => state.diaryProducts?.products[0]?._id,
+    );
     const dispatch = useDispatch();
 
     const size = useWindowSize();
@@ -57,7 +59,8 @@ const DiaryAddProductForm = () => {
             ...prev,
             [name]: value,
         }));
-        dispatch(getProductOperation(value));
+        state.product.length > 3 &&
+            dispatch(getProductOperation(state.product));
     };
 
     const handleSubmit = e => {

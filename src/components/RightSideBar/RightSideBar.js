@@ -3,6 +3,7 @@ import moment from 'moment';
 import { useSelector } from 'react-redux';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
+import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
 
 const RightSideBar = () => {
     const {
@@ -11,15 +12,14 @@ const RightSideBar = () => {
         kcalConsumed,
         dailyRate,
         percentsOfDailyRate,
-    } = useSelector(diarySelectors.getDayInfo);
-
-    console.log('date', diarySelectors.getDayInfo);
+    } = useSelector(getCurrentDayInfo);
 
     const productsList = useSelector(state =>
-        state.auth.user.userData.notAllowedProducts.slice(0, 5),
+        state.user.userData.notAllowedProducts
+            ? state.user.userData.notAllowedProducts.slice(0, 5)
+            : [],
     );
     console.log(productsList);
-
 
     return (
         <SideBarContainer className="sideBarContainer">
@@ -50,7 +50,7 @@ const RightSideBar = () => {
                         <li className="rightBarItem">
                             <span className="rightBarValue">n% от нормы</span>
                             <span className="rightBarValue">
-                                {Math.round(percentsOfDailyRate)} ккал
+                                {Math.round(percentsOfDailyRate)} %
                             </span>
                         </li>
                     </ul>

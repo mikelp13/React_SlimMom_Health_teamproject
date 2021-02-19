@@ -1,5 +1,7 @@
 import axios from 'axios';
+import dailyRateActions from '../dailyRate/dailyRateAction';
 import { dailyRateAuthOperation } from '../dailyRate/dailyRateOperations';
+import dailyRateReducer from '../dailyRate/dailyRateReducer';
 import { showNoticeMessage } from '../notice/noticeActions';
 import authActions from './authActions';
 
@@ -109,9 +111,13 @@ const getCurrentUser = () => async (dispatch, getState) => {
         const response = await axios.get(
             process.env.REACT_APP_GET_CURRENT_USER,
         );
-        console.log(response.data);
-
+        
         dispatch(authActions.getCurrentUserSuccess(response.data));
+        const characteristics = {...response.data.userData}
+        delete characteristics.notAllowedProducts
+        delete characteristics.dailyRate
+
+        await dispatch(dailyRateAuthOperation(characteristics, response.data.id));
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
     }

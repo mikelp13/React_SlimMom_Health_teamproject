@@ -36,16 +36,16 @@ const getDayInfoOperation = (
   dispatch(diaryActions.getDayInfoRequest());
   try {
       const response = await axios.post(process.env.REACT_APP_GET_DAY_INFO, date);
-     
-      response.data.eatenProducts
-          ? dispatch(diaryActions.getDayInfoSuccess(response.data))
-          : dispatch(
-            diaryActions.getDayInfoSuccess({
-                    date: date.date,
-                    eatenProducts: [],
-                    daySummary: {},
-                }),
-            );
+     console.log('response', response)
+      // response.data.eatenProducts
+      //     ? dispatch(diaryActions.getDayInfoSuccess(response.data))
+      //     : dispatch(
+      //       diaryActions.getDayInfoSuccess({
+      //               date: date.date,
+      //               eatenProducts: [],
+      //               daySummary: {},
+      //           }),
+      //       );
   } catch (error) {
       dispatch(diaryActions.getDayInfoError(error));
   }
