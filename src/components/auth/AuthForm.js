@@ -18,9 +18,8 @@ const AuthForm = ({ handleSubmit, errorMessagesSchema }) => {
             <Formik
                 initialValues={{ ...initialState }}
                 validationSchema={errorMessagesSchema}
-                onSubmit={(values, { resetForm }) => {
+                onSubmit={values => {
                     handleSubmit(values);
-                    resetForm({});
                 }}
             >
                 {({ errors, touched }) => (

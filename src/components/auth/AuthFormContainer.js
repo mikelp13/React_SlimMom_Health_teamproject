@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -17,13 +17,6 @@ const AuthFormContainer = () => {
     const location = useLocation();
     const history = useHistory();
     const { age } = useSelector(getUserData);
-
-    // useEffect(() => {
-    //     const abortController = new AbortController();
-    //     return () => {
-    //         abortController.abort();
-    //     };
-    // }, []);
 
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
