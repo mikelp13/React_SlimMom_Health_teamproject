@@ -42,7 +42,6 @@ const getDayInfoOperation = (
             process.env.REACT_APP_GET_DAY_INFO,
             date,
         );
-        // console.log('response', response);
         response.data.eatenProducts
             ? dispatch(diaryActions.getDayInfoSuccess(response.data))
             : dispatch(

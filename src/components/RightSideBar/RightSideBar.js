@@ -12,15 +12,20 @@ const RightSideBar = () => {
         kcalConsumed,
         dailyRate,
         percentsOfDailyRate,
-    } = useSelector(getCurrentDayInfo);
+    } = useSelector((state)=>state.user.userData);
+    
+    console.log('date :>> ', date);
+    console.log('kcalLeft :>> ', kcalLeft);
+    console.log('kcalConsumed :>> ', kcalConsumed);
+    console.log('dailyRate :>> ', dailyRate);
+    console.log('percentsOfDailyRate :>> ', percentsOfDailyRate);
 
     const productsList = useSelector(state =>
         state.user.userData.notAllowedProducts
             ? state.user.userData.notAllowedProducts.slice(0, 5)
             : [],
     );
-    // console.log(productsList);
-
+ 
     return (
         <SideBarContainer className="sideBarContainer">
             <div className="rightSideBar">
