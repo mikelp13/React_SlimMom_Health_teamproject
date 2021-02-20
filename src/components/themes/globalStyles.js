@@ -46,6 +46,10 @@ export const GlobalStyles = createGlobalStyle`
         transition: all 0.50s linear;
     }
 
+    .inputDiaryDateCalendar {
+        color: ${({ theme }) => theme.rightBarTitle};
+    }
+
     @media (min-width: 1280px) {
         .sectionLoginPage {
             background-image: ${({ theme }) => theme.loginBgImageDesk};
