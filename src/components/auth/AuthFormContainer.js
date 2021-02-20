@@ -3,10 +3,13 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import {
+    getCurrentUser,
     signInOperation,
     signUpOperation,
 } from '../../redux/auth/authOperations';
+import { dailyRateAuthOperation } from '../../redux/dailyRate/dailyRateOperations';
 import AuthForm from './AuthForm';
+import { showNoticeMessage } from '../../redux/notice/noticeActions';
 
 const AuthFormContainer = () => {
     const dispatch = useDispatch();
@@ -46,8 +49,39 @@ const AuthFormContainer = () => {
 
     const handleSubmit = values => {
         if (location.pathname === '/signup') {
-            dispatch(signUpOperation(values));
-        } else dispatch(signInOperation(values));
+            signUp(values);
+        } else signIn(values);
+    };
+
+    const signUp = async values => {
+        try {
+            await dispatch(signUpOperation(values));
+            await dispatch(
+                signInOperation({
+                    email: values.email,
+                    password: values.password,
+                }),
+            );
+            await dispatch(dailyRateAuthOperation());
+            await dispatch(getCurrentUser());
+        } catch (error) {
+            dispatch(
+                showNoticeMessage(
+                    'Пользователь с таким логином уже существует',
+                ),
+            );
+            return;
+        }
+    };
+
+    const signIn = async values => {
+        try {
+            await dispatch(signInOperation(values));
+            await dispatch(getCurrentUser());
+            await dispatch(dailyRateAuthOperation());
+        } catch (error) {
+            return;
+        }
     };
 
     return (
