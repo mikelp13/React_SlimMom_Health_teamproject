@@ -8,6 +8,7 @@ import {
 } from '../../redux/diary/diaryOperations';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const DiaryAddProductForm = () => {
   const [state, setState] = useState({
@@ -29,37 +30,6 @@ const DiaryAddProductForm = () => {
     const match = useRouteMatch();
     const history = useHistory();
 
-    function useWindowSize() {
-        // Initialize state with undefined width/height so server and client renders match
-        // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-        const [windowSize, setWindowSize] = useState({
-            width: undefined,
-            height: undefined,
-        });
-
-        useEffect(() => {
-            // Handler to call on window resize
-            function handleResize() {
-                // Set window width/height to state
-                setWindowSize({
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                });
-            }
-
-            // Add event listener
-            window.addEventListener('resize', handleResize);
-
-            // Call handler right away so state gets updated with initial window size
-            handleResize();
-
-            // Remove event listener on cleanup
-            return () => window.removeEventListener('resize', handleResize);
-        }, []); // Empty array ensures that effect is only run on mount
-
-        return windowSize;
-    }
-
     const handleChange = e => {
         const { name, value } = e.target;
         setState(prev => ({ ...prev, [name]: value }));
@@ -77,8 +47,12 @@ const DiaryAddProductForm = () => {
                     1500,
                 );
         }
-        // console.log(state);
     };
+
+    const handleClick = e => {
+        setState(prev => ({ ...prev, productId: e.target.id }));
+    };
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -88,6 +62,7 @@ const DiaryAddProductForm = () => {
             productName: '',
             gram: '',
         });
+        (location.pathname === "/diary/product") && history.goBack();
     };
 
  
@@ -135,29 +110,10 @@ const DiaryAddProductForm = () => {
                     <button type="submit" className="buttonDairyAddProduct">
                         {size.width < 768 ? 'Добавить' : '+'}
                     </button>
-
-                    {/* <select className="selectDairyAddProduct">
-              <option></option>
-          </select> */}
-
-                    {/* {size.width < 768 ? (
-              <button
-              type="button"
-              className="buttonDairyAddProduct"
-              onClick={handleClick}
-          >
-              +
-          </button>
-          ) : (
-             
-               <button type="submit" className="buttonDairyAddProduct">
-              +
-           </button>
-          )} */}
                 </form>
             )}
         </DiaryFormWrapper>
     );
 };
-}
+
 export default DiaryAddProductForm;

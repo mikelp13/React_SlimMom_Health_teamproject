@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UserMenuStyled from './UserMenuStyled';
+import { useHistory, useLocation, } from 'react-router-dom';
+import useWindowSize from '../../hooks/useWindowSize';
 import { logoutOperations } from '../../redux/auth/authOperations';
 import strip from '../../assets/img/logo/strip.png';
-import sprite from '../../assets/sprite.svg';
-import { useHistory, useLocation } from 'react-router-dom';
+import UserMenuStyled from './UserMenuStyled';
 
 const UserMenu = () => {
     const dispatch = useDispatch();
@@ -15,19 +15,30 @@ const UserMenu = () => {
     const handelBack = () => {
         history.goBack();
     };
-    // const handleBack = e => {
-    //     setState(prev => ({ ...prev, productId: e.target.id }));
-    // };
+
     const onHandleLogout = () => {
         dispatch(logoutOperations());
     };
     return (
         <UserMenuStyled>
-            <button type="button" onClick={handelBack}>
-                <svg width="25px" height="25px">
-                    <use href={sprite + '#icon-back'} />
-                </svg>
-            </button>
+            {(
+                location.pathname === '/diary/product') && (
+                <button type="button" onClick={handelBack}>
+                    <svg
+                        width="15"
+                        height="9"
+                        viewBox="0 0 15 9"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M14 1.5V4.5H2M2 4.5L5.5 1M2 4.5L5.5 8"
+                            stroke="black"
+                            strokeWidth="2"
+                        />
+                    </svg>
+                </button>
+            )}
             <p className="userName">{username}</p>
             <img src={strip} alt="strip"></img>
             <button type="button" onClick={onHandleLogout}>
