@@ -8,7 +8,7 @@ import moment from 'moment';
 import { CalendarWrapper } from './DiaryDateCalendarStyle';
 import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 import diaryActions from '../../redux/diary/diaryActions';
-import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
+// import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
 
 const DiaryDateCalendar = () => {
     // const [state, setState] = useState({
@@ -18,12 +18,11 @@ const DiaryDateCalendar = () => {
     const [startDate, setStartDate] = useState(new Date());
     console.log(startDate);
 
-
     useEffect(() => {
-     dispatch(diaryActions.setCurrentDay(moment(new Date()).format('YYYY-MM-DD')));
-    }, [dispatch])
-
-
+        dispatch(
+            diaryActions.setCurrentDay(moment(new Date()).format('YYYY-MM-DD')),
+        );
+    }, [dispatch]);
 
     const handleChange = day => {
         setStartDate(day);

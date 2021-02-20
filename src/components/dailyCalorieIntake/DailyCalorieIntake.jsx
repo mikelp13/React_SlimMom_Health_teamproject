@@ -1,9 +1,9 @@
 import React from 'react';
-import uuid from 'react-uuid';
+// import uuid from 'react-uuid';
 import { useHistory } from 'react-router-dom';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 import DailyCalorieIntakeStyled from './DailyCalorieIntakeStyled';
-import authReducers from '../../redux/auth/authReducers';
+// import authReducers from '../../redux/auth/authReducers';
 // import { FixedSizeList as List } from 'react-window';
 
 const DailyCalorieIntake = () => {

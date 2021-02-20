@@ -37,10 +37,20 @@ const signInOperation = user => async (dispatch, getState) => {
         dispatch(authActions.signInSuccess({ ...response.data }));
 
         const username = getState().auth.user.username;
-        dispatch(showNoticeMessage(`Привет, ${username}!`));
+        dispatch(
+            showNoticeMessage({
+                message: `Привет, ${username}!`,
+                response: 'success',
+            }),
+        );
     } catch (error) {
         dispatch(authActions.signInError(error.message));
-        dispatch(showNoticeMessage('Email или пароль введен неверно'));
+        dispatch(
+            showNoticeMessage({
+                message: 'Email или пароль введен неверно',
+                response: 'error',
+            }),
+        );
         throw error;
     }
 };
@@ -72,12 +82,12 @@ const refreshTokenOperation = () => async (dispatch, getState) => {
 
         token.set(response.data.newAccessToken);
         dispatch(authActions.getNewTokenSuccess(response.data));
-        // await dispatch(getCurrentUser());
 
         await dispatch(getDayInfoOperation());
     } catch (error) {
         dispatch(authActions.getNewTokenError(error.message));
         dispatch(authActions.logoutSuccess());
+        throw error;
     }
 };
 
@@ -99,6 +109,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
         dispatch(authActions.getCurrentUserSuccess(response.data));
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
+        throw error;
     }
 };
 
