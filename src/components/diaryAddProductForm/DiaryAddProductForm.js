@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useRouteMatch, useHistory } from 'react-router-dom';
 import diaryActions from '../../redux/diary/diaryActions';
 import {
     getProductOperation,
@@ -7,24 +8,26 @@ import {
 } from '../../redux/diary/diaryOperations';
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
-// import { debounce } from 'debounce';
 
 const DiaryAddProductForm = () => {
-    const [state, setState] = useState({
-        date: '',
-        productName: '',
-        gram: '',
-        productId:'',
-    });
-    const date = useSelector(diarySelectors.getDate);
-    // const productId = useSelector(
+  const [state, setState] = useState({
+    date: '',
+    productName: '',
+    gram: '',
+    productId: '',
+  });
+  const date = useSelector(diarySelectors.getDate);
+  // const productId = useSelector(
     //     state => state.diaryProducts?.products[0]?._id,
     // );
-
+    
     const products = useSelector(diarySelectors.getDayProducts);
     const dispatch = useDispatch();
     const debounce = require('debounce');
     const size = useWindowSize();
+    const location = useLocation();
+    const match = useRouteMatch();
+    const history = useHistory();
 
     function useWindowSize() {
         // Initialize state with undefined width/height so server and client renders match
@@ -87,58 +90,74 @@ const DiaryAddProductForm = () => {
         });
     };
 
-    const handleClick = e => {
-        setState(prev=> ({...prev, productId: e.target.id }))
-    };
-
+ 
     return (
         <DiaryFormWrapper>
-            <form onSubmit={handleSubmit} className="formDairyAddProduct">
-                <div className="inputBlockDairyAddProduct">
-                    <input
-                        list="browsers"
-                        type="text"
-                        name="productName"
-                        value={state.productName}
-                        onChange={handleChange}
-                        placeholder="Введите название продукта"
-                        className="inputDairyAddProduct"
-                        id="fav"
-                        autoComplete="off"
-                    />
-                    <datalist id="browsers">
-                        {products.map(product => (
-                            <option
-                                key={product._id}
-                                id={product._id}
-                                value={product.title.ru}
-                                onClick={handleClick}
-                            >
-                                {product.title.ru}
-                            </option>
-                        ))}
-                    </datalist>
-
-                    <label>
+            {(size.width > 768 ||
+                location.pathname === `${match.url}/product`) && (
+                <form onSubmit={handleSubmit} className="formDairyAddProduct">
+                    <div className="inputBlockDairyAddProduct">
                         <input
+                            list="browsers"
                             type="text"
-                            name="gram"
-                            value={state.gram}
+                            name="productName"
+                            value={state.productName}
                             onChange={handleChange}
-                            placeholder="Граммы"
-                            className="inputDairyAddProduct secondInputLength"
+                            placeholder="Введите название продукта"
+                            className="inputDairyAddProduct"
+                            id="fav"
+                            autoComplete="off"
                         />
-                    </label>
-                </div>
-                {/* <select className="selectDairyAddProduct">
-                    <option></option>
-                </select> */}
-                <button type="submit" className="buttonDairyAddProduct mainBtn">
-                    {size.width < 768 ? 'Добавить' : '+'}
-                </button>
-            </form>
+                        <datalist id="browsers">
+                            {products.map(product => (
+                                <option
+                                    key={product._id}
+                                    id={product._id}
+                                    value={product.title.ru}
+                                    onClick={handleClick}
+                                >
+                                    {product.title.ru}
+                                </option>
+                            ))}
+                        </datalist>
+
+                        <label>
+                            <input
+                                type="text"
+                                name="gram"
+                                value={state.gram}
+                                onChange={handleChange}
+                                placeholder="Граммы"
+                                className="inputDairyAddProduct secondInputLength"
+                            />
+                        </label>
+                    </div>
+                    <button type="submit" className="buttonDairyAddProduct">
+                        {size.width < 768 ? 'Добавить' : '+'}
+                    </button>
+
+                    {/* <select className="selectDairyAddProduct">
+              <option></option>
+          </select> */}
+
+                    {/* {size.width < 768 ? (
+              <button
+              type="button"
+              className="buttonDairyAddProduct"
+              onClick={handleClick}
+          >
+              +
+          </button>
+          ) : (
+             
+               <button type="submit" className="buttonDairyAddProduct">
+              +
+           </button>
+          )} */}
+                </form>
+            )}
         </DiaryFormWrapper>
     );
 };
-
+}
 export default DiaryAddProductForm;
