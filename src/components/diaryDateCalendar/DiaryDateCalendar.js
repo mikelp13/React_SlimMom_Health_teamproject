@@ -16,7 +16,7 @@ const DiaryDateCalendar = () => {
     // });
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
-    console.log(startDate);
+    // console.log(startDate);
 
 
     useEffect(() => {
@@ -31,8 +31,8 @@ const DiaryDateCalendar = () => {
         dispatch(diaryActions.setCurrentDay(date.date));
         dispatch(getDayInfoOperation(date));
         // dispatch(userDataAction.setDataOperation(date));
-        console.log('current ====>>> day', day);
-        console.log('current ====>>> data', date);
+        // console.log('current ====>>> day', day);
+        // console.log('current ====>>> data', date);
     };
 
     return (

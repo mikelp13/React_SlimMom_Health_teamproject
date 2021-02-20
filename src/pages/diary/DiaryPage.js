@@ -5,6 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
+import RightSideBar from '../../components/RightSideBar/RightSideBar';
+
 import { PageContainer } from './DiaryPageStyle';
 // import { useDispatch } from 'react-redux';
 // import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
@@ -82,7 +84,9 @@ const DiaryPage = () => {
                     <DiaryDateCalendar />
                     <DiaryAddProductForm />
                     <DiaryProductList />
+                    <RightSideBar/>
                 </div>
+                
             </section>
         </PageContainer>
     );

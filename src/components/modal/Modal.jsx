@@ -20,7 +20,7 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
 
     const handleKeyPress = e => {
         if (e.code === 'Escape') {
-            console.log(e.code);
+            // console.log(e.code);
             onHandelClick();
         }
     };

@@ -8,7 +8,7 @@ const DiaryProductList = () => {
  const productsList = useSelector(diarySelectors.getDayEatenProducts)
 
 
- console.log('productsList', productsList)
+//  console.log('productsList', productsList)
  
     return (
 

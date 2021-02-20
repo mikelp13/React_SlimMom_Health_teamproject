@@ -69,7 +69,7 @@ const DiaryAddProductForm = () => {
         } else {
             debounce(dispatch(getProductOperation(state.productName)), 1500);
         }
-        console.log(state);
+        // console.log(state);
     };
 
     const handleSubmit = e => {

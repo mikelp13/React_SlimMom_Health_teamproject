@@ -2,17 +2,21 @@ import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import diaryActions from '../diary/diaryActions';
 
-const deleteProduct = (state, { payload }) => {
-    console.log('SELECTOR', diaryActions.getDayEatenProducts);
-    return {
-        ...state,
-        ...payload,
+// const deleteProduct = (state, { payload }) => {
 
-        eatenProducts: payload.eatenProductsArr.filter(
-            item => item.id !== payload.delItemId,
-        ),
-    };
-};
+//    console.log("payload", payload)
+//    console.log(':>> ', state.diaryProducts.dayInfo.eatenProducts);
+
+//     // console.dir(state)
+//     return {
+//         ...state,
+//         ...payload,
+
+//         eatenProducts: payload.eatenProductsArr.filter(
+//             item => item.id !== payload.delItemId,
+//         ),
+//     };
+// };
 
 const productReducer = createReducer([], {
     [diaryActions.getProductSuccess]: (_, { payload }) => [...payload],
@@ -46,7 +50,20 @@ const dayInfoReducer = createReducer(
             days: [...payload.days],
         }),
 
-        [diaryActions.deleteProductSuccess]: deleteProduct,
+        [diaryActions.deleteProductSuccess]: (state, { payload }) => {
+            console.log('payload', payload);
+            console.log(':>> ', state.diaryProducts.dayInfo.eatenProducts);
+
+            // console.dir(state)
+            return {
+                ...state,
+                // eatenProducts: state.eatenProducts.filter(
+                //     item => item.id !== payload.delItemId,
+                // ),
+                eatenProducts:[]
+
+            };
+        },
 
         [authActions.logoutSuccess]: () => ({}),
     },

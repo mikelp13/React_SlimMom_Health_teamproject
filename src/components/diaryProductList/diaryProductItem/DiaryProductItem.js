@@ -9,13 +9,13 @@ const DiaryProductItem = ({ name, weight, cal, productId }) => {
     const dayId = useSelector(diarySelectors.getDayId);
   
     const dispatch = useDispatch();
-console.log('productId', productId)
+// console.log('productId', productId)
 
 
     const handleClick = (e) => {
       const currentProductId = e.currentTarget.id
 
-      console.log('currentProductId', currentProductId)
+      // console.log('currentProductId', currentProductId)
         dispatch(
             deleteProductOperation({
                 dayId,

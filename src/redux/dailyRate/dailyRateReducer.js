@@ -79,7 +79,7 @@ const dailyRateReducer = createReducer(initialState, {
           acc[item] = payload[item];
           return acc;
       }, {});
-      console.log('=>>>> payload', payload);
+      // console.log('=>>>> payload', payload);
       const newSummaries = payload.summaries.length
           ? payload.summaries.find(item => item.date === state.userData.data)
           : {};
