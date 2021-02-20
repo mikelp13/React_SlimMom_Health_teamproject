@@ -1,16 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import {
+    getCurrentUser,
     signInOperation,
     signUpOperation,
 } from '../../redux/auth/authOperations';
+import { dailyRateAuthOperation } from '../../redux/dailyRate/dailyRateOperations';
 import AuthForm from './AuthForm';
+import { showNoticeMessage } from '../../redux/notice/noticeActions';
+import { getUserData } from '../../redux/dailyRate/dailyRateSelectors';
 
 const AuthFormContainer = () => {
     const dispatch = useDispatch();
     const location = useLocation();
+    const history = useHistory();
+    const { age } = useSelector(getUserData);
 
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -45,9 +51,52 @@ const AuthFormContainer = () => {
             : errorMessagesSchemaSignIn;
 
     const handleSubmit = values => {
-        if (location.pathname === '/signup') {
-            dispatch(signUpOperation(values));
-        } else dispatch(signInOperation(values));
+        if (location.pathname === '/signup' && !age) {
+            history.push('/');
+            dispatch(
+                showNoticeMessage({
+                    message: 'Пожалуйста, введите данные',
+                    response: 'warning',
+                }),
+            );
+            return;
+        }
+        if (location.pathname === '/signup' && age) {
+            signUp(values);
+        } else signIn(values);
+    };
+
+    const signUp = async values => {
+        try {
+            await dispatch(signUpOperation(values));
+            await dispatch(
+                signInOperation({
+                    email: values.email,
+                    password: values.password,
+                }),
+            );
+            await dispatch(dailyRateAuthOperation());
+            await dispatch(getCurrentUser());
+        } catch (error) {
+            error.message === 'Request failed with status code 409' &&
+                dispatch(
+                    showNoticeMessage({
+                        message: 'Пользователь с таким Email уже существует',
+                        response: 'error',
+                    }),
+                );
+            return;
+        }
+    };
+
+    const signIn = async values => {
+        try {
+            await dispatch(signInOperation(values));
+            await dispatch(getCurrentUser());
+            await dispatch(dailyRateAuthOperation());
+        } catch (error) {
+            return;
+        }
     };
 
     return (

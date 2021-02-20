@@ -16,6 +16,7 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
         return () => {
             document.removeEventListener('keyup', handleKeyPress);
         };
+        // eslint-disable-next-line
     }, []);
 
     const handleKeyPress = e => {

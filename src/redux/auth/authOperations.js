@@ -1,7 +1,5 @@
 import axios from 'axios';
-import dailyRateActions from '../dailyRate/dailyRateAction';
-import { dailyRateAuthOperation } from '../dailyRate/dailyRateOperations';
-import dailyRateReducer from '../dailyRate/dailyRateReducer';
+import { getDayInfoOperation } from '../diary/diaryOperations';
 import { showNoticeMessage } from '../notice/noticeActions';
 import authActions from './authActions';
 
@@ -22,22 +20,9 @@ const signUpOperation = user => async (dispatch, getState) => {
         });
 
         await dispatch(authActions.signUpSuccess({ ...response.data }));
-
-        await dispatch(
-            signInOperation({ email: user.email, password: user.password }),
-        );
-        const userId = getState().auth.user.id;
-        const userDataInStore = getState().auth.user.userData;
-        const userData = {
-            weight: userDataInStore.weight,
-            height: userDataInStore.height,
-            age: userDataInStore.age,
-            desiredWeight: userDataInStore.desiredWeight,
-            bloodType: userDataInStore.bloodType,
-        };
-        await dispatch(dailyRateAuthOperation(userData, userId));
     } catch (error) {
         dispatch(authActions.signUpError(error.message));
+        throw error;
     }
 };
 
@@ -49,15 +34,24 @@ const signInOperation = user => async (dispatch, getState) => {
         });
 
         token.set(response.data.accessToken);
-
         dispatch(authActions.signInSuccess({ ...response.data }));
-        await dispatch(getCurrentUser());
-        const username = getState().auth.user.username;
 
-        dispatch(showNoticeMessage(`Привет, ${username}!`));
+        const username = getState().auth.user.username;
+        dispatch(
+            showNoticeMessage({
+                message: `Привет, ${username}!`,
+                response: 'success',
+            }),
+        );
     } catch (error) {
         dispatch(authActions.signInError(error.message));
-        dispatch(showNoticeMessage('Логин или пароль введен неверно'));
+        dispatch(
+            showNoticeMessage({
+                message: 'Email или пароль введен неверно',
+                response: 'error',
+            }),
+        );
+        throw error;
     }
 };
 
@@ -88,11 +82,12 @@ const refreshTokenOperation = () => async (dispatch, getState) => {
 
         token.set(response.data.newAccessToken);
         dispatch(authActions.getNewTokenSuccess(response.data));
-        await dispatch(getCurrentUser());
+
+        await dispatch(getDayInfoOperation());
     } catch (error) {
         dispatch(authActions.getNewTokenError(error.message));
-        // dispatch(logoutOperations());
         dispatch(authActions.logoutSuccess());
+        throw error;
     }
 };
 
@@ -111,15 +106,10 @@ const getCurrentUser = () => async (dispatch, getState) => {
         const response = await axios.get(
             process.env.REACT_APP_GET_CURRENT_USER,
         );
-        
         dispatch(authActions.getCurrentUserSuccess(response.data));
-        const characteristics = {...response.data.userData}
-        delete characteristics.notAllowedProducts
-        delete characteristics.dailyRate
-
-        await dispatch(dailyRateAuthOperation(characteristics, response.data.id));
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
+        throw error;
     }
 };
 
