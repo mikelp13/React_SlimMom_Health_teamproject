@@ -4,7 +4,6 @@ import diaryActions from '../diary/diaryActions';
 
 const addProductOperation = (date, productId, weight) => async (
     dispatch,
-    getState,
 ) => {
     dispatch(diaryActions.addProductRequest());
     try {
@@ -12,6 +11,7 @@ const addProductOperation = (date, productId, weight) => async (
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { date, productId, weight },
         );
+        console.log('response.data :>> ', response.data);
         dispatch(diaryActions.addProductSuccess(response.data));
     } catch (error) {
         dispatch(diaryActions.addProductError(error.message));
@@ -59,26 +59,17 @@ const getDayInfoOperation = (
 
 const deleteProductOperation = product => async (dispatch, getState) => {
     dispatch(diaryActions.deleteProductRequest());
-// const eatenProductsArr = getState().diaryProducts.dayInfo.eatenProducts
-
-// const filteredArray = getState().diaryProducts.dayInfo.eatenProducts.filter(
-//   item => item.id !== payload.delItemId,
-// ),
-// console.dir(getState())
-
-
+    const { eatenProductId } = product;
     try {
-        // const response = await axios.delete(
-        //     `${process.env.REACT_APP_PRODUCT_DAY}`,
-        //     { data: product },
-        // );
-        // console.log('DELETE', response);
+        const response = await axios.delete(
+            `${process.env.REACT_APP_PRODUCT_DAY}`,
+            { data: product },
+        );
+        console.log('DELETE', response);
         dispatch(
             diaryActions.deleteProductSuccess({
-                // ...response.data,
-                // info: response.data,
-                delItemid: product.eatenProductId,
-                // eatenProductsArr,
+                dayInfo: response.data,
+                eatenProductId,
             }),
         );
     } catch (error) {

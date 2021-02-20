@@ -2,38 +2,18 @@ import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import diaryActions from '../diary/diaryActions';
 
-// const deleteProduct = (state, { payload }) => {
-
-//    console.log("payload", payload)
-//    console.log(':>> ', state.diaryProducts.dayInfo.eatenProducts);
-
-//     // console.dir(state)
-//     return {
-//         ...state,
-//         ...payload,
-
-//         eatenProducts: payload.eatenProductsArr.filter(
-//             item => item.id !== payload.delItemId,
-//         ),
-//     };
-// };
-
 const productReducer = createReducer([], {
     [diaryActions.getProductSuccess]: (_, { payload }) => [...payload],
     [authActions.logoutSuccess]: () => [],
 });
 
-// const myProductReducer = createReducer(
-//     {},
-//     {
-//         [diaryActions.addProductSuccess]: (_, { payload }) => ({ ...payload }),
-//         [authActions.logoutSuccess]: () => ({}),
-//     },
-// );
 const myProductReducer = createReducer(
     {},
     {
-        [diaryActions.addProductSuccess]: (_, { payload }) => ({ ...payload }),
+        [diaryActions.addProductSuccess]: (_, { payload }) => {
+            console.log('payload :>> ', payload);
+            return { ...payload };
+        },
         [authActions.logoutSuccess]: () => ({}),
     },
 );
@@ -41,6 +21,11 @@ const myProductReducer = createReducer(
 const dayInfoReducer = createReducer(
     {},
     {
+
+        [diaryActions.addProductSuccess]: (state, { payload }) => {
+            return { ...state, eatenProducts: [...state.eatenProducts, payload.eatenProduct] };
+        },
+
         [diaryActions.getDayInfoSuccess]: (state, { payload }) => ({
             ...state,
             ...payload,
@@ -51,17 +36,14 @@ const dayInfoReducer = createReducer(
         }),
 
         [diaryActions.deleteProductSuccess]: (state, { payload }) => {
-            console.log('payload', payload);
-            console.log(':>> ', state.diaryProducts.dayInfo.eatenProducts);
-
-            // console.dir(state)
+            console.log('payload :>> ', payload);
             return {
                 ...state,
-                // eatenProducts: state.eatenProducts.filter(
-                //     item => item.id !== payload.delItemId,
-                // ),
-                eatenProducts:[]
-
+                eatenProducts: [
+                    ...state.eatenProducts.filter(
+                        item => item.id !== payload.eatenProductId,
+                    ),
+                ],
             };
         },
 
@@ -74,12 +56,6 @@ const currentDayReducer = createReducer('', {
 
     [authActions.logoutSuccess]: () => '',
 });
-
-// const user = createReducer(initialState, {
-//     [itemActions.deleteEatenProductSuccess]: (state, { payload }) => ({
-//         ...state,
-//         daySummary: { ...payload },
-//     }),
 
 export default combineReducers({
     products: productReducer,
