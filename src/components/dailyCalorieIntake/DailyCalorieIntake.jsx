@@ -9,19 +9,19 @@ import authReducers from '../../redux/auth/authReducers';
 const DailyCalorieIntake = () => {
     const history = useHistory();
 
-    let store = createStore(authReducers);
-    const dailyRate = store.getState().user.userData.dailyRate;
-    console.log(store.getState().user.userData.dailyRate);
+    // let store = createStore(authReducers);
+    // const dailyRate = store.getState().user.userData.dailyRate;
+    // console.log(store.getState().user.userData.dailyRate);
 
-    const notAllowedProducts = store.getState().user.userData
-        .notAllowedProducts;
-    console.log(store.getState().user.userData.notAllowedProducts);
+    // const notAllowedProducts = store.getState().user.userData
+    //     .notAllowedProducts;
+    // console.log(store.getState().user.userData.notAllowedProducts);
 
-    const products = notAllowedProducts.map(product => (
-        <li className="DailyCalorieIntakeProductsItem" key={uuid()}>
-            {product}
-        </li>
-    ));
+    // const products = notAllowedProducts.map(product => (
+    //     <li className="DailyCalorieIntakeProductsItem" key={uuid()}>
+    //         {product}
+    //     </li>
+    // ));
 
     return (
         <DailyCalorieIntakeStyled>
@@ -31,7 +31,7 @@ const DailyCalorieIntake = () => {
                 </p>
 
                 <p className="DailyCalorieIntakeKcal">
-                    {dailyRate}
+                    {/* {dailyRate} */}
                     <span className="DailyCalorieIntakeKcalText">ккал</span>
                 </p>
 
@@ -41,7 +41,7 @@ const DailyCalorieIntake = () => {
                 </h2>
 
                 {/* <List height={150} itemCount={1000} itemSize={35} width={300}> */}
-                <ol className="DailyCalorieIntakeProductsList">{products}</ol>
+                {/* <ol className="DailyCalorieIntakeProductsList">{products}</ol> */}
                 {/* </List> */}
 
                 <button

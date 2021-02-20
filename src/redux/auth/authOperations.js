@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { dailyRateAuthOperation } from '../dailyRate/dailyRateOperations';
+import { getDayInfoOperation } from '../diary/diaryOperations';
 import { showNoticeMessage } from '../notice/noticeActions';
 import authActions from './authActions';
 
@@ -20,22 +20,9 @@ const signUpOperation = user => async (dispatch, getState) => {
         });
 
         await dispatch(authActions.signUpSuccess({ ...response.data }));
-
-        await dispatch(
-            signInOperation({ email: user.email, password: user.password }),
-        );
-        const userId = getState().auth.user.id;
-        const userDataInStore = getState().auth.user.userData;
-        const userData = {
-            weight: userDataInStore.weight,
-            height: userDataInStore.height,
-            age: userDataInStore.age,
-            desiredWeight: userDataInStore.desiredWeight,
-            bloodType: userDataInStore.bloodType,
-        };
-        await dispatch(dailyRateAuthOperation(userData, userId));
     } catch (error) {
         dispatch(authActions.signUpError(error.message));
+        throw error;
     }
 };
 
@@ -47,15 +34,14 @@ const signInOperation = user => async (dispatch, getState) => {
         });
 
         token.set(response.data.accessToken);
-
         dispatch(authActions.signInSuccess({ ...response.data }));
-        await dispatch(getCurrentUser());
-        const username = getState().auth.user.username;
 
+        const username = getState().auth.user.username;
         dispatch(showNoticeMessage(`Привет, ${username}!`));
     } catch (error) {
         dispatch(authActions.signInError(error.message));
-        dispatch(showNoticeMessage('Логин или пароль введен неверно'));
+        dispatch(showNoticeMessage('Email или пароль введен неверно'));
+        throw error;
     }
 };
 
@@ -86,10 +72,11 @@ const refreshTokenOperation = () => async (dispatch, getState) => {
 
         token.set(response.data.newAccessToken);
         dispatch(authActions.getNewTokenSuccess(response.data));
-        await dispatch(getCurrentUser());
+        // await dispatch(getCurrentUser());
+
+        await dispatch(getDayInfoOperation());
     } catch (error) {
         dispatch(authActions.getNewTokenError(error.message));
-        // dispatch(logoutOperations());
         dispatch(authActions.logoutSuccess());
     }
 };
@@ -109,8 +96,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
         const response = await axios.get(
             process.env.REACT_APP_GET_CURRENT_USER,
         );
-        console.log(response.data);
-
         dispatch(authActions.getCurrentUserSuccess(response.data));
     } catch (error) {
         dispatch(authActions.getCurrentUserError(error.message));
