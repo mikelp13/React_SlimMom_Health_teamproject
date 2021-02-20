@@ -57,6 +57,7 @@ const getDayInfoOperation = (
 };
 
 const deleteProductOperation = product => async (dispatch, getState) => {
+ 
     dispatch(diaryActions.deleteProductRequest());
     const { eatenProductId } = product;
     try {
@@ -64,10 +65,10 @@ const deleteProductOperation = product => async (dispatch, getState) => {
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { data: product },
         );
-        console.log('DELETE', response);
+        console.log('data', response.data);
         dispatch(
             diaryActions.deleteProductSuccess({
-                dayInfo: response.data,
+               ...response.data,
                 eatenProductId,
             }),
         );

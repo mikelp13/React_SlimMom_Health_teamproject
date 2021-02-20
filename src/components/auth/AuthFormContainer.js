@@ -10,13 +10,13 @@ import {
 import { dailyRateAuthOperation } from '../../redux/dailyRate/dailyRateOperations';
 import AuthForm from './AuthForm';
 import { showNoticeMessage } from '../../redux/notice/noticeActions';
-import { getUserData } from '../../redux/dailyRate/dailyRateSelectors';
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 
 const AuthFormContainer = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
-    const { age } = useSelector(getUserData);
+    const { age } = useSelector(dailyRateSelectors.getUserData);
 
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 

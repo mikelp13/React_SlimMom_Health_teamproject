@@ -10,11 +10,11 @@ import {
 import { FormContainer } from './CalculatorCaloriesFormStyled';
 import Modal from '../modal/Modal';
 import useModal from '../modal/useModal';
-import { getUserData } from '../../redux/dailyRate/dailyRateSelectors';
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 
 const CalculatorCaloriesForm = () => {
     const userId = useSelector(authSelectors.getUserId);
-    const userData = useSelector(getUserData);
+    const userData = useSelector(dailyRateSelectors.getUserData);
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const dispatch = useDispatch();
     const { openModal, onHandelClick } = useModal();

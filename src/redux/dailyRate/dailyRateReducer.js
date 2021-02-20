@@ -15,7 +15,7 @@ const initialState = {
         data: moment(new Date()).format('YYYY-MM-DD'),
     },
 
-    summaries: [
+    summaries: 
         {
             _id: '',
             date: '',
@@ -25,12 +25,11 @@ const initialState = {
             percentsOfDailyRate: 0,
             userId: '',
         },
-    ],
+    
 };
 const dailyRateReducer = createReducer(initialState, {
     [authActions.getCurrentUserSuccess]: (state, { payload }) => {
-        // delete payload.userData.summaries
-
+      
         return {
             ...state,
             userData: { ...payload.userData },
@@ -47,51 +46,9 @@ const dailyRateReducer = createReducer(initialState, {
         ...state,
         userData: { ...state.userData, ...payload },
     }),
-    // [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => {
-      
-    //     const result = Object.keys(payload).filter(
-    //         item => item !== 'summaries',
-    //     );
-
-    //     const newPayload = result.reduce((acc, item) => {
-    //         acc[item] = payload[item];
-    //         return acc;
-    //     }, {});
-
-    //     return {
-    //         ...state,
-    //         userData: { ...state.userData, ...newPayload },
-    //         currentDayInfo: {
-    //             ...payload.summaries[payload.summaries.length - 1],
-    //         },
-    //         summaries: payload.summaries,
-    //     };
-    // },
 
     [dailyRateActions.getDailyRateSuccessAuth]: (state, { payload }) => {
-      // const result = Object.keys(payload).filter(
-      //     item => item !== 'summaries',
-      // );
-      // const newPayload = result.reduce((acc, item) => {
-      //     acc[item] = payload[item];
-      //     return acc;
-      // }, {});
     
-      // const newSummaries = payload.summaries.length
-      //     ? payload.summaries.find(item => item.date === state.userData.data)
-      //     : {};
-      // return {
-      //     ...state,
-      //     userData: { ...state.userData, ...newPayload },
-      //     currentDayInfo: {
-      //         ...state.userData,
-      //         ...newSummaries,
-      //         dailyRate: payload.dailyRate,
-      //     },
-      //     summaries: payload.summaries,
-      // };
-
-
       return {
         ...state,
         userData: {
@@ -105,6 +62,42 @@ const dailyRateReducer = createReducer(initialState, {
     };
     },
 
+    [diaryActions.addProductSuccess]: (state, { payload }) => {
+      return {
+        ...state,
+        summaries: 
+          {
+              _id: payload.daySummary.id,
+              date: payload.daySummary.date,
+              kcalLeft:payload.daySummary.kcalLeft,
+              kcalConsumed:payload.daySummary.kcalConsumed,
+              dailyRate: payload.daySummary.dailyRate,
+              percentsOfDailyRate: payload.daySummary.percentsOfDailyRate,
+              userId: payload.daySummary.userId,
+          },
+      };
+  },
+
+
+
+    
+    [diaryActions.deleteProductSuccess]: (state, { payload }) => {
+      return {
+        ...state,
+        summaries:
+          {
+              _id: payload.newDaySummary.id,
+              date: payload.newDaySummary.date,
+              kcalLeft:payload.newDaySummary.kcalLeft,
+              kcalConsumed:payload.newDaySummary.kcalConsumed,
+              dailyRate: payload.newDaySummary.dailyRate,
+              percentsOfDailyRate: payload.newDaySummary.percentsOfDailyRate,
+              userId: payload.newDaySummary.userId,
+          },
+      };
+  },
+
+
 
     [authActions.logoutSuccess]: () => initialState,
 });
@@ -112,4 +105,4 @@ const dailyRateReducer = createReducer(initialState, {
 export default dailyRateReducer;
 
 
-// data: moment(new Date()).format('YYYY-MM-DD'),
+

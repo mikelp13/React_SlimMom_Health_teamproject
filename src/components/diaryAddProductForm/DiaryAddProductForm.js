@@ -104,6 +104,7 @@ const DiaryAddProductForm = () => {
                         placeholder="Введите название продукта"
                         className="inputDairyAddProduct"
                         id="fav"
+                        autoComplete="off"
                     />
                     <datalist id="browsers">
                         {products.map(product => (
@@ -132,7 +133,7 @@ const DiaryAddProductForm = () => {
                 {/* <select className="selectDairyAddProduct">
                     <option></option>
                 </select> */}
-                <button type="submit" className="buttonDairyAddProduct">
+                <button type="submit" className="buttonDairyAddProduct mainBtn">
                     {size.width < 768 ? 'Добавить' : '+'}
                 </button>
             </form>

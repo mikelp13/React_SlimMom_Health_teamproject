@@ -96,6 +96,7 @@ export const DiaryFormWrapper = styled.div`
             background-color: #ffffff;
             border: 2px solid;
             color: var(--accent-color);
+            outline:none;
         }
     }
 `;

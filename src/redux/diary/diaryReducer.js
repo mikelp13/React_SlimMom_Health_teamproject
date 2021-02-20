@@ -8,17 +8,6 @@ const productReducer = createReducer([], {
     [authActions.logoutSuccess]: () => [],
 });
 
-// const myProductReducer = createReducer(
-//     {},
-//     {
-//         [diaryActions.addProductSuccess]: (_, { payload }) => {
-//             console.log('payload :>> ', payload);
-//             return { ...payload };
-//         },
-//         [authActions.logoutSuccess]: () => ({}),
-//     },
-// );
-
 const initialState = {
     dayId: '',
     eatenProducts: [],
@@ -37,13 +26,10 @@ const dayInfoReducer = createReducer(initialState, {
         dayId: payload.id,
         eatenProducts: [...payload.eatenProducts],
     }),
-    // [authActions.getCurrentUserSuccess]: (state, { payload }) => ({
-    //     ...state,
-    //     days: [...payload.days],
-    // }),
-
+ 
     [diaryActions.deleteProductSuccess]: (state, { payload }) => {
         return {
+          ...state,
             eatenProducts: [
                 ...state.eatenProducts.filter(
                     item => item.id !== payload.eatenProductId,
@@ -56,7 +42,7 @@ const dayInfoReducer = createReducer(initialState, {
 });
 
 const currentDayReducer = createReducer(
-    { date: moment(new Date()).format('YYYY-MM-DD') },
+    { date: moment(new Date()).format('YYYY-MM-DD')},
     {
         [diaryActions.setCurrentDay]: (_, { payload }) => ({date: payload}),
 
