@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import diaryActions from '../../redux/diary/diaryActions';
 import {
     getProductOperation,
     addProductOperation,
@@ -13,11 +14,12 @@ const DiaryAddProductForm = () => {
         date: '',
         productName: '',
         gram: '',
+        productId:'',
     });
     const date = useSelector(diarySelectors.getDate);
-    const productId = useSelector(
-        state => state.diaryProducts?.products[0]?._id,
-    );
+    // const productId = useSelector(
+    //     state => state.diaryProducts?.products[0]?._id,
+    // );
 
     const products = useSelector(diarySelectors.getDayProducts);
     const dispatch = useDispatch();
@@ -57,7 +59,6 @@ const DiaryAddProductForm = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-
         setState(prev => ({ ...prev, [name]: value }));
         if (products.some(product => product.title.ru.includes(value))) {
             setState(prev => ({
@@ -67,19 +68,27 @@ const DiaryAddProductForm = () => {
                 })?._id,
             }));
         } else {
-            debounce(dispatch(getProductOperation(state.productName)), 1500);
+            name === 'productName' &&
+                debounce(
+                    dispatch(getProductOperation(state.productName)),
+                    1500,
+                );
         }
         // console.log(state);
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(addProductOperation(date, productId, state.gram));
+        dispatch(addProductOperation(date, state.productId, state.gram));
         setState({
             date: '',
             productName: '',
             gram: '',
         });
+    };
+
+    const handleClick = e => {
+        setState(prev=> ({...prev, productId: e.target.id }))
     };
 
     return (
@@ -98,7 +107,12 @@ const DiaryAddProductForm = () => {
                     />
                     <datalist id="browsers">
                         {products.map(product => (
-                            <option key={product._id} value={product.title.ru}>
+                            <option
+                                key={product._id}
+                                id={product._id}
+                                value={product.title.ru}
+                                onClick={handleClick}
+                            >
                                 {product.title.ru}
                             </option>
                         ))}
@@ -106,7 +120,7 @@ const DiaryAddProductForm = () => {
 
                     <label>
                         <input
-                            type="number"
+                            type="text"
                             name="gram"
                             value={state.gram}
                             onChange={handleChange}

@@ -1,65 +1,67 @@
-import { combineReducers, createReducer } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import diaryActions from '../diary/diaryActions';
+import moment from 'moment';
 
 const productReducer = createReducer([], {
     [diaryActions.getProductSuccess]: (_, { payload }) => [...payload],
     [authActions.logoutSuccess]: () => [],
 });
 
-const myProductReducer = createReducer(
-    {},
+// const myProductReducer = createReducer(
+//     {},
+//     {
+//         [diaryActions.addProductSuccess]: (_, { payload }) => {
+//             console.log('payload :>> ', payload);
+//             return { ...payload };
+//         },
+//         [authActions.logoutSuccess]: () => ({}),
+//     },
+// );
+
+const initialState = {
+    dayId: '',
+    eatenProducts: [],
+};
+
+const dayInfoReducer = createReducer(initialState, {
+    [diaryActions.addProductSuccess]: (state, { payload }) => {
+        return {
+            ...state,
+            eatenProducts: [...state.eatenProducts, payload.eatenProduct],
+        };
+    },
+
+    [diaryActions.getDayInfoSuccess]: (state, { payload }) => ({
+        ...state,
+        dayId: payload.id,
+        eatenProducts: [...payload.eatenProducts],
+    }),
+    // [authActions.getCurrentUserSuccess]: (state, { payload }) => ({
+    //     ...state,
+    //     days: [...payload.days],
+    // }),
+
+    [diaryActions.deleteProductSuccess]: (state, { payload }) => {
+        return {
+            eatenProducts: [
+                ...state.eatenProducts.filter(
+                    item => item.id !== payload.eatenProductId,
+                ),
+            ],
+        };
+    },
+
+    [authActions.logoutSuccess]: () => initialState,
+});
+
+const currentDayReducer = createReducer(
+    { date: moment(new Date()).format('YYYY-MM-DD') },
     {
-        [diaryActions.addProductSuccess]: (_, { payload }) => {
-            console.log('payload :>> ', payload);
-            return { ...payload };
-        },
-        [authActions.logoutSuccess]: () => ({}),
+        [diaryActions.setCurrentDay]: (_, { payload }) => ({date: payload}),
+
+        [authActions.logoutSuccess]: () => '',
     },
 );
 
-const dayInfoReducer = createReducer(
-    {},
-    {
-
-        [diaryActions.addProductSuccess]: (state, { payload }) => {
-            return { ...state, eatenProducts: [...state.eatenProducts, payload.eatenProduct] };
-        },
-
-        [diaryActions.getDayInfoSuccess]: (state, { payload }) => ({
-            ...state,
-            ...payload,
-        }),
-        [authActions.getCurrentUserSuccess]: (state, { payload }) => ({
-            ...state,
-            days: [...payload.days],
-        }),
-
-        [diaryActions.deleteProductSuccess]: (state, { payload }) => {
-            console.log('payload :>> ', payload);
-            return {
-                ...state,
-                eatenProducts: [
-                    ...state.eatenProducts.filter(
-                        item => item.id !== payload.eatenProductId,
-                    ),
-                ],
-            };
-        },
-
-        [authActions.logoutSuccess]: () => ({}),
-    },
-);
-
-const currentDayReducer = createReducer('', {
-    [diaryActions.setCurrentDay]: (_, { payload }) => payload,
-
-    [authActions.logoutSuccess]: () => '',
-});
-
-export default combineReducers({
-    products: productReducer,
-    myProducts: myProductReducer,
-    dayInfo: dayInfoReducer,
-    currentDay: currentDayReducer,
-});
+export { productReducer, dayInfoReducer, currentDayReducer };

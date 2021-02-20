@@ -3,28 +3,16 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 // import { createStore } from 'redux';
 import DailyCalorieIntakeStyled from './DailyCalorieIntakeStyled';
-import authReducers from '../../redux/auth/authReducers';
 import { useSelector } from 'react-redux';
-import { FixedSizeList as List } from 'react-window';
+
 
 const DailyCalorieIntake = () => {
     const history = useHistory();
-const calories = useSelector(state => state.user.userData.dailyRate)
-const notAllowedProducts = useSelector(state => state.user.userData.notAllowedProducts)
-console.log(notAllowedProducts);
-    // let store = createStore(authReducers);
-    // const dailyRate = store.getState().user.userData.dailyRate;
-    // console.log(store.getState().user.userData.dailyRate);
+    const calories = useSelector(state => state.user.userData.dailyRate);
+    const notAllowedProducts = useSelector(
+        state => state.user.userData.notAllowedProducts,
+    );
 
-    // const notAllowedProducts = store.getState().user.userData
-    //     .notAllowedProducts;
-    // console.log(store.getState().user.userData.notAllowedProducts);
-
-    // const products = notAllowedProducts.map(product => (
-    //     <li className="DailyCalorieIntakeProductsItem" key={product}>
-    //         {product}
-    //     </li>
-    // ));
 
     return (
         <DailyCalorieIntakeStyled>
@@ -43,13 +31,19 @@ console.log(notAllowedProducts);
                     Продукты, которые вам не рекомендуется употреблять
                 </h2>
 
-                {/* <List height={150} itemCount={1000} itemSize={35} width={300}>
-                <ol className="DailyCalorieIntakeProductsList">{products}</ol>
-                </List> */}
-
-  {/* <ol className="DailyCalorieIntakeProductsList">{products.map(product => ( <li className="DailyCalorieIntakeProductsItem" key={product}>{product}</li>))}
-  </ol>
-    */}
+           
+                <div >
+                    <ol className="DailyCalorieIntakeProductsList">
+                        {notAllowedProducts.map(product => (
+                            <li
+                                className="DailyCalorieIntakeProductsItem"
+                                key={product}
+                            >
+                                {product}
+                            </li>
+                        ))}
+                    </ol>
+                </div>
 
                 <button
                     className="DailyCalorieIntakeButton"

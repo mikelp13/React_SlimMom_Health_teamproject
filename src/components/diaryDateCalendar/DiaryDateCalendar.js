@@ -27,6 +27,7 @@ const DiaryDateCalendar = () => {
     const handleChange = day => {
         setStartDate(day);
         const date = { date: moment(day).format('YYYY-MM-DD') };
+        
         dispatch(diaryActions.setCurrentDay(date.date));
         dispatch(getDayInfoOperation(date));
         // dispatch(userDataAction.setDataOperation(date));
