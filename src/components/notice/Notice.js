@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import authSelectors from '../../redux/auth/authSelectors';
 
 import { hideNoticeMessage } from '../../redux/notice/noticeActions';
-import { getNoticeMessage } from '../../redux/notice/noticeSelectors';
+import {
+    getNoticeMessage,
+    getNoticeResponse,
+} from '../../redux/notice/noticeSelectors';
 
 import NoticeWrapper from './NoticeStyled';
 
 const Notice = () => {
     const message = useSelector(getNoticeMessage);
-    const isError = useSelector(authSelectors.getError);
+    const response = useSelector(getNoticeResponse);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,9 +25,21 @@ const Notice = () => {
         // eslint-disable-next-line
     }, []);
 
+    const getTypeNotice = () => {
+        switch (response) {
+            case 'error':
+                return 'errorNotification';
+            case 'success':
+                return 'successNotification';
+
+            default:
+                return 'warningNotification';
+        }
+    };
+
     return (
         <NoticeWrapper>
-            <div className={isError ? 'errorNotification' : 'notification'}>
+            <div className={getTypeNotice()}>
                 <p className="text">{message}</p>
             </div>
         </NoticeWrapper>

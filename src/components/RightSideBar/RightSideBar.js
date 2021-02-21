@@ -3,24 +3,23 @@ import moment from 'moment';
 import { useSelector } from 'react-redux';
 // import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
-import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
+import diarySelectors from '../../redux/diary/diarySelectors';
+import getRandomElements from '../../utils/getRandomElements';
 
 const RightSideBar = () => {
     const {
-        date,
         kcalLeft,
         kcalConsumed,
         dailyRate,
         percentsOfDailyRate,
-    } = useSelector(getCurrentDayInfo);
+    } = useSelector(dailyRateSelectors.getCurrentDayInfo);
 
-    const productsList = useSelector(state =>
-        state.user.userData.notAllowedProducts
-            ? state.user.userData.notAllowedProducts.slice(0, 5)
-            : [],
-    );
-    console.log(productsList);
-
+    const date = useSelector(diarySelectors.getDate);
+    const notAllowedProducts = useSelector(diarySelectors.notAllowedProducts);
+    const productsList = notAllowedProducts.length ? getRandomElements(notAllowedProducts):[];
+    console.log('productsList :>> ', productsList);
+console.log('kcalLeft, :>> ', kcalLeft);
     return (
         <SideBarContainer className="sideBarContainer">
             <div className="rightSideBar">
@@ -32,7 +31,7 @@ const RightSideBar = () => {
                         <li className="rightBarItem">
                             <span className="rightBarValue">Осталось</span>
                             <span className="rightBarValue">
-                                {kcalLeft} ккал
+                                {kcalLeft ? kcalLeft : "000"} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
 import IconBack from '../modal/svg/IconBack';
@@ -17,11 +16,12 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
         return () => {
             document.removeEventListener('keyup', handleKeyPress);
         };
+        // eslint-disable-next-line
     }, []);
 
     const handleKeyPress = e => {
         if (e.code === 'Escape') {
-            console.log(e.code);
+            // console.log(e.code);
             onHandelClick();
         }
     };

@@ -4,6 +4,7 @@ import { showNoticeMessage, hideNoticeMessage } from './noticeActions';
 const initialState = {
     showNotice: false,
     message: '',
+    response: '',
 };
 
 export const noticeReducer = createReducer(
@@ -12,7 +13,8 @@ export const noticeReducer = createReducer(
         [showNoticeMessage]: (state, action) => ({
             ...state,
             showNotice: !state.showNotice,
-            message: action.payload,
+            message: action.payload.message,
+            response: action.payload.response,
         }),
         [hideNoticeMessage]: (state, action) => ({
             ...state,
