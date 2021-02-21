@@ -8,6 +8,7 @@ import {
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 import useWindowSize from '../../hooks/useWindowSize';
+import { showNoticeMessage } from '../../redux/notice/noticeActions';
 // import { useFormik } from 'formik';
 // import * as Yup from 'yup';
 
@@ -19,7 +20,7 @@ const DiaryAddProductForm = () => {
         productId: '',
     });
 
-    const [typeError, setTypeError] = useState('')
+    const [typeError, setTypeError] = useState('');
 
     const date = useSelector(diarySelectors.getDate);
 
@@ -31,13 +32,12 @@ const DiaryAddProductForm = () => {
     const match = useRouteMatch();
     const history = useHistory();
 
-
     const handleChange = e => {
         const { name, value } = e.target;
         const { productName, weight } = state;
 
         productName && weight && setTypeError('');
-     
+
         setState(prev => ({ ...prev, [name]: value }));
         if (products.some(product => product.title.ru.includes(value))) {
             setState(prev => ({
@@ -48,10 +48,7 @@ const DiaryAddProductForm = () => {
             }));
         } else {
             name === 'productName' &&
-                debounce(
-                    dispatch(getProductOperation(productName)),
-                    1500,
-                );
+                debounce(dispatch(getProductOperation(productName)), 1500);
         }
     };
 
@@ -61,17 +58,19 @@ const DiaryAddProductForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
-        const { productName, weight, productId} = state;
+
+        const { productName, weight, productId } = state;
 
         if (productName === '' || weight === '') {
-          setTypeError("Внесены не все данные. Пожалуйста, заполните все поля")
-          return
+            setTypeError(
+                'Внесены не все данные. Пожалуйста, заполните все поля',
+            );
+            return;
         }
 
         if (isNaN(Number(weight))) {
-          setTypeError("Некорректный ввод. Используйте только числа")
-          return
+            setTypeError('Некорректный ввод. Используйте только числа');
+            return;
         }
 
         dispatch(addProductOperation(date, productId, weight));
@@ -80,7 +79,7 @@ const DiaryAddProductForm = () => {
             productName: '',
             weight: '',
         });
-        (location.pathname === "/diary/product") && history.goBack();
+        location.pathname === '/diary/product' && history.goBack();
     };
 
     return (
@@ -124,12 +123,16 @@ const DiaryAddProductForm = () => {
                                 className="inputDairyAddProduct secondInputLength"
                             />
                         </label>
-                        {size.width < 768 && typeError && <p className="diaryFormError">{typeError}</p>}
+                        {size.width < 768 && typeError && (
+                            <p className="diaryFormError">{typeError}</p>
+                        )}
                         <button type="submit" className="buttonDairyAddProduct">
                             {size.width < 768 ? 'Добавить' : '+'}
                         </button>
                     </div>
-                        {size.width > 767 && typeError && <p className="diaryFormError">{typeError}</p>}
+                    {size.width > 767 && typeError && (
+                        <p className="diaryFormError">{typeError}</p>
+                    )}
                 </form>
             )}
         </DiaryFormWrapper>
@@ -161,12 +164,11 @@ export default DiaryAddProductForm;
 // });
 
 // const regex = /[А-ЯЄI][а-яєi]+/g;
-    
+
 // const validationSchema = Yup.object({
 //     productName: Yup.string()
 //     .typeError('Ошибка ввода')
 //     .required('Введите продукт').matches(regex, 'Ошибка ввода'),
- 
 
 //     weight: Yup.number()
 //         .typeError('Должно быть числом')
@@ -249,4 +251,3 @@ export default DiaryAddProductForm;
 //   });
 //   (location.pathname === "/diary/product") && history.goBack();
 // };
-

@@ -16,7 +16,7 @@ const RightSideBar = () => {
 
     const date = useSelector(diarySelectors.getDate);
     const notAllowedProducts = useSelector(diarySelectors.notAllowedProducts);
-    const productsList = notAllowedProducts.length ? getRandomElements(notAllowedProducts):[];
+    const productsList = notAllowedProducts.length ? getRandomElements(notAllowedProducts, 5):[];
 
     return (
         <SideBarContainer className="sideBarContainer">

@@ -100,13 +100,15 @@ const DailyCalorieIntakeStyled = styled.div`
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.04em;
-        margin-bottom: 14px;
         color: var(--secondary-text);
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
     }
 
     .DailyCalorieIntakeProductsList {
-        width: 222px;
         margin-bottom: 40px;
+        width: 290px;
     }
 
     .line {
@@ -122,7 +124,9 @@ const DailyCalorieIntakeStyled = styled.div`
 
     @media (min-width: 767px) {
         .DailyCalorieIntakeProductsList {
-            margin-left: 112px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
         }
         .ModalContentContainer {
             width: 594px;
@@ -156,6 +160,7 @@ const DailyCalorieIntakeStyled = styled.div`
             letter-spacing: 0.04em;
             color: var(--main-text);
             margin-bottom: 22px;
+            text-align: center;
         }
         .line {
             width: 330px;
@@ -177,7 +182,8 @@ const DailyCalorieIntakeStyled = styled.div`
             margin: 0 auto;
         }
         .DailyCalorieIntakeProductsList {
-            margin-left: 112px;
+            /* margin-left: 112px; */
+            margin-bottom: 40px;
         }
         .DailyCalorieIntakeTitle {
             margin-top: 64px;
@@ -188,14 +194,17 @@ const DailyCalorieIntakeStyled = styled.div`
             margin-right: 180px;
         }
         .DailyCalorieIntakeProducts {
-            width: 330px;
+            /* width: 330px;
             padding-right: 180px;
-            padding-left: 180px;
+            padding-left: 180px; */
+            text-align: center;
         }
         .DailyCalorieIntakeProductsList {
-            margin-left: 180px;
+            /* margin-left: 180px;
             margin-right: 288px;
-            padding-left: 20px;
+            padding-left: 20px; */
+            margin: 0 auto 40px;
+            width: 440px;
         }
         .DailyCalorieIntakeKcal {
             margin-top: 22px;

@@ -9,7 +9,7 @@ const NoticeWrapper = styled.div`
 
     @media screen and (min-width: 768px) {
         right: 30px;
-        top: 120px;
+        top: 145px;
     }
 
     .text {

@@ -6,7 +6,6 @@ const ModalStyled = styled.div`
 
     .modalBody {
         position: absolute;
-        /* width: 320px; */
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -16,6 +15,16 @@ const ModalStyled = styled.div`
         overflow-y: auto;
         outline: 0;
         background-color: var(--main-background);
+
+        @media (max-width: 767px) {
+          width: 100%;
+          top: calc(50% + 15px);
+        }
+
+        @media (min-width: 768px) {
+            top: 50%;
+        }
+
     }
 
     .overlay {
@@ -30,7 +39,10 @@ const ModalStyled = styled.div`
         width: 100vw;
         height: 100vh;
         background: transparent;
-        background-color: rgba(33, 33, 33, 0.12);
+
+        @media (min-width: 768px) {
+            background-color: rgba(33, 33, 33, 0.12);
+        }
     }
 
     .modalBtn {

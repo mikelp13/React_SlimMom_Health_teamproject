@@ -16,7 +16,7 @@ const TabletBar = () => {
   
 
     return (
-        <TabletBarStyled>
+        <TabletBarStyled click>
          <Logo/>  
          <div className='rightSide'>  
     {isAuth &&  <UserMenu/>}

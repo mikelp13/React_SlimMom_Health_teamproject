@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation, } from 'react-router-dom';
-import useWindowSize from '../../hooks/useWindowSize';
 import { logoutOperations } from '../../redux/auth/authOperations';
 import strip from '../../assets/img/logo/strip.png';
 import UserMenuStyled from './UserMenuStyled';
@@ -39,11 +38,13 @@ const UserMenu = () => {
                     </svg>
                 </button>
             )}
+            <div className="userContainer">
             <p className="userName">{username}</p>
             <img src={strip} alt="strip"></img>
             <button type="button" onClick={onHandleLogout}>
                 Выйти
             </button>
+            </div>
         </UserMenuStyled>
     );
 };

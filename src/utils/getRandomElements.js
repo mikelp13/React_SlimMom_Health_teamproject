@@ -1,10 +1,10 @@
- const getRandomElements = (array)=>{
+ const getRandomElements = (array, num)=>{
 let result = [];
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
-  while (result.length !== 5) {
-    let index = getRandomInt(array.length);    
+  while (result.length !== num) {
+    let index = getRandomInt(array.length);
     result.push(array[index]);
 
     result = result.filter((item, idx, arr) => arr.indexOf(item) === idx);
