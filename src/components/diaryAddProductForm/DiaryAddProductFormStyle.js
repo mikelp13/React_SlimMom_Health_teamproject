@@ -58,6 +58,7 @@ export const DiaryFormWrapper = styled.div`
         border: 1px solid var(--header-border);
         border-radius: 30px;
         font-family: Verdana;
+        background: transparent;
         font-style: normal;
         font-weight: 700;
         font-size: 14px;

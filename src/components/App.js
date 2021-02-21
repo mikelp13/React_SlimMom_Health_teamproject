@@ -8,12 +8,14 @@ import {
 import authSelectors from '../redux/auth/authSelectors';
 import { useDarkMode } from './themes/useDarkMode';
 import { ThemeProvider } from 'styled-components';
+import Media from 'react-media';
 import AppBar from './appBar/AppBar';
 import mainRoutes from '../routes/routes';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
+
 
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
@@ -53,9 +55,10 @@ const App = () => {
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
             <div>
-                <ThemeToggle theme={theme} toggler={themeToggler} />
-                <AppBar />
-
+                <Media queries={{ desktop: "(min-width: 1280px)" }}>
+                    {matches => (matches.desktop && <ThemeToggle theme={theme} toggler={themeToggler} />)}
+                </Media>
+                <AppBar theme={theme} toggler={themeToggler} />
                 <CSSTransition
                     in={showNotice}
                     timeout={250}
