@@ -49,7 +49,7 @@ export const SideBarContainer = styled.div`
         justify-content: space-between;
     }
 
-    .rightBarItem:not(:last-child) {
+    .rightBarItem:not(:last-child), .rightBarProductsItem:not(:last-child)  {
         margin-bottom: 20px;
     }
 
@@ -71,12 +71,11 @@ export const SideBarContainer = styled.div`
         }
     }
 
-    .rightBarValue {
+    .rightBarValue, .rightBarProductsItem {
         font-family: 'Verdana';
         font-weight: 400;
-        font-style: normal;
         font-size: 14px;
-        line-height: 17px;
+        line-height: 1.25;
         color: var(--secondary-text);
     }
 
@@ -92,4 +91,17 @@ export const SideBarContainer = styled.div`
             margin-bottom: 60px;
         }
     }
+
+   
+    /* .rightBarProductsItem{
+      font-family: 'Verdana';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.25;
+        color: var(--secondary-text);
+    } */
+
+    /* .rightBarProductsItem:not(:last-child) {
+        margin-bottom: 20px;
+    } */
 `;

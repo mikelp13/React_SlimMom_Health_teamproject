@@ -108,7 +108,6 @@ export const FormContainer = styled.div`
 
     .radioButton {
         position: relative;
-        /* margin: 20px 0; */
         cursor: pointer;
     }
     .radioButton + .radioButton {

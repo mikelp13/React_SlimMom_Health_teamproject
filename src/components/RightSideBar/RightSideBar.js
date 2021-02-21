@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
-// import diarySelectors from '../../redux/diary/diarySelectors';
 import { SideBarContainer } from './RightSideBarStyled';
 import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 import diarySelectors from '../../redux/diary/diarySelectors';
@@ -18,8 +17,7 @@ const RightSideBar = () => {
     const date = useSelector(diarySelectors.getDate);
     const notAllowedProducts = useSelector(diarySelectors.notAllowedProducts);
     const productsList = notAllowedProducts.length ? getRandomElements(notAllowedProducts):[];
-    console.log('productsList :>> ', productsList);
-console.log('kcalLeft, :>> ', kcalLeft);
+
     return (
         <SideBarContainer className="sideBarContainer">
             <div className="rightSideBar">
@@ -31,25 +29,25 @@ console.log('kcalLeft, :>> ', kcalLeft);
                         <li className="rightBarItem">
                             <span className="rightBarValue">Осталось</span>
                             <span className="rightBarValue">
-                                {kcalLeft ? kcalLeft : "000"} ккал
+                                {kcalLeft ? Math.round(kcalLeft) : "000"} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">Употреблено</span>
                             <span className="rightBarValue">
-                                {kcalConsumed} ккал
+                                {kcalConsumed ? Math.round(kcalConsumed) : "000"} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">Дневная норма</span>
                             <span className="rightBarValue">
-                                {dailyRate} ккал
+                                {dailyRate ? Math.round(dailyRate) : "000"} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">n% от нормы</span>
                             <span className="rightBarValue">
-                                {Math.round(percentsOfDailyRate)} %
+                                {percentsOfDailyRate ? Math.round(percentsOfDailyRate) : "0"} %
                             </span>
                         </li>
                     </ul>
@@ -60,9 +58,9 @@ console.log('kcalLeft, :>> ', kcalLeft);
                             <p className="rightBarTitle">
                                 Нерекомендуемые продукты
                             </p>
-                            <ul>
+                            <ul className="rightBarProductsList">
                                 {productsList.map((product, idx) => (
-                                    <li key={idx}>{product}</li>
+                                    <li key={idx} className="rightBarProductsItem" >{product}</li>
                                 ))}
                             </ul>
                         </>

@@ -9,6 +9,8 @@ import {
 import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 import useWindowSize from '../../hooks/useWindowSize';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const DiaryAddProductForm = () => {
   const [state, setState] = useState({
@@ -53,7 +55,6 @@ const DiaryAddProductForm = () => {
         setState(prev => ({ ...prev, productId: e.target.id }));
     };
 
-
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(addProductOperation(date, state.productId, state.gram));
@@ -65,6 +66,12 @@ const DiaryAddProductForm = () => {
         (location.pathname === "/diary/product") && history.goBack();
     };
 
+    // const validationSchema = Yup.object({
+    //   productName: Yup.number().required("Required"),
+    //   weight: Yup.number().required("Required")
+    // });
+
+ 
  
     return (
         <DiaryFormWrapper>
@@ -83,9 +90,9 @@ const DiaryAddProductForm = () => {
                             id="fav"
                             autoComplete="off"
                         />
-                        <datalist id="browsers">
+                        <datalist id="browsers" className="dataList">
                             {products.map(product => (
-                                <option
+                                <option className="dataOption"
                                     key={product._id}
                                     id={product._id}
                                     value={product.title.ru}
@@ -95,7 +102,6 @@ const DiaryAddProductForm = () => {
                                 </option>
                             ))}
                         </datalist>
-
                         <label>
                             <input
                                 type="text"
@@ -106,10 +112,10 @@ const DiaryAddProductForm = () => {
                                 className="inputDairyAddProduct secondInputLength"
                             />
                         </label>
-                    </div>
-                    <button type="submit" className="buttonDairyAddProduct">
+                        <button type="submit" className="buttonDairyAddProduct">
                         {size.width < 768 ? 'Добавить' : '+'}
                     </button>
+                    </div>
                 </form>
             )}
         </DiaryFormWrapper>
@@ -117,3 +123,45 @@ const DiaryAddProductForm = () => {
 };
 
 export default DiaryAddProductForm;
+
+// <form onSubmit={handleSubmit} className="formDairyAddProduct">
+// <div className="inputBlockDairyAddProduct">
+//     <input
+//         list="browsers"
+//         type="text"
+//         name="productName"
+//         value={state.productName}
+//         onChange={handleChange}
+//         placeholder="Введите название продукта"
+//         className="inputDairyAddProduct"
+//         id="fav"
+//         autoComplete="off"
+//     />
+//     <datalist id="browsers">
+//         {products.map(product => (
+//             <option
+//                 key={product._id}
+//                 id={product._id}
+//                 value={product.title.ru}
+//                 onClick={handleClick}
+//             >
+//                 {product.title.ru}
+//             </option>
+//         ))}
+//     </datalist>
+
+//     <label>
+//         <input
+//             type="text"
+//             name="gram"
+//             value={state.gram}
+//             onChange={handleChange}
+//             placeholder="Граммы"
+//             className="inputDairyAddProduct secondInputLength"
+//         />
+//     </label>
+// </div>
+// <button type="submit" className="buttonDairyAddProduct">
+//     {size.width < 768 ? 'Добавить' : '+'}
+// </button>
+// </form>

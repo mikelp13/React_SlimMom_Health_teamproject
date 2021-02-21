@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
-
-// import { useMediaQuery } from 'react-responsive';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import RightSideBar from '../../components/RightSideBar/RightSideBar';
-
-import { PageContainer } from './DiaryPageStyle';
 import useWindowSize from '../../hooks/useWindowSize';
+import sprite from '../../assets/sprite.svg';
+import { PageContainer } from '../calculator/CalculatorPageStyled';
+import { ButtonStyled } from './DiaryPageStyle';
 // import { useDispatch } from 'react-redux';
 // import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 
@@ -60,23 +59,53 @@ const DiaryPage = () => {
 
     return (
         <PageContainer className="calculatorPage">
-            <section className="calculatorPageSection">
-                <div className="container">
-                    <DiaryDateCalendar />
-                    <DiaryAddProductForm />
-                    {(location.pathname !== "/diary/product") && <DiaryProductList />} 
-                   
-                    {windowSize.width < 768 && location.pathname !== "/diary/product" && (
-                        <button type="button">
-                            <Link to={`${match.url}/product`}>+</Link>
-                        </button>
-                    )}
+            <div className="calculatorPageWrapper">
+             { windowSize.width > 320 &&
+                    location.pathname !== '/diary/product' &&  <DiaryDateCalendar />}  
+                <DiaryAddProductForm />
+                {location.pathname !== '/diary/product' && <DiaryProductList />}
 
-                   {(location.pathname !== "/diary/product") && <RightSideBar />} 
-                </div>
-            </section>
+                {windowSize.width < 768 &&
+                    location.pathname !== '/diary/product' && (
+                        <ButtonStyled
+                            type="button"
+                            className="mainButton roundButton"
+                        >
+                            <Link to={`${match.url}/product`}>
+                                <svg
+                                    className="plusIcon"
+                                    width="25px"
+                                    height="25px"
+                                >
+                                    <use href={sprite + '#icon-plus'} />
+                                </svg>
+                            </Link>
+                        </ButtonStyled>
+                    )}
+            </div>
+
+            {location.pathname !== '/diary/product' && <RightSideBar />}
         </PageContainer>
     );
 };
 
 export default DiaryPage;
+
+    /* <PageContainer className="calculatorPage">
+<section className="calculatorPageSection">
+    <div className="container">
+        <DiaryDateCalendar />
+        <DiaryAddProductForm />
+        {(location.pathname !== "/diary/product") && <DiaryProductList />} 
+       
+        {windowSize.width < 768 && location.pathname !== "/diary/product" && (
+            <button type="button">
+                <Link to={`${match.url}/product`}>+</Link>
+            </button>
+        )}
+
+       {(location.pathname !== "/diary/product") && <RightSideBar />} 
+    </div>
+</section>
+</PageContainer> */
+
