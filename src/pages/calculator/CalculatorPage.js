@@ -1,6 +1,6 @@
 import React from 'react';
 import CalculatorCaloriesForm from '../../components/calculatorCaloriesForm/CalculatorCaloriesForm';
-import RightSideBar from '../../components/RightSideBar/RightSideBar';
+import RightSideBar from '../../components/rightSideBar/RightSideBar';
 import { PageContainer } from './CalculatorPageStyled';
 
 const CalculatorPage = () => {

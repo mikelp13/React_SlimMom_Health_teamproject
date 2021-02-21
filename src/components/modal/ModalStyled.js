@@ -53,7 +53,7 @@ const ModalStyled = styled.div`
         outline: none;
         height: 12px;
         width: 12px;
-        background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent;
+        /* background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent; */
         color: #000000;
         cursor: pointer;
     }
