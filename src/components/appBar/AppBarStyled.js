@@ -15,8 +15,6 @@ const AppBarStyled = styled.header`
 
     @media screen and (min-width: 768px) and (max-width: 1279px) {
         border-bottom: #e0e0e0 solid 1px;
-        padding-left: 70px;
-        padding-right: 87px;
         padding-bottom: 20px;
     }
 
@@ -24,10 +22,10 @@ const AppBarStyled = styled.header`
         
         border-bottom: none;
         position: absolute;
-        top: 82px;
+        padding-top: 67px;
         
         .container {
-          padding-top: 20px;
+          padding-top: 35px;
         }
     }
 `;

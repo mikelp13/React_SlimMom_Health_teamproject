@@ -60,7 +60,7 @@ console.log('kcalLeft, :>> ', kcalLeft);
                             <p className="rightBarTitle">
                                 Нерекомендуемые продукты
                             </p>
-                            <ul>
+                            <ul className="productList">
                                 {productsList.map((product, idx) => (
                                     <li key={idx}>{product}</li>
                                 ))}

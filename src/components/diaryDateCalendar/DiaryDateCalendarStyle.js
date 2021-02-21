@@ -10,7 +10,7 @@ export const CalendarWrapper = styled.div`
     }
     @media screen and (min-width: 1200px) {
         margin-top: 143px;
-        padding-left: 115px;
+        padding-left: 40px;
     }
     .inputDiaryDateCalendar {
         margin-top: 40px;
@@ -18,12 +18,12 @@ export const CalendarWrapper = styled.div`
         width: 138px;
 
         border-color: transparent;
+        background: transparent;
         font-family: Verdana;
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 1.22;
-        color: #212121;
         @media screen and (min-width: 768px) {
             width: 225px;
             margin-right: 21px;

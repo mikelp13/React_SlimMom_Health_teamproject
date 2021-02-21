@@ -14,7 +14,7 @@ export const PageContainer = styled.div`
         }
 
         @media (min-width: 1280px) {
-            padding: 292px 0 111px 100px;
+            padding: 292px 0 111px 120px;
         }
     }
 

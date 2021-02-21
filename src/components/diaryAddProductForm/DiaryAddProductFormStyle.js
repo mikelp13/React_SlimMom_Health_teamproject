@@ -10,7 +10,7 @@ export const DiaryFormWrapper = styled.div`
         padding-left: 92px;
     }
     @media screen and (min-width: 1200px) {
-        padding-left: 115px;
+        padding-left: 40px;
     }
     .formDairyAddProduct {
         display: flex;
@@ -29,6 +29,7 @@ export const DiaryFormWrapper = styled.div`
         border-top: transparent;
         border-left: transparent;
         border-right: transparent;
+        background: transparent;
         border-bottom: 1px solid #e0e0e0;
         font-family: Verdana;
         font-style: normal;
@@ -54,6 +55,7 @@ export const DiaryFormWrapper = styled.div`
         border: 1px solid #e0e0e0;
         border-radius: 30px;
         font-family: Verdana;
+        background: transparent;
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -93,9 +95,10 @@ export const DiaryFormWrapper = styled.div`
         }
         &:hover,
         &:focus {
-            background-color: #ffffff;
+            background-color: transparent;
             border: 2px solid;
             color: var(--accent-color);
+            box-shadow: 0px 4px 30px rgba(252, 132, 45, 0.5);
             outline:none;
         }
     }
