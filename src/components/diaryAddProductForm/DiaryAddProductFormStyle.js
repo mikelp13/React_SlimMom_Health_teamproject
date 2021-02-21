@@ -10,7 +10,7 @@ export const DiaryFormWrapper = styled.div`
         padding-left: 92px;
     }
     @media screen and (min-width: 1200px) {
-        padding-left: 115px;
+        padding-left: 40px;
     }
     .formDairyAddProduct {
         display: flex;

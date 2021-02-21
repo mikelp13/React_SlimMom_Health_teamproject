@@ -5,10 +5,11 @@ export const ToggleStyled = styled.div`
     .toggleWrapper {
   position: absolute;
   top: 40px;
-  right: -20px;
+  right: 15px;
   overflow: hidden;
   padding: 10px 10px;
   transform: translate3d(-50%, -50%, 0);
+  z-index: 1;
   
   input {
     position: absolute;
@@ -17,17 +18,17 @@ export const ToggleStyled = styled.div`
  }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .toggleWrapper {
-    top: 80px;
-    right: -40px;
+    top: 65px;
+    right: 90px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .toggleWrapper {
-    top: 45px;
-    right: -40px;
+    top: 55px;
+    right: 55px;
   }
 }
 
@@ -35,8 +36,8 @@ export const ToggleStyled = styled.div`
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 70px;
-  height: 35px;
+  width: 50px;
+  height: 25px;
   background-color: #83D8FF;
   border-radius: 84px;
   transition: background-color 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -46,10 +47,10 @@ export const ToggleStyled = styled.div`
   display: inline-block;
   position: relative;
   z-index: 1;
-  top: 2px;
-  left: 3px;
-  width: 31px;
-  height: 31px;
+  top: 1px;
+  left: 2px;
+  width: 23px;
+  height: 23px;
   background-color: #FFCF96;
   border-radius: 50px;
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
@@ -65,24 +66,24 @@ export const ToggleStyled = styled.div`
   }
   
   .crater--1 {
-    top: 13px;
-    left: 9px;
-    width: 4px;
-    height: 4px;
+    top: 12px;
+    left: 5px;
+    width: 3px;
+    height: 3px;
   }
   
   .crater--2 {
-    top: 20px;
-    left: 17px;
-    width: 6px;
-    height: 6px;
+    top: 13px;
+    left: 12px;
+    width: 5px;
+    height: 5px;
   }
   
   .crater--3 {
-    top: 7px;
-    left: 19px;
-    width: 8px;
-    height: 8px;
+    top: 3px;
+    left: 12px;
+    width: 7px;
+    height: 7px;
   }
 }
 
@@ -94,27 +95,27 @@ export const ToggleStyled = styled.div`
 }
 
 .star--1 {
-  top: 5px;
-  left: 23px;
+  top: 4px;
+  left: 16px;
   z-index: 0;
-  width: 30px;
-  height: 3px;
+  width: 25px;
+  height: 2px;
 }
 
 .star--2 {
-  top: 13px;
-  left: 23px;
+  top: 8px;
+  left: 15px;
   z-index: 1;
   width: 25px;
-  height: 3px;
+  height: 2px;
 }
 
 .star--3 {
-  top: 20px;
-  left: 33px;
+  top: 13px;
+  left: 19px;
   z-index: 0;
   width: 25px;
-  height: 3px;
+  height: 2px;
 }
     
 .star--4,
@@ -125,7 +126,7 @@ export const ToggleStyled = styled.div`
 }
 
 .star--4 {
-  top: 16px;
+  top: 19px;
   left: 11px;
   z-index: 0;
   width: 2px;
@@ -134,8 +135,8 @@ export const ToggleStyled = styled.div`
 }
 
 .star--5 {
-  top: 27px;
-  left: 17px;
+  top: 14px;
+  left: 6px;
   z-index: 0;
   width: 3px;
   height: 3px;
@@ -143,8 +144,8 @@ export const ToggleStyled = styled.div`
 }
 
 .star--6 {
-  top: 28px;
-  left: 28px;
+  top: 16px;
+  left: 18px;
   z-index: 0;
   width: 2px;
   height: 2px;
@@ -165,7 +166,7 @@ input:checked {
     
     .toggle__handler {
       background-color: #FFE5B5;
-      transform: translate3d(33px, 0, 0) rotate(0);
+      transform: translate3d(23px, -0.5px, 0) rotate(0);
   
       .crater { opacity: 1; }
     }

@@ -11,8 +11,9 @@ export const UL = styled.div`
         padding-right: 31px;
     }
     @media screen and (min-width: 1200px) {
-        width: 530px;
+        width: 650px;
         padding-right: 42px;
         max-height: 200px;
+        padding-left: 40px;
     }
 `;
