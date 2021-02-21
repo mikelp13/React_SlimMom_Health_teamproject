@@ -1,29 +1,23 @@
 import styled from 'styled-components';
-export const CalendarWrapper = styled.div`
-    margin-top: 40px;
-    margin-bottom: 31px;
-    padding-left: 15px;
-    @media screen and (min-width: 768px) {
-        margin-top: 100px;
-        margin-bottom: 60px;
-        padding-left: 92px;
-    }
-    @media screen and (min-width: 1200px) {
-        margin-top: 143px;
-        padding-left: 40px;
-    }
-    .inputDiaryDateCalendar {
-        margin-top: 40px;
-        margin-bottom: 31px;
-        width: 138px;
 
-        border-color: transparent;
+export const CalendarWrapper = styled.div`
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+    }
+
+    .inputDiaryDateCalendar {
+        width: 138px;
+        border: none;
         background: transparent;
+        outline: none;
         font-family: Verdana;
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 1.22;
+        color: var(--main-text);
         @media screen and (min-width: 768px) {
             width: 225px;
             margin-right: 21px;
@@ -34,7 +28,8 @@ export const CalendarWrapper = styled.div`
     .labelDatePicker {
         height: 20px;
         display: flex;
-        align-items: baseline;
+        align-items: center;
+        cursor: pointer;
         @media screen and (min-width: 768px) {
             height: 38px;
         }
