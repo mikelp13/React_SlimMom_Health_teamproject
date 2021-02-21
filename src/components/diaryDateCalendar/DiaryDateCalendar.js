@@ -8,7 +8,7 @@ import moment from 'moment';
 import { CalendarWrapper } from './DiaryDateCalendarStyle';
 import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 import diaryActions from '../../redux/diary/diaryActions';
-import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
+// import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
 
 const DiaryDateCalendar = () => {
     // const [state, setState] = useState({
@@ -16,23 +16,23 @@ const DiaryDateCalendar = () => {
     // });
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
-    console.log(startDate);
-
+    // console.log(startDate);
 
     useEffect(() => {
-     dispatch(diaryActions.setCurrentDay(moment(new Date()).format('YYYY-MM-DD')));
-    }, [dispatch])
-
-
+        dispatch(
+            diaryActions.setCurrentDay(moment(new Date()).format('YYYY-MM-DD')),
+        );
+    }, [dispatch]);
 
     const handleChange = day => {
         setStartDate(day);
         const date = { date: moment(day).format('YYYY-MM-DD') };
+        
         dispatch(diaryActions.setCurrentDay(date.date));
         dispatch(getDayInfoOperation(date));
         // dispatch(userDataAction.setDataOperation(date));
-        console.log('current ====>>> day', day);
-        console.log('current ====>>> data', date);
+        // console.log('current ====>>> day', day);
+        // console.log('current ====>>> data', date);
     };
 
     return (

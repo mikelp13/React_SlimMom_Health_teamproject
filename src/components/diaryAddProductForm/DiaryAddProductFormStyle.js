@@ -99,6 +99,7 @@ export const DiaryFormWrapper = styled.div`
             border: 2px solid;
             color: var(--accent-color);
             box-shadow: 0px 4px 30px rgba(252, 132, 45, 0.5);
+            outline:none;
         }
     }
 `;

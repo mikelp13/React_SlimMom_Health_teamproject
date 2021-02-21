@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/authSelectors';
 import * as Yup from 'yup';
@@ -7,31 +6,28 @@ import {
     dailyRateAuthOperation,
     dailyRateOperation,
 } from '../../redux/dailyRate/dailyRateOperations';
-// styles
+
 import { FormContainer } from './CalculatorCaloriesFormStyled';
 import Modal from '../modal/Modal';
 import useModal from '../modal/useModal';
-
-// const initialState = {
-//     height: '',
-//     age: '',
-//     weight: '',
-//     desiredWeight: '',
-//     bloodType: '',
-// };
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 
 const CalculatorCaloriesForm = () => {
-    // const [state, setState] = useState({ ...initialState });
     const userId = useSelector(authSelectors.getUserId);
-    const userData = useSelector(state => state.auth.user.userData);
+    const userData = useSelector(dailyRateSelectors.getUserData);
     const isAuth = useSelector(authSelectors.isAuthenticated);
     const dispatch = useDispatch();
     const { openModal, onHandelClick } = useModal();
 
-    // const handleChange = e => {
-    //     const { name, value } = e.target;
-    //     setState(prevState => ({ ...prevState, [name]: Number(value) }));
-    // };
+    const initialState = {
+        height: userData && userData.height ? userData.height : '',
+        age: userData && userData.age ? userData.age : '',
+        weight: userData && userData.weight ? userData.weight : '',
+        desiredWeight:
+            userData && userData.desiredWeight ? userData.desiredWeight : '',
+        bloodType:
+            userData && userData.bloodType ? userData.bloodType.toString() : '',
+    };
 
     const handleSubmit = values => {
         const convertedValuesArr = Object.entries(values).map(item => [
@@ -45,7 +41,6 @@ const CalculatorCaloriesForm = () => {
             : dispatch(dailyRateOperation(valuesNumObj));
 
         !isAuth && onHandelClick();
-        // setState({ ...initialState });
     };
     const validationSchema = Yup.object().shape({
         height: Yup.number()
@@ -84,19 +79,8 @@ const CalculatorCaloriesForm = () => {
     return (
         <FormContainer>
             <Formik
-                initialValues={{
-                    height: userData && userData.height ? userData.height : '',
-                    age: userData && userData.age ? userData.age : '',
-                    weight: userData && userData.weight ? userData.weight : '',
-                    desiredWeight:
-                        userData && userData.desiredWeight
-                            ? userData.desiredWeight
-                            : '',
-                    bloodType:
-                        userData && userData.bloodType
-                            ? userData.bloodType.toString()
-                            : '',
-                }}
+                enableReinitialize={true}
+                initialValues={initialState}
                 onSubmit={values => {
                     handleSubmit(values);
                 }}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import {
     getCurrentUser,
@@ -10,10 +10,13 @@ import {
 import { dailyRateAuthOperation } from '../../redux/dailyRate/dailyRateOperations';
 import AuthForm from './AuthForm';
 import { showNoticeMessage } from '../../redux/notice/noticeActions';
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 
 const AuthFormContainer = () => {
     const dispatch = useDispatch();
     const location = useLocation();
+    const history = useHistory();
+    const { age } = useSelector(dailyRateSelectors.getUserData);
 
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -48,7 +51,17 @@ const AuthFormContainer = () => {
             : errorMessagesSchemaSignIn;
 
     const handleSubmit = values => {
-        if (location.pathname === '/signup') {
+        if (location.pathname === '/signup' && !age) {
+            history.push('/');
+            dispatch(
+                showNoticeMessage({
+                    message: 'Пожалуйста, введите данные',
+                    response: 'warning',
+                }),
+            );
+            return;
+        }
+        if (location.pathname === '/signup' && age) {
             signUp(values);
         } else signIn(values);
     };
@@ -65,11 +78,13 @@ const AuthFormContainer = () => {
             await dispatch(dailyRateAuthOperation());
             await dispatch(getCurrentUser());
         } catch (error) {
-            dispatch(
-                showNoticeMessage(
-                    'Пользователь с таким логином уже существует',
-                ),
-            );
+            error.message === 'Request failed with status code 409' &&
+                dispatch(
+                    showNoticeMessage({
+                        message: 'Пользователь с таким Email уже существует',
+                        response: 'error',
+                    }),
+                );
             return;
         }
     };

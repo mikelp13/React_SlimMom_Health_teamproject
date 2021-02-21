@@ -19,11 +19,14 @@ export const PageContainer = styled.div`
     }
 
     .calculatorPageTitle {
-        width: 290px;
         font-family: 'Verdana', sans-serif;
         font-size: 18px;
         line-height: 1.444;
         font-weight: 700;
+
+        @media (min-width: 480px) and (max-width: 767px) {
+        text-align: center
+        }
 
         @media (max-width: 767px) {
             margin-bottom: 40px;
