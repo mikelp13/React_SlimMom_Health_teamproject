@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const DiaryFormWrapper = styled.div`
     margin-top: 80px;
 
+    @media screen and (max-width: 767px) {
+        position: relative;
+    }
+
     @media screen and (min-width: 768px) {
         margin-top: 0;
         margin-bottom: 60px;
@@ -34,7 +38,7 @@ export const DiaryFormWrapper = styled.div`
         outline: none;
 
         @media screen and (min-width: 768px) {
-            width: 245px;
+            width: 265px;
         }
         @media screen and (max-width: 767px) {
             margin-bottom: 30px;
@@ -99,5 +103,11 @@ export const DiaryFormWrapper = styled.div`
             color: var(--accent-color);
             outline: none;
         }
+    }
+
+    .diaryFormError {
+        color: #e11616;
+        font-size: 12px;
+        font-weight: 400;
     }
 `;
