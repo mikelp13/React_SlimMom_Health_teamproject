@@ -3,10 +3,6 @@ import styled from 'styled-components';
 export const CalendarWrapper = styled.div`
     margin-bottom: 30px;
 
-    @media screen and (min-width: 768px) {
-        margin-bottom: 60px;
-    }
-
     .inputDiaryDateCalendar {
         width: 138px;
         border: none;
@@ -20,7 +16,7 @@ export const CalendarWrapper = styled.div`
         color: var(--main-text);
 
         @media screen and (min-width: 768px) {
-          width: 250px;
+            width: 250px;
             font-size: 34px;
             line-height: 1.2;
         }
@@ -43,6 +39,6 @@ export const CalendarWrapper = styled.div`
         width: 18px;
     }
     .react-datepicker__input-container {
-      position: static;
+        position: static;
     }
 `;

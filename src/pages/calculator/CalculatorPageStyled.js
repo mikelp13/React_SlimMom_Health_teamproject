@@ -7,7 +7,8 @@ export const PageContainer = styled.div`
     }
 
     .calculatorPageWrapper {
-        padding: 40px 15px 60px;
+
+        padding: 40px 5px 60px 15px;
 
         @media (min-width: 768px) and (max-width: 1279px) {
             padding: 100px 70px 74px;

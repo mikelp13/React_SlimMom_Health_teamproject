@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const DiaryFormWrapper = styled.div`
-    margin-top: 80px;
-
+ 
     @media screen and (max-width: 767px) {
         position: relative;
     }
@@ -10,6 +9,7 @@ export const DiaryFormWrapper = styled.div`
     @media screen and (min-width: 768px) {
         margin-top: 0;
         margin-bottom: 60px;
+        margin-top: 80px;
     }
 
     .inputBlockDairyAddProduct {
