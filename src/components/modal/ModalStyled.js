@@ -56,10 +56,45 @@ const ModalStyled = styled.div`
         /* background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent; */
         /* color: #000000; */
         cursor: pointer;
-        width: 100%;
-        padding: 18px;
+
+        @media (max-width: 767px) {
+            width: 100%;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .overlay .navlink {
+        color: var(--secondary-text);
+    }
+    .overlay .navlinkActive {
+        color: var(--light-text);
+    }
+    .overlay .navlinkActive:hover {
+        color: var(--light-text);
+    }
+
+    /* @media (min-width: 767px) {
+        .modalBtn {
+            margin: 24px 24px 0 540px;
+            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
+                transparent; */
+    /* }  */
+    .modal_overlay {
+        background-color: var(--main-text);
+        opacity: 0.5;
+    }
+    .modal_header {
         display: flex;
+        justify-content: center;
         align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 1040;
+        width: 100vw;
+        height: 100vh;
+        background: transparent;
+        background-color: rgba(33, 33, 33, 0.12);
     }
     .overlay .navlink {
         color: var(--secondary-text);
@@ -74,40 +109,7 @@ const ModalStyled = styled.div`
     @media (min-width: 767px) {
         .modalBtn {
             margin: 24px 24px 0 540px;
-            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
-                transparent; */
-        }
-        .modal_overlay {
-            background-color: var(--main-text);
-            opacity: 0.5;
-        }
-        .modal_header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            top: 0;
-            left: 0;
-            z-index: 1040;
-            width: 100vw;
-            height: 100vh;
             background: transparent;
-            background-color: rgba(33, 33, 33, 0.12);
-        }
-        .overlay .navlink {
-            color: var(--secondary-text);
-        }
-        .overlay .navlinkActive {
-            color: var(--light-text);
-        }
-        .overlay .navlinkActive:hover {
-            color: var(--light-text);
-        }
-    }
-    @media (min-width: 767px) {
-        .modalBtn {
-            margin: 24px 24px 0 540px;
-            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
-                transparent; */
         }
         .modal_overlay {
             background-color: var(--main-text);
