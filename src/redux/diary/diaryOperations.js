@@ -42,6 +42,7 @@ const getDayInfoOperation = (
             process.env.REACT_APP_GET_DAY_INFO,
             date,
         );
+        console.log('response :>> ', response.data);
         response.data.eatenProducts
             ? dispatch(diaryActions.getDayInfoSuccess(response.data))
             : dispatch(
@@ -49,6 +50,7 @@ const getDayInfoOperation = (
                       date: date.date,
                       eatenProducts: [],
                       daySummary: {},
+                      kcalLeft: response.data.kcalLeft
                   }),
               );
     } catch (error) {

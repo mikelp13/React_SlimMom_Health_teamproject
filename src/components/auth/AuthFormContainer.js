@@ -11,6 +11,7 @@ import { dailyRateAuthOperation } from '../../redux/dailyRate/dailyRateOperation
 import AuthForm from './AuthForm';
 import { showNoticeMessage } from '../../redux/notice/noticeActions';
 import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
+import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 
 const AuthFormContainer = () => {
     const dispatch = useDispatch();
@@ -77,6 +78,7 @@ const AuthFormContainer = () => {
             );
             await dispatch(dailyRateAuthOperation());
             await dispatch(getCurrentUser());
+            await dispatch(getDayInfoOperation());
         } catch (error) {
             error.message === 'Request failed with status code 409' &&
                 dispatch(
@@ -94,6 +96,7 @@ const AuthFormContainer = () => {
             await dispatch(signInOperation(values));
             await dispatch(getCurrentUser());
             await dispatch(dailyRateAuthOperation());
+            await dispatch(getDayInfoOperation());
         } catch (error) {
             return;
         }

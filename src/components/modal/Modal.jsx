@@ -1,17 +1,10 @@
 import React, { useEffect } from 'react';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
-// import IconBack from '../modal/svg/IconBack';
-// import IconCross from '../modal/svg/IconCross';
 import sprite from '../../assets/sprite.svg';
-// import './Modal.css';
 import ModalStyled from './ModalStyled';
 
 const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
-    // const [onClick, setOnClick] = useState(false);
 
-    // const [openModal, setOpenModal] = useState(false);
-    // const isAuth = useSelector(state => state.auth.user.isAuth);
-    // const onHandelClick = () => setoNClick(!onClick);
     useEffect(() => {
         document.addEventListener('keyup', handleKeyPress);
         return () => {
@@ -22,19 +15,18 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
 
     const handleKeyPress = e => {
         if (e.code === 'Escape') {
-            // console.log(e.code);
             onHandelClick();
         }
     };
 
-    const onOverlayClick = e => {
+    const onOverlayClick = () => {
         onHandelClick();
     };
 
     return (
         <>
             {openModal && (
-                <ModalStyled>
+                <ModalStyled >
                     <div className="overlay" onClick={onOverlayClick}>
                         <div className="modalBody ">
                             <button

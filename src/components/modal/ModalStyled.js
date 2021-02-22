@@ -20,6 +20,7 @@ const ModalStyled = styled.div`
             width: 100%;
             top: 60px;
             transform: translate(-50%);
+            overflow-y: scroll;
         }
 
         @media (min-width: 768px) {
@@ -46,15 +47,12 @@ const ModalStyled = styled.div`
     }
 
     .modalBtn {
-        /* margin: 17px 15px 0 15px; */
         padding-left: 0;
         padding-right: 0;
         border: none;
         outline: none;
         height: 12px;
         width: 12px;
-        /* background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent; */
-        /* color: #000000; */
         cursor: pointer;
 
         @media (max-width: 767px) {
@@ -74,12 +72,6 @@ const ModalStyled = styled.div`
         color: var(--light-text);
     }
 
-    /* @media (min-width: 767px) {
-        .modalBtn {
-            margin: 24px 24px 0 540px;
-            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
-                transparent; */
-    /* }  */
     .modal_overlay {
         background-color: var(--main-text);
         opacity: 0.5;
@@ -123,7 +115,6 @@ const ModalStyled = styled.div`
             transform: translate(-50%, -50%);
         }
         .modalBody {
-            /* margin-top: 222px; */
             width: 594px;
             box-sizing: content-box;
         }
