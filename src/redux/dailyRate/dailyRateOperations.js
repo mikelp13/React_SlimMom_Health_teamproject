@@ -43,7 +43,7 @@ const dailyRateAuthOperation = nawCharacteristics => async (
             `${process.env.REACT_APP_DAILY_RATE}/${userId}`,
             characteristics,
         );
-console.log('response :>> ', response);
+
         dispatch(
             dailyRateActions.getDailyRateSuccessAuth({
                 ...characteristics,

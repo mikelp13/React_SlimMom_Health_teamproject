@@ -2,9 +2,8 @@ import styled from 'styled-components';
 const MobileBarStyled = styled.div`
 
 body {
-  overflow-y: ${props=> props.click ?  "hidden" : "scroll"};
+  overflow-y: ${props=> props.click && "scroll"};
 }
-
     .upperPart {
         padding-left: 15px;
         padding-right: 15px;

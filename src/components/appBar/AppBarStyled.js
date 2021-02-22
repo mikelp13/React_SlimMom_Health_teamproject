@@ -5,6 +5,12 @@ const AppBarStyled = styled.header`
     padding-top: 8px;
     border-bottom: var(--header-border) solid 1px;
 
+    @media screen and (max-width: 767px) {
+    position: sticky;
+    top: 0;
+    }
+    
+
     @media screen and (min-width: 767px) {
     padding-top: 20px;
     }

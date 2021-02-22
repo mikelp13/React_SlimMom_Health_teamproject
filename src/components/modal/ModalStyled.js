@@ -12,7 +12,7 @@ const ModalStyled = styled.div`
         z-index: 1050;
         margin: 0 auto;
         overflow-x: hidden;
-        overflow-y: auto;
+        /* overflow-y: auto; */
         outline: 0;
         background-color: var(--main-background);
 
@@ -21,6 +21,7 @@ const ModalStyled = styled.div`
             top: 60px;
             transform: translate(-50%);
             overflow-y: scroll;
+              pointer-events:initial;
         }
 
         @media (min-width: 768px) {
@@ -40,6 +41,10 @@ const ModalStyled = styled.div`
         width: 100vw;
         height: 100vh;
         background: transparent;
+  
+        @media (max-width: 767px) {
+          pointer-events:none;
+        }
 
         @media (min-width: 768px) {
             background-color: rgba(33, 33, 33, 0.12);

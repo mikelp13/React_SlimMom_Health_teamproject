@@ -13,9 +13,8 @@ const TabletBar = () => {
     const isAuth = useSelector((state) => state.auth.user.isAuth);
     const onHandelClick = () => 
     setClick(prev => !prev)
-  
-
-    return (
+    
+      return (
         <TabletBarStyled>
          <Logo/>  
          <div className='rightSide'>  
@@ -30,22 +29,3 @@ const TabletBar = () => {
 }
 
 export default TabletBar
-
-/*import React from 'react'
-import { useSelector } from 'react-redux';
-import Navigation from '../navigation/Navigation'
-import UserMenu from '../userMenu/UserMenu'
-
-const DesktopBar = () => {
-    const isAuth = useSelector((state) => state.auth.user.isAuth);
-    return (
-        <>
-             
-    <Navigation/>
-    {isAuth &&  <UserMenu/>}
-        </>
-    )
-}
-
-export default DesktopBar
-*/

@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
+import authActions from '../auth/authActions';
 import { showNoticeMessage, hideNoticeMessage } from './noticeActions';
 
 const initialState = {
@@ -20,5 +21,6 @@ export const noticeReducer = createReducer(
             ...state,
             showNotice: !state.showNotice,
         }),
+        [authActions.logoutSuccess]: () => initialState,
     },
 );

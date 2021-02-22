@@ -9,7 +9,7 @@ const addProductOperation = (date, productId, weight) => async dispatch => {
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { date, productId, weight },
         );
-        console.log('addProduct :>> ', response.data);
+
         const summary = response.data.daySummary
             ? response.data.daySummary
             : response.data.newSummary;
@@ -17,7 +17,6 @@ const addProductOperation = (date, productId, weight) => async dispatch => {
         const id = response.data?.day?.id
             ? response.data.day.id
             : response.data.newDay.id;
-        console.log('id :>> ', id);
 
         dispatch(diaryActions.addProductSuccess({ ...response.data, id, summary}));
     } catch (error) {
@@ -49,7 +48,6 @@ const getDayInfoOperation = (
             process.env.REACT_APP_GET_DAY_INFO,
             date,
         );
-        console.log('DayInfo :>> ', response);
         response.data.eatenProducts
             ? dispatch(diaryActions.getDayInfoSuccess(response.data))
             : dispatch(
@@ -74,7 +72,7 @@ const deleteProductOperation = product => async (dispatch, getState) => {
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { data: product },
         );
-        console.log('data', response.data);
+
         dispatch(
             diaryActions.deleteProductSuccess({
                 ...response.data,
@@ -86,20 +84,6 @@ const deleteProductOperation = product => async (dispatch, getState) => {
     }
 };
 
-// export const deleteEatenProduct = (product) => dispatch => {
-//   dispatch(itemActions.deleteEatenProductRequest());
-//   api
-//       .deleteEatenProduct(product)
-//       .then(({ data }) => {
-
-//           getDayInfoOperation();
-
-//           return dispatch(
-//               itemActions.deleteEatenProductSuccess(data.newDaySummary),
-//           );
-//       })
-//       .catch(err => dispatch(itemActions.deleteEatenProductError(err)));
-// };
 export {
     addProductOperation,
     getProductOperation,

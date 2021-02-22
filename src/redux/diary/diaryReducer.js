@@ -15,7 +15,6 @@ const initialState = {
 
 const dayInfoReducer = createReducer(initialState, {
     [diaryActions.addProductSuccess]: (state, { payload }) => {
-      console.log('payload :>> ', payload);
         return {
             ...state,
             dayId: payload.id,

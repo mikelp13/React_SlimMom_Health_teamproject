@@ -17,6 +17,4 @@ button {
 margin-left: 50px;
 }
   `
-
-
 export default TabletBarStyled;

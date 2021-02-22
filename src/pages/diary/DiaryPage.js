@@ -17,8 +17,9 @@ const DiaryPage = () => {
     return (
         <PageContainer className="calculatorPage">
             <div className="calculatorPageWrapper">
-             { windowSize.width > 320 &&
-                    location.pathname !== '/diary/product' &&  <DiaryDateCalendar />}  
+                {location.pathname !== '/diary/product' && (
+                    <DiaryDateCalendar />
+                )}
                 <DiaryAddProductForm />
                 {location.pathname !== '/diary/product' && <DiaryProductList />}
 
@@ -40,7 +41,6 @@ const DiaryPage = () => {
                         </ButtonStyled>
                     )}
             </div>
-
             {location.pathname !== '/diary/product' && <RightSideBar />}
         </PageContainer>
     );

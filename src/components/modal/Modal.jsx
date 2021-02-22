@@ -35,7 +35,7 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
                                 type="button"
                             >
                                 {window.innerWidth < 768 ? (
-                                      <svg
+                                      <svg 
                                       width="15"
                                       height="9"
                                       viewBox="0 0 15 9"
@@ -49,7 +49,7 @@ const Modal = ({ openModal, onHandelClick, calories, notAllowedProducts }) => {
                                       />
                                   </svg>
                                 ) : (
-                                    <svg
+                                    <svg 
                                         className="crossIcon"
                                         width="12px"
                                         height="12px"

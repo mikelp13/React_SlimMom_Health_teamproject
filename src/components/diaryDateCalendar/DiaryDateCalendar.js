@@ -4,19 +4,14 @@ import { useDispatch } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
 import IconCalendar from './IconCalendar';
 import moment from 'moment';
-// import userDataAction from '../../redux/userData/userDataAction';
 import { CalendarWrapper } from './DiaryDateCalendarStyle';
 import { getDayInfoOperation } from '../../redux/diary/diaryOperations';
 import diaryActions from '../../redux/diary/diaryActions';
-// import { getCurrentDayInfo } from '../../redux/dailyRate/dailyRateSelectors';
+
 
 const DiaryDateCalendar = () => {
-    // const [state, setState] = useState({
-    //     date: '',
-    // });
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
-    // console.log(startDate);
 
     useEffect(() => {
         dispatch(
@@ -30,9 +25,6 @@ const DiaryDateCalendar = () => {
         
         dispatch(diaryActions.setCurrentDay(date.date));
         dispatch(getDayInfoOperation(date));
-        // dispatch(userDataAction.setDataOperation(date));
-        // console.log('current ====>>> day', day);
-        // console.log('current ====>>> data', date);
     };
 
     return (
