@@ -17,7 +17,7 @@ const MobileBar = () => {
   setClick(prev => !prev)
  
     return (
-        <MobileBarStyled>
+        <MobileBarStyled click>
         <div className='upperPart'>
          <Logo/>    
        {isTabletOrMobile && isAuth ? <button type='button' onClick={onHandelClick}> {click ? <><Cross width={15}/>  <BurgerMenu/> </>

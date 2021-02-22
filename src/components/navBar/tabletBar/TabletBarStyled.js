@@ -3,11 +3,6 @@ const TabletBarStyled = styled.div`
 display: flex;
 justify-content: space-between;
 
-body {
-  overflow-y: ${props=> props.click ?  "hidden" : "scroll"};
-}
-
-
 .rightSide {
 display: flex;
 align-items: center;
