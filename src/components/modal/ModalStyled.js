@@ -16,6 +16,7 @@ const ModalStyled = styled.div`
             transform: translateY(60px);
             overflow-y: scroll;
             pointer-events: initial;
+            padding-bottom: 40px;
         }
 
         @media (min-width: 768px) {

@@ -9,18 +9,15 @@ import Logo from '../logo/Logo';
 import MobileBarStyled from './MobileBarStyled'
 import BurgerMenu from '../../burgerMenu/BurgerMenu';
 
-const MobileBar = () => {
+const MobileBar = ({click, onClick}) => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1279px)' })   
-  const [click, setClick] = useState(false)
   const isAuth = useSelector((state) => state.auth.user.isAuth);
-  const onHandelClick = () => 
-  setClick(prev => !prev)
- 
-    return (
+
+     return (
         <MobileBarStyled click>
         <div className='upperPart'>
          <Logo/>    
-       {isTabletOrMobile && isAuth ? <button type='button' onClick={onHandelClick}> {click ? <><Cross width={15}/>  <BurgerMenu/> </>
+       {isTabletOrMobile && isAuth ? <button type='button' onClick={onClick}> {click ? <><Cross width={15}/>  <BurgerMenu click/> </>
        : <BurgerIcon width={24} />} </button> : <Navigation/>}
        </div>
        {isAuth &&  <div className='bottomPart'>

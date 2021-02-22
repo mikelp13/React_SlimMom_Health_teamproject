@@ -4,7 +4,7 @@ export const FormContainer = styled.div`
     .caloriesForm {
         @media (max-width: 767px) {
             margin: 0 auto;
-            width: 300px;
+            width: 100%;
         }
         @media (min-width: 1280px) {
             width: 605px;

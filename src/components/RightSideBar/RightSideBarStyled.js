@@ -27,7 +27,7 @@ export const SideBarContainer = styled.div`
 
         @media screen and (min-width: 320px) and (max-width: 767px) {
             flex-direction: column;
-            width: 285px;
+            width: 260px;
         }
 
         @media screen and (min-width: 768px) and (max-width: 1279px) {

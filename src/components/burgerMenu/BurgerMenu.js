@@ -3,13 +3,15 @@ import mainRoutes from '../../routes/routes';
 import NavigationItem from '../navigation/NavigationItem';
 import BurgerMenuStyled from './BurgerMenuStyled';
 
-const BurgerMenu = () => {
+const BurgerMenu = ({click}) => {
     return (
-        <BurgerMenuStyled>
+        <BurgerMenuStyled click>
         <div className='overlay' >
+          <ul className='burgerNavList'>
             {mainRoutes.map((route) => (
           <NavigationItem {...route}  key={route.path} />
         ))}
+        </ul>
       </div>
         </BurgerMenuStyled>
     )
