@@ -12,25 +12,32 @@ export const LI = styled.li`
   font-weight: normal;
   font-size: 16px;
   align-items: flex-end;
+  transition: margin-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear;
+  -webkit-transition: margin-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear;
+  -moz-transition: margin-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear;
+  -o-transition: margin-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear;
+  -ms-transition: margin-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear;
+   &:hover {
+     margin-left: 20px; 
+}
+  
     .listName {
   display: inline-block;
-  /* width: 137px; */
   padding-top: 20px;
   padding-bottom: 10px;
   margin-right: 10px;
   border-bottom: 1px solid #e0e0e0;
   white-space: normal;
-  /* overflow: auto; */
   flex: 3;
   color: var(--main-text);
   font-size: 14px;
 }
 
 
+
 .listWeight {
   text-align: center;
   display: inline-block;
-  /* width: 49.67px; */
   padding-top: 20px;
   padding-bottom: 10px;
   margin-right: 10px;
@@ -45,7 +52,6 @@ export const LI = styled.li`
 .listCalories {
   text-align: center;
   display: inline-block;
-  /* width: 60px; */
   padding-top: 20px;
   padding-bottom: 8px;
   margin-right: 10px;
@@ -63,7 +69,6 @@ export const LI = styled.li`
 @media screen and (min-width: 650px) {
   .list {
     display: flex;
-    /* // align-items: center; */
     list-style: none;
     font-style: normal;
     font-weight: normal;
@@ -109,7 +114,6 @@ export const LI = styled.li`
     margin-right: 31px;
     border-bottom: 1px solid #e0e0e0;
     white-space: nowrap;
-    /* overflow: auto; */
     color:var(--main-text);
     font-size: 14px;
   }
@@ -121,7 +125,6 @@ export const LI = styled.li`
 @media screen and (min-width: 1100px) {
   .list {
     display: flex;
-    /* // align-items: center; */
     list-style: none;
     font-style: normal;
     font-weight: normal;
@@ -167,7 +170,6 @@ export const LI = styled.li`
     margin-right: 10px;
     border-bottom: 1px solid #e0e0e0;
     white-space: nowrap;
-    /* overflow: auto; */
     color: var(--main-text);
     font-size: 16px;
   }
@@ -178,9 +180,9 @@ export const LI = styled.li`
 
 .listButton {
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   border: none;
-  background-color: #fff;
+  background:transparent;
   color: var(--secondary-text);
   cursor: pointer;
 }

@@ -27,7 +27,7 @@ const DiaryProductItem = ({ name, weight, cal, productId }) => {
 
     return (
 
-        <LI className='listItem, listani'>
+        <LI className='listItem'>
             <span className='listName'>{name}</span>
             <span className='listWeight'>{weight} г</span>
             <span className='listCalories'>

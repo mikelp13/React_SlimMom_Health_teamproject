@@ -5,9 +5,9 @@ import NavigationItemStyled from "./NavigationItemStyled";
 
 
 
-const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
+const NavigationItem = ({ path, name, exact, isPrivate, restricted }) => {
   const isAuth = useSelector((state) => state.auth.user.isAuth);
-    return (
+  return (
 
     <>
 
@@ -23,7 +23,7 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
       )}
 
       {!isAuth && !isPrivate && restricted && (
-        <NavigationItemStyled  key={path}>
+        <NavigationItemStyled key={path}>
           <NavLink
             to={path}
             exact={exact}
@@ -33,11 +33,9 @@ const NavigationItem = ({  path, name, exact, isPrivate, restricted }) => {
         </NavigationItemStyled>
       )}
 
-      </>
+    </>
 
   );
 };
 
-   
-    
-    export default NavigationItem
+export default NavigationItem

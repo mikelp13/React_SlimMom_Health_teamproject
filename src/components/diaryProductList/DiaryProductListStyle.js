@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const UL = styled.ul`
 
       padding-right: 3px;
-  /* width: 290px; */
   height: 210px;
   overscroll-behavior: contain;
   overflow-y: auto;
@@ -93,6 +92,4 @@ padding-right: 30px;
     height: 269px;
 }
 }
-
-
 `;
