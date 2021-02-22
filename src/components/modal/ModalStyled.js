@@ -5,27 +5,25 @@ const ModalStyled = styled.div`
     max-height: calc(100vh - 24px);
 
     .modalBody {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1050;
         margin: 0 auto;
         overflow-x: hidden;
-        /* overflow-y: auto; */
         outline: 0;
         background-color: var(--main-background);
 
         @media (max-width: 767px) {
+            height: 100vh;
             width: 100%;
-            top: 60px;
-            transform: translate(-50%);
+            transform: translateY(60px);
             overflow-y: scroll;
-              pointer-events:initial;
+            pointer-events: initial;
         }
 
         @media (min-width: 768px) {
+            position: absolute;
             top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1050;
         }
     }
 
@@ -41,9 +39,9 @@ const ModalStyled = styled.div`
         width: 100vw;
         height: 100vh;
         background: transparent;
-  
+
         @media (max-width: 767px) {
-          pointer-events:none;
+            pointer-events: none;
         }
 
         @media (min-width: 768px) {
