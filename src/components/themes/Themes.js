@@ -10,8 +10,11 @@ import loginTablImgLight from '../../assets/img/loginPage/GroupTabl.png';
 export const lightTheme = {
     body: 'var(--main-background)',
     title: 'var(--main-text)',
+    list: 'var(--main-text)',
+    calendar: 'var(--main-text)',
     rightBarTitle: 'var(--main-text)',
     rightBarBg: 'var(--secondary-background)',
+    burgerIcon: 'var(--main-text)',
     burgerBg: 'var(--burger-background)',
     bottomPart: '#EFF1F3',
     toggleBorder: '#FFF',
@@ -20,12 +23,15 @@ export const lightTheme = {
     homeBgImageTabl: `url(${tabletImgLight})`,
     loginBgImageDesk: `url(${loginDeskImgLight})`,
     loginBgImageTabl: `url(${loginTablImgLight})`,
-}
+};
 
 export const darkTheme = {
     body: 'var(--burger-background)',
-    title: '#fff',
+    title: '#ffffff',
+    list: 'var(--secondary-text)',
+    calendar: 'var(--secondary-background)',
     rightBarTitle: 'var(--accent-color)',
+    burgerIcon: 'var(--secondary-text)',
     rightBarBg: '#223a5a',
     burgerBg: '#223a5a',
     bottomPart: '#223a5a',
@@ -35,4 +41,4 @@ export const darkTheme = {
     homeBgImageTabl: `url(${tabletImgDark})`,
     loginBgImageDesk: `url(${loginDeskImgDark})`,
     loginBgImageTabl: `url(${loginTablImgDark})`,
-}
+};

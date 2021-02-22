@@ -27,11 +27,22 @@ export const CalendarWrapper = styled.div`
         display: flex;
         align-items: center;
         cursor: pointer;
+     
 
         @media screen and (min-width: 768px) {
             width: 300px;
 
             height: 38px;
+        }
+
+        & svg {
+            fill: var(--secondary-text);
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        &:hover svg,
+        &:focus svg {
+            fill: var(--accent-color);
         }
     }
     .iconDateCalendar {

@@ -11,7 +11,7 @@ const DiaryProductList = () => {
 
 
     return (
-        <UL>
+        <UL className='productList'>
             <TransitionGroup>
                 {
                     productsList && productsList.map(product => {

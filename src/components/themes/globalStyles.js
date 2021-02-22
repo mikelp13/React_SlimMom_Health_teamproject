@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     body {
@@ -78,5 +78,18 @@ export const GlobalStyles = createGlobalStyle`
             transition: all 0.50s linear;
         }
     }
-`
-    ;
+
+    .productList .listItem  .listName {
+        color: ${({ theme }) => theme.list};
+    }
+    .productList .listItem  .listWeight {
+        color: ${({ theme }) => theme.list};
+    }
+    .productList .listItem  .listCalories {
+        color: ${({ theme }) => theme.list};
+    }
+  .labelDatePicker .react-datepicker-wrapper .react-datepicker__input-container .inputDiaryDateCalendar {
+        color: ${({ theme }) => theme.calendar};
+    }
+
+`;
