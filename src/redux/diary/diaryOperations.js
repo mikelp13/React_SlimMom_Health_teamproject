@@ -2,17 +2,24 @@ import axios from 'axios';
 import moment from 'moment';
 import diaryActions from '../diary/diaryActions';
 
-const addProductOperation = (date, productId, weight) => async (
-    dispatch,
-) => {
+const addProductOperation = (date, productId, weight) => async dispatch => {
     dispatch(diaryActions.addProductRequest());
     try {
         const response = await axios.post(
             `${process.env.REACT_APP_PRODUCT_DAY}`,
             { date, productId, weight },
         );
-        console.log('response.data :>> ', response.data);
-        dispatch(diaryActions.addProductSuccess(response.data));
+        console.log('addProduct :>> ', response.data);
+        const summary = response.data.daySummary
+            ? response.data.daySummary
+            : response.data.newSummary;
+
+        const id = response.data?.day?.id
+            ? response.data.day.id
+            : response.data.newDay.id;
+        console.log('id :>> ', id);
+
+        dispatch(diaryActions.addProductSuccess({ ...response.data, id, summary}));
     } catch (error) {
         dispatch(diaryActions.addProductError(error.message));
     }
@@ -42,7 +49,7 @@ const getDayInfoOperation = (
             process.env.REACT_APP_GET_DAY_INFO,
             date,
         );
-        console.log('response :>> ', response.data);
+        console.log('DayInfo :>> ', response);
         response.data.eatenProducts
             ? dispatch(diaryActions.getDayInfoSuccess(response.data))
             : dispatch(
@@ -50,7 +57,8 @@ const getDayInfoOperation = (
                       date: date.date,
                       eatenProducts: [],
                       daySummary: {},
-                      kcalLeft: response.data.kcalLeft
+                      kcalLeft: response.data.kcalLeft,
+                      dayId: response.data.id,
                   }),
               );
     } catch (error) {
@@ -59,7 +67,6 @@ const getDayInfoOperation = (
 };
 
 const deleteProductOperation = product => async (dispatch, getState) => {
- 
     dispatch(diaryActions.deleteProductRequest());
     const { eatenProductId } = product;
     try {
@@ -70,7 +77,7 @@ const deleteProductOperation = product => async (dispatch, getState) => {
         console.log('data', response.data);
         dispatch(
             diaryActions.deleteProductSuccess({
-               ...response.data,
+                ...response.data,
                 eatenProductId,
             }),
         );

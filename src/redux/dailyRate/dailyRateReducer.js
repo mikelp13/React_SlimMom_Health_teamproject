@@ -69,13 +69,13 @@ const dailyRateReducer = createReducer(initialState, {
         return {
             ...state,
             summaries: {
-                _id: payload.daySummary.id,
-                date: payload.daySummary.date,
-                kcalLeft: payload.daySummary.kcalLeft,
-                kcalConsumed: payload.daySummary.kcalConsumed,
-                dailyRate: payload.daySummary.dailyRate,
-                percentsOfDailyRate: payload.daySummary.percentsOfDailyRate,
-                userId: payload.daySummary.userId,
+                _id: payload.summary.id,
+                date: payload.summary.date,
+                kcalLeft: payload.summary.kcalLeft,
+                kcalConsumed: payload.summary.kcalConsumed,
+                dailyRate: payload.summary.dailyRate,
+                percentsOfDailyRate: payload.summary.percentsOfDailyRate,
+                userId: payload.summary.userId,
             },
         };
     },

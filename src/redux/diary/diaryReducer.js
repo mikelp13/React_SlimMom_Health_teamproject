@@ -15,15 +15,17 @@ const initialState = {
 
 const dayInfoReducer = createReducer(initialState, {
     [diaryActions.addProductSuccess]: (state, { payload }) => {
+      console.log('payload :>> ', payload);
         return {
             ...state,
+            dayId: payload.id,
             eatenProducts: [...state.eatenProducts, payload.eatenProduct],
         };
     },
 
     [diaryActions.getDayInfoSuccess]: (state, { payload }) => ({
         ...state,
-        dayId: payload.id,
+        dayId: payload.id ? payload.id : '',
         eatenProducts: [...payload.eatenProducts],
     }),
  
