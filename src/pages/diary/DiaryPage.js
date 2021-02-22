@@ -3,7 +3,7 @@ import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
-import RightSideBar from '../../components/rightSideBar/RightSideBar';
+import RightSideBar from '../../components/RightSideBar/RightSideBar';
 import useWindowSize from '../../hooks/useWindowSize';
 import sprite from '../../assets/sprite.svg';
 import { PageContainer } from '../calculator/CalculatorPageStyled';
