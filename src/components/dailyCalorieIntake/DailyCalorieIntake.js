@@ -1,7 +1,5 @@
 import React from 'react';
-// import uuid from 'react-uuid';
 import { useHistory } from 'react-router-dom';
-// import { createStore } from 'redux';
 import DailyCalorieIntakeStyled from './DailyCalorieIntakeStyled';
 import { useSelector } from 'react-redux';
 import getRandomElements from '../../utils/getRandomElements';
@@ -30,7 +28,7 @@ const DailyCalorieIntake = () => {
 
                 <div className="line"></div>
                 <h2 className="DailyCalorieIntakeProducts">
-                    Продукты, которые вам не рекомендуется употреблять
+                    Продукты, которые вам <br/> не рекомендуется употреблять
                 </h2>
 
                 <ol className="DailyCalorieIntakeProductsList">

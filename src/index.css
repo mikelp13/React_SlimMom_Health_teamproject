@@ -53,6 +53,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    outline: none;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     background-color: #f0f1f3;

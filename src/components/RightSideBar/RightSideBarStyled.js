@@ -4,6 +4,7 @@ import desktopImg from '../../assets/img/rightSideBar/desktop-bg-img.png';
 
 export const SideBarContainer = styled.div`
     padding: 40px 15px 50px 15px;
+    min-height: 100vh;
 
     @media (min-width: 768px) and (max-width: 1279px) {
         padding: 90px 0;
@@ -24,15 +25,12 @@ export const SideBarContainer = styled.div`
     .rightSideBar {
         display: flex;
         margin: 0 auto;
+        max-width: 550px;
 
         @media screen and (min-width: 320px) and (max-width: 767px) {
             flex-direction: column;
-            width: 260px;
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1279px) {
-            width: 595px;
-        }
         @media screen and (min-width: 1280px) {
             flex-direction: column;
             width: 270px;
@@ -49,7 +47,8 @@ export const SideBarContainer = styled.div`
         justify-content: space-between;
     }
 
-    .rightBarItem:not(:last-child), .rightBarProductsItem:not(:last-child)  {
+    .rightBarItem:not(:last-child),
+    .rightBarProductsItem:not(:last-child) {
         margin-bottom: 20px;
     }
 
@@ -71,7 +70,8 @@ export const SideBarContainer = styled.div`
         }
     }
 
-    .rightBarValue, .rightBarProductsItem {
+    .rightBarValue,
+    .rightBarProductsItem {
         font-family: 'Verdana';
         font-weight: 400;
         font-size: 14px;
@@ -92,7 +92,6 @@ export const SideBarContainer = styled.div`
         }
     }
 
-   
     /* .rightBarProductsItem{
       font-family: 'Verdana';
         font-weight: 400;

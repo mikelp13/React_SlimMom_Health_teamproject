@@ -16,7 +16,6 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 import DefaultPage from '../pages/default/DefaultPage';
 
-
 import Notice from './notice/Notice';
 import { getShowNotice } from '../redux/notice/noticeSelectors';
 import LoadSpinner from './loader/Loader';
@@ -31,6 +30,7 @@ const App = () => {
     const [theme, themeToggler] = useDarkMode();
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
     const showNotice = useSelector(getShowNotice);
+    const isloading = useSelector(authSelectors.isLoading);
 
     useEffect(() => {
         !isAuth && history.push('/');
@@ -55,8 +55,12 @@ const App = () => {
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
             <div>
-                <Media queries={{ desktop: "(min-width: 1280px)" }}>
-                    {matches => (matches.desktop && <ThemeToggle theme={theme} toggler={themeToggler} />)}
+                <Media queries={{ desktop: '(min-width: 1280px)' }}>
+                    {matches =>
+                        matches.desktop && (
+                            <ThemeToggle theme={theme} toggler={themeToggler} />
+                        )
+                    }
                 </Media>
                 <AppBar theme={theme} toggler={themeToggler} />
                 <CSSTransition
@@ -67,6 +71,7 @@ const App = () => {
                 >
                     <Notice />
                 </CSSTransition>
+                {isloading && <LoadSpinner />}
                 {
                     <Suspense fallback={<LoadSpinner />}>
                         <Switch>

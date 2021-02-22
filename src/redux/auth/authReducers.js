@@ -27,8 +27,6 @@ const userReducer = createReducer(initialUserState, {
         id: payload.user.id,
         username: payload.user.username,
         isAuth: true,
-
-        // userData: { ...state.userData, ...payload },
     }),
 
     [authActions.logoutSuccess]: () => initialUserState,
@@ -108,21 +106,9 @@ const loadingReducer = createReducer(false, {
     [authActions.getCurrentUserSuccess]: () => false,
     [authActions.getCurrentUserError]: () => false,
 
-    [dailyRateActions.getDailyRateRequest]: () => true,
-    [dailyRateActions.getDailyRateRequestSuccess]: () => false,
-    [dailyRateActions.getDailyRateRequestError]: () => false,
-
-    [dailyRateActions.getDailyRateRequestAuth]: () => true,
-    [dailyRateActions.getDailyRateRequestSuccessAuth]: () => false,
-    [dailyRateActions.getDailyRateRequestErrorAuth]: () => false,
-
     [diaryActions.addProductRequest]: () => true,
     [diaryActions.addProductSuccess]: () => false,
     [diaryActions.addProductError]: () => false,
-
-    [diaryActions.getProductRequest]: () => true,
-    [diaryActions.getProductSuccess]: () => false,
-    [diaryActions.getProductError]: () => false,
 });
 
 const userPersistConfig = {

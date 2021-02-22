@@ -13,13 +13,10 @@ const DailyCalorieIntakeStyled = styled.div`
         display: block;
         margin: 0 auto;
         margin-top: 40px;
-        margin-bottom: 40px;
         padding-left: 15px;
         padding-right: 15px;
         width: 290px;
         height: 74px;
-        left: 15px;
-        top: 160px;
         font-family: Verdana;
         font-style: normal;
         font-weight: bold;
@@ -43,22 +40,20 @@ const DailyCalorieIntakeStyled = styled.div`
 
     .DailyCalorieIntakeKcalText {
         font-size: 16px;
+        margin-left: 10px;
         letter-spacing: normal;
     }
 
     .DailyCalorieIntakeProducts {
+        max-width: 400px;
+        margin: 0 auto;
         margin-top: 50px;
-        padding-left: 15px;
-        padding-right: 15px;
         font-family: Verdana;
-        font-style: normal;
         font-weight: bold;
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.04em;
-        width: 290px;
         display: block;
-        margin: 0 auto;
         color: var(--main-text);
         margin-bottom: 22px;
     }
@@ -109,24 +104,23 @@ const DailyCalorieIntakeStyled = styled.div`
     .DailyCalorieIntakeProductsList {
         margin-bottom: 40px;
         width: 290px;
+        padding-left: 20px;
     }
 
     .line {
         margin-bottom: 20px;
-        width: 290px;
         height: 0px;
         margin-right: 15px;
         margin-left: 15px;
-        /* left: 15px; */
-        top: 366px;
         border: 1px solid var(--header-border);
     }
 
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
         .DailyCalorieIntakeProductsList {
             margin-left: auto;
             margin-right: auto;
             width: 400px;
+            padding-left: 40px;
         }
         .ModalContentContainer {
             width: 594px;
@@ -142,39 +136,29 @@ const DailyCalorieIntakeStyled = styled.div`
             text-align: center;
         }
         .DailyCalorieIntakeKcal {
-            margin-top: 42px;
+            margin-top: 22px;
             padding-left: 132px;
             padding-right: 132px;
         }
         .DailyCalorieIntakeProducts {
             margin-top: 12px;
-            width: 330px;
-            height: 34px;
-            left: 219px;
-            top: 482px;
             font-family: Verdana;
-            font-style: normal;
             font-weight: bold;
             font-size: 14px;
             line-height: 17px;
             letter-spacing: 0.04em;
             color: var(--main-text);
             margin-bottom: 22px;
-            text-align: center;
         }
         .line {
-            width: 330px;
-            height: 0px;
-            left: 219px;
-            top: 470px;
+            width: 400px;
+            margin: 0 auto;
             border: 1px solid var(--header-border);
             margin-bottom: 20px;
-            margin-left: 132px;
-            margin-right: 132px;
         }
     }
 
-    @media (min-width: 1279px) {
+    @media (min-width: 1280px) {
         .ModalContentContainer {
             display: block;
             height: 580px;
@@ -182,27 +166,17 @@ const DailyCalorieIntakeStyled = styled.div`
             margin: 0 auto;
         }
         .DailyCalorieIntakeProductsList {
-            /* margin-left: 112px; */
             margin-bottom: 40px;
+            padding-left: 80px;
         }
         .DailyCalorieIntakeTitle {
             margin-top: 64px;
         }
         .line {
             margin-bottom: 12px;
-            margin-left: 180px;
-            margin-right: 180px;
         }
-        .DailyCalorieIntakeProducts {
-            /* width: 330px;
-            padding-right: 180px;
-            padding-left: 180px; */
-            text-align: center;
-        }
+
         .DailyCalorieIntakeProductsList {
-            /* margin-left: 180px;
-            margin-right: 288px;
-            padding-left: 20px; */
             margin: 0 auto 40px;
             width: 440px;
         }
