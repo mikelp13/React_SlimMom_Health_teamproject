@@ -44,28 +44,28 @@ const CalculatorCaloriesForm = () => {
     };
     const validationSchema = Yup.object().shape({
         height: Yup.number()
-            .typeError('Должно быть числом')
+            .typeError('Введено не число')
             .min(100, 'Минимальное значение 100 см')
             .max(250, 'Максимальное значение 250 см')
-            .required('Обязательно'),
+            .required('Обязательное поле'),
 
         age: Yup.number()
-            .typeError('Должно быть числом')
+            .typeError('Введено не число')
             .min(18, 'Минимум 18 лет')
             .max(100, 'Максимум 100 лет')
-            .required('Обязательно'),
+            .required('Обязательное поле'),
 
         weight: Yup.number()
-            .typeError('Должно быть числом')
+            .typeError('Введено не число')
             .min(20, 'Минимальный вес 20 кг')
             .max(500, 'Максимальный вес 500 кг')
-            .required('Обязательно'),
+            .required('Обязательное поле'),
 
         desiredWeight: Yup.number()
-            .typeError('Должно быть числом')
+            .typeError('Введено не число')
             .min(20, 'Минимальный вес 20 кг')
             .max(500, 'Максимальный вес 500 кг')
-            .required('Обязательно')
+            .required('Обязательное поле')
             .when('weight', (weight, schema) => {
                 return schema.test({
                     test: desiredWeight => weight && desiredWeight < weight,
@@ -73,7 +73,7 @@ const CalculatorCaloriesForm = () => {
                 });
             }),
 
-        bloodType: Yup.number().required('Обязательно'),
+        bloodType: Yup.number().required('Выберите группу крови'),
     });
 
     return (

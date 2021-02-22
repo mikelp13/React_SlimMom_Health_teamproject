@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const DiaryFormWrapper = styled.div`
- 
     @media screen and (max-width: 767px) {
         position: relative;
     }
@@ -66,7 +65,8 @@ export const DiaryFormWrapper = styled.div`
         letter-spacing: 0.04em;
         color: var(--secondary-text);
     }
-    .buttonDairyAddProduct {
+
+      .buttonDairyAddProduct {
         padding: 13px 46px;
         width: 176px;
         font-family: Verdana;

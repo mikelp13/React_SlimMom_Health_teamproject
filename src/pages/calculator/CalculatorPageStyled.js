@@ -11,11 +11,11 @@ export const PageContainer = styled.div`
         padding: 40px 5px 60px 15px;
 
         @media (min-width: 768px) and (max-width: 1279px) {
-            padding: 100px 70px 74px;
+            padding: 90px 70px 74px;
         }
 
         @media (min-width: 1280px) {
-            padding: 292px 0 111px 120px;
+            padding: 250px 0 111px 120px;
         }
     }
 

@@ -13,7 +13,7 @@ export const SideBarContainer = styled.div`
         background-position: right bottom;
     }
     @media (min-width: 1280px) {
-        padding-top: 292px;
+        padding-top: 250px;
         padding-bottom: 111px;
         width: 535px;
         margin-left: auto;
@@ -91,16 +91,4 @@ export const SideBarContainer = styled.div`
             margin-bottom: 60px;
         }
     }
-
-    /* .rightBarProductsItem{
-      font-family: 'Verdana';
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.25;
-        color: var(--secondary-text);
-    } */
-
-    /* .rightBarProductsItem:not(:last-child) {
-        margin-bottom: 20px;
-    } */
 `;

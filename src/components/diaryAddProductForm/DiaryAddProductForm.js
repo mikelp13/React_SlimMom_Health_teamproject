@@ -83,7 +83,7 @@ const DiaryAddProductForm = () => {
 
     return (
         <DiaryFormWrapper>
-            {(size.width > 768 ||
+            {(size.width > 767 ||
                 location.pathname === `${match.url}/product`) && (
                 <form onSubmit={handleSubmit} className="formDairyAddProduct">
                     <div className="inputBlockDairyAddProduct">
@@ -98,6 +98,7 @@ const DiaryAddProductForm = () => {
                             id="fav"
                             autoComplete="off"
                         />
+
                         <datalist id="browsers" className="dataList">
                             {products.map(product => (
                                 <option
