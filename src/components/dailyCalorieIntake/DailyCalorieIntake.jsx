@@ -5,13 +5,13 @@ import { useHistory } from 'react-router-dom';
 import DailyCalorieIntakeStyled from './DailyCalorieIntakeStyled';
 import { useSelector } from 'react-redux';
 import getRandomElements from '../../utils/getRandomElements';
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 
 const DailyCalorieIntake = () => {
     const history = useHistory();
-    const calories = useSelector(state => state.user.userData.dailyRate);
-    const notAllowedProducts = useSelector(
-        state => state.user.userData.notAllowedProducts,
-    );
+    const calories = useSelector(dailyRateSelectors.getCalories);
+    const notAllowedProducts = useSelector(dailyRateSelectors.getNotAllowedProducts);
+    
     const products = notAllowedProducts.length
         ? getRandomElements(notAllowedProducts, 5)
         : [];
