@@ -17,14 +17,14 @@ const ModalStyled = styled.div`
         background-color: var(--main-background);
 
         @media (max-width: 767px) {
-          width: 100%;
-          top: calc(50% + 15px);
+            width: 100%;
+            top: 60px;
+            transform: translate(-50%);
         }
 
         @media (min-width: 768px) {
             top: 50%;
         }
-
     }
 
     .overlay {
@@ -46,7 +46,7 @@ const ModalStyled = styled.div`
     }
 
     .modalBtn {
-        margin: 17px 15px 0 15px;
+        /* margin: 17px 15px 0 15px; */
         padding-left: 0;
         padding-right: 0;
         border: none;
@@ -54,8 +54,12 @@ const ModalStyled = styled.div`
         height: 12px;
         width: 12px;
         /* background: url('./svg/icon-back.svg') no-repeat scroll 0 0 transparent; */
-        color: #000000;
+        /* color: #000000; */
         cursor: pointer;
+        width: 100%;
+        padding: 18px;
+        display: flex;
+        align-items: center;
     }
     .overlay .navlink {
         color: var(--secondary-text);
@@ -70,8 +74,8 @@ const ModalStyled = styled.div`
     @media (min-width: 767px) {
         .modalBtn {
             margin: 24px 24px 0 540px;
-            background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
-                transparent;
+            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
+                transparent; */
         }
         .modal_overlay {
             background-color: var(--main-text);
@@ -102,8 +106,8 @@ const ModalStyled = styled.div`
     @media (min-width: 767px) {
         .modalBtn {
             margin: 24px 24px 0 540px;
-            background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
-                transparent;
+            /* background: url('./svg/icon-cross.svg') no-repeat scroll 0 0
+                transparent; */
         }
         .modal_overlay {
             background-color: var(--main-text);
