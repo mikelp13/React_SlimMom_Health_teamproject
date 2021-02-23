@@ -16,7 +16,9 @@ const RightSideBar = () => {
 
     const date = useSelector(diarySelectors.getDate);
     const notAllowedProducts = useSelector(diarySelectors.notAllowedProducts);
-    const productsList = notAllowedProducts.length ? getRandomElements(notAllowedProducts, 5):[];
+    const productsList = notAllowedProducts.length
+        ? getRandomElements(notAllowedProducts, 5)
+        : [];
 
     return (
         <SideBarContainer className="sideBarContainer">
@@ -29,25 +31,31 @@ const RightSideBar = () => {
                         <li className="rightBarItem">
                             <span className="rightBarValue">Осталось</span>
                             <span className="rightBarValue">
-                                {kcalLeft ? Math.round(kcalLeft) : "000"} ккал
+                                {kcalLeft ? Math.round(kcalLeft) : '000'} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">Употреблено</span>
                             <span className="rightBarValue">
-                                {kcalConsumed ? Math.round(kcalConsumed) : "000"} ккал
+                                {kcalConsumed
+                                    ? Math.round(kcalConsumed)
+                                    : '000'}{' '}
+                                ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">Дневная норма</span>
                             <span className="rightBarValue">
-                                {dailyRate ? Math.round(dailyRate) : "000"} ккал
+                                {dailyRate ? Math.round(dailyRate) : '000'} ккал
                             </span>
                         </li>
                         <li className="rightBarItem">
                             <span className="rightBarValue">n% от нормы</span>
                             <span className="rightBarValue">
-                                {percentsOfDailyRate ? Math.round(percentsOfDailyRate) : "0"} %
+                                {percentsOfDailyRate
+                                    ? Math.round(percentsOfDailyRate)
+                                    : '0'}{' '}
+                                %
                             </span>
                         </li>
                     </ul>
@@ -60,7 +68,12 @@ const RightSideBar = () => {
                             </p>
                             <ul className="rightBarProductsList">
                                 {productsList.map((product, idx) => (
-                                    <li key={idx} className="rightBarProductsItem" >{product}</li>
+                                    <li
+                                        key={idx}
+                                        className="rightBarProductsItem"
+                                    >
+                                        {product}
+                                    </li>
                                 ))}
                             </ul>
                         </>
