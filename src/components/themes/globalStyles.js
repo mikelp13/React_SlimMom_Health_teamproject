@@ -107,5 +107,10 @@ export const GlobalStyles = createGlobalStyle`
     .rightSide .burger svg {
         fill: ${({ theme }) => theme.title};
     }
+  
+
+    ::-webkit-scrollbar-thumb{
+      background-color: ${({ theme }) => theme.scrollColor};
+    }
 
 `;

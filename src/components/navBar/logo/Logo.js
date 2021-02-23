@@ -12,7 +12,7 @@ const Logo = () => {
 
     return (
        <LogoStyled>
-    {isAuth ? <Link id="RouterNavLink"  className='logo' to='/calculator' >
+    {isAuth ? <Link id="RouterNavLink"  className='logo' to='/diary' >
       {localStorage.getItem('theme') === 'dark' ?
         <img src={logoWhite} alt='logo' width='46' height='43.36'></img>
         :

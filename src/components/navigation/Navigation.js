@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <>
     
-      <NavigationStyled  >
+      <NavigationStyled className='navList'>
         {mainRoutes.map((route) => (
           <NavigationItem {...route}  key={route.path} />
         ))}

@@ -27,6 +27,7 @@ export const lightTheme = {
     navlinkActive: 'var(--main-text)',
     navlinkBurger: 'var(--secondary-text)',
     navlinkActiveBurger: 'var(--main-background)',
+    scrollColor: '#264061',
 };
 
 export const darkTheme = {
@@ -49,4 +50,5 @@ export const darkTheme = {
     navlinkActive: 'var(--accent-color)',
     navlinkBurger: 'var(--secondary-text)',
     navlinkActiveBurger: 'var(--accent-color)',
+    scrollColor: 'var(--secondary-text)',
 };
