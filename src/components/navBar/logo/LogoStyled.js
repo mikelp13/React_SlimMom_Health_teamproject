@@ -29,5 +29,4 @@ const LogoStyled = styled.div`
  
   `
 
-
 export default LogoStyled;

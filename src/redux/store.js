@@ -9,7 +9,6 @@ import {
     REGISTER,
 } from 'redux-persist';
 import authReducer from './auth/authReducers';
-// import user from './diaryProductsListItem/itemReducer';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 import {productReducer, dayInfoReducer, currentDayReducer} from './diary/diaryReducer';
 import { noticeReducer } from './notice/noticeReducer';

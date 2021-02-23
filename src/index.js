@@ -14,8 +14,8 @@ ReactDOM.render(
         <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter>
                 <App />
-            </BrowserRouter>{' '}
-        </PersistGate>{' '}
+            </BrowserRouter>
+        </PersistGate>
     </Provider>,
 
     document.getElementById('root'),

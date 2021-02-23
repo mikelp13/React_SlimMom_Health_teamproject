@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
 import BurgerIcon from '../../icon/BurgerIcon';
 import Cross from '../../icon/CrossIcon';

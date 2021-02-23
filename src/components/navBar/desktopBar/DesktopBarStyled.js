@@ -13,11 +13,6 @@ align-items: center;
 .leftSide a {
     margin-right: 15px;
         }
-    
-
-
-    
   `
-
 
 export default DesktopBarStyled;
