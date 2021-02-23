@@ -23,6 +23,10 @@ export const lightTheme = {
     homeBgImageTabl: `url(${tabletImgLight})`,
     loginBgImageDesk: `url(${loginDeskImgLight})`,
     loginBgImageTabl: `url(${loginTablImgLight})`,
+    navlink: 'var(--secondary-text)',
+    navlinkActive: 'var(--main-text)',
+    navlinkBurger: 'var(--secondary-text)',
+    navlinkActiveBurger: 'var(--main-background)',
 };
 
 export const darkTheme = {
@@ -41,4 +45,8 @@ export const darkTheme = {
     homeBgImageTabl: `url(${tabletImgDark})`,
     loginBgImageDesk: `url(${loginDeskImgDark})`,
     loginBgImageTabl: `url(${loginTablImgDark})`,
+    navlink: 'var(--secondary-text)',
+    navlinkActive: 'var(--accent-color)',
+    navlinkBurger: 'var(--secondary-text)',
+    navlinkActiveBurger: 'var(--accent-color)',
 };

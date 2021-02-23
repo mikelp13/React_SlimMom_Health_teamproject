@@ -92,4 +92,20 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.calendar};
     }
 
+    .navList  .navlink {
+        color: ${({ theme }) => theme.navlink};
+    }
+    .navList  .navlinkActive {
+        color: ${({ theme }) => theme.navlinkActive};
+    }
+    .overlay .burgerNavList .navlink { 
+        color: ${({ theme }) => theme.navlinkBurger};
+    }
+    .overlay .burgerNavList  .navlinkActive {
+        color: ${({ theme }) => theme.navlinkActiveBurger};
+    }
+    .rightSide .burger svg {
+        fill: ${({ theme }) => theme.title};
+    }
+
 `;
