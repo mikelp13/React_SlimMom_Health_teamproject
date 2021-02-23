@@ -9,8 +9,6 @@ import diarySelectors from '../../redux/diary/diarySelectors';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 import useWindowSize from '../../hooks/useWindowSize';
 
-
-
 const DiaryAddProductForm = () => {
     const [state, setState] = useState({
         date: '',
@@ -22,7 +20,6 @@ const DiaryAddProductForm = () => {
     const [typeError, setTypeError] = useState('');
 
     const date = useSelector(diarySelectors.getDate);
-
     const products = useSelector(diarySelectors.getDayProducts);
     const dispatch = useDispatch();
     const debounce = require('debounce');
@@ -30,6 +27,10 @@ const DiaryAddProductForm = () => {
     const location = useLocation();
     const match = useRouteMatch();
     const history = useHistory();
+
+    const handleBlur = () => {
+        state.productName && state.weight && setTypeError('');
+    };
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -57,7 +58,6 @@ const DiaryAddProductForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-
         const { productName, weight, productId } = state;
 
         if (productName === '' || weight === '') {
@@ -78,6 +78,7 @@ const DiaryAddProductForm = () => {
             productName: '',
             weight: '',
         });
+        productName && weight && setTypeError('');
         location.pathname === '/diary/product' && history.goBack();
     };
 
@@ -93,6 +94,7 @@ const DiaryAddProductForm = () => {
                             name="productName"
                             value={state.productName}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             placeholder="Введите название продукта"
                             className="inputDairyAddProduct"
                             id="fav"
@@ -118,6 +120,7 @@ const DiaryAddProductForm = () => {
                                 name="weight"
                                 value={state.weight}
                                 onChange={handleChange}
+                                onBlur={handleBlur}
                                 placeholder="Граммы"
                                 className="inputDairyAddProduct secondInputLength"
                             />
