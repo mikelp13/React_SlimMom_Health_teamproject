@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
+    padding-bottom: 40px;
     .caloriesForm {
         @media (max-width: 767px) {
             margin: 0 auto;
